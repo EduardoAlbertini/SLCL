@@ -1,4 +1,4 @@
-package Dao;
+package br.com.dao;
 
 import java.util.List;
 import org.hibernate.Session;

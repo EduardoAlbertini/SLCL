@@ -1,4 +1,4 @@
-package SLCL;
+package br.com.entitys;
 
 public enum Evento {
     REQUERIDO, AUTORIZADO, LICITADO, ADQUIRIDO, CANCELADO, DISPONIVEL, NEGADO, RECUSADO;

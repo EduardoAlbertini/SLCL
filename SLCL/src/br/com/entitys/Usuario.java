@@ -1,4 +1,4 @@
-package SLCL;
+package br.com.entitys;
 
 public class Usuario {
     private int codigo;
