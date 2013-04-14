@@ -1,0 +1,5 @@
+package br.com.entitys;
+
+public enum Estado {
+    REQUERIDO, AUTORIZADO, LICITADO, ADQUIRIDO, CANCELADO, DISPONIVEL, NEGADO, RECUSADO;
+}

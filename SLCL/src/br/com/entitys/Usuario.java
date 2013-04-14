@@ -1,20 +1,46 @@
 package br.com.entitys;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Usuario")
 public class Usuario {
-    private int codigo;
+    @Id
+    @GeneratedValue
+    private int id;
+    @Column(length = 7)
+    private String codigo;
+    @Column(length = 100)
     private String nome;
+    @Column(length = 100)
     private String sobrenome;
+    @Column(length = 13)
     private Tipo tipo;
+
+    public Usuario() {
+    }
     
-    public Usuario(int codigo, String nome, String sobrenome, Tipo tipo) {
+    public Usuario(String codigo, String nome, String sobrenome, Tipo tipo) {
         this.codigo = codigo;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.tipo = tipo;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
+    }
+    
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+    
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
