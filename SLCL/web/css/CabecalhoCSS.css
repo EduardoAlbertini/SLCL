@@ -1,0 +1,28 @@
+#menuPrincipal{
+    padding: 5px;
+    top: 5px;
+}
+
+img{
+    height: 15%;
+    width: 15%; 
+}
+
+button{
+    position: fixed;
+    top: 5px;
+    right: 5px;
+}
+
+h5{
+    margin: 4px;
+    position: fixed;
+    top: 5px;
+    right: 80px;
+}
+
+#pesquisa{
+    position: fixed;
+    top: 5px;
+    right: 250px;
+}
