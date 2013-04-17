@@ -3,11 +3,6 @@
     top: 5px;
 }
 
-img{
-    height: 12%;
-    width: 12%; 
-}
-
 button{
     position: fixed;
     top: 5px;
@@ -18,11 +13,16 @@ h5{
     margin: 4px;
     position: fixed;
     top: 5px;
-    right: 80px;
+    right: 400px;
 }
 
 #pesquisa{
     position: fixed;
     top: 5px;
-    right: 250px;
+    right: 80px;
+}
+
+input{
+    margin-top: 0px;
+    margin-bottom: 3px;
 }

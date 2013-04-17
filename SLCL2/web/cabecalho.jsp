@@ -20,14 +20,20 @@
     </head>
     <body>
         <div id="menuPrincipal">
-            <img src="img/LOGOTIPO.png" class="img-rounded" />
-            <div id="pesquisa" >
-            <input type="text" class="search-query" placeholder="Buscar"/>
-            <a class="btn" href="#"><i class="icon-search"></i></a>
+
+            <div class="navbar-fixed-top">
+                <div class="navbar-inner">
+                   
+                    <ul class="nav">
+                        <li><h5>NOME DA PESSOA</h5></li>
+                        <form class="navbar-form pull-left" id="pesquisa">
+                            <input type="text" class="search-query" placeholder="Buscar">
+                            <a class="btn" href="#"><i class="icon-search"></i></a>
+                        </form>
+                        <li><button type="submit" class="btn btn-info"> Sair</button></li>
+                    </ul>
+                </div>
             </div>
-            <h5>NOME DA PESSOA</h5>
-            <button type="submit" class="btn btn-info"> Sair</button>
         </div>
-        
     </body>
 </html>
