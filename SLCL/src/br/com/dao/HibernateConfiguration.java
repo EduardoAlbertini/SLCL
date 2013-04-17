@@ -1,10 +1,12 @@
 package br.com.hibernate;
 
+import br.com.entitys.Bibliotecario;
+import br.com.entitys.Coordenador;
 import br.com.entitys.Curso;
 import br.com.entitys.Disciplina;
 import br.com.entitys.Evento;
 import br.com.entitys.Livro;
-import br.com.entitys.Usuario;
+import br.com.entitys.Professor;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
@@ -28,7 +30,9 @@ public class HibernateConfiguration {
             cfg.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
             cfg.setProperty("hibernate.connection.autocommit", "true");
 
-            cfg.addAnnotatedClass(Usuario.class);
+            cfg.addAnnotatedClass(Professor.class);
+            cfg.addAnnotatedClass(Coordenador.class);
+            cfg.addAnnotatedClass(Bibliotecario.class);
             cfg.addAnnotatedClass(Evento.class);
             cfg.addAnnotatedClass(Livro.class);
             cfg.addAnnotatedClass(Curso.class);

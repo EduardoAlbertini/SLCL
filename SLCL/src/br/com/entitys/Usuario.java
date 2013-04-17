@@ -24,11 +24,10 @@ public class Usuario {
     public Usuario() {
     }
     
-    public Usuario(String codigo, String nome, String sobrenome, Tipo tipo) {
+    public Usuario(String codigo, String nome, String sobrenome) {
         this.codigo = codigo;
         this.nome = nome;
         this.sobrenome = sobrenome;
-        this.tipo = tipo;
     }
 
     public String getCodigo() {
