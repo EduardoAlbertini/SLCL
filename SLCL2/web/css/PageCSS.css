@@ -6,14 +6,13 @@ body{
 #content {
     padding: 15px;
     float:right;
-    width:70%;
-    background-color: red;
+    width:80%;
 }
 
 #sidebar {
     padding: 15px;
     float:left;
-    width:25%;
+    width:15%;
     background-color: yellow;
 }
 

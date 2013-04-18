@@ -12,7 +12,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/PageCSS.css" rel="stylesheet" media="screen">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>JSP Page</title>
+        <title>Inicio</title>
     </head>
     <body>
         <div id="container">
@@ -21,25 +21,27 @@
             </div>
 
             <div id="content">
-                main content here...main content here...main content here...main content here...main content here...
-                main content here...main content here...main content here...main content here...main content here...
-                main content here...main content here...main content here...main content here...main content here...
-                main content here...main content here...main content here...main content here...main content here...
-                main content here...main content here...main content here...main content here...main content here...
+                <ul class="breadcrumb">
+                    <li class="active">Inicio</li>
+                </ul>
+
+                <div class="navbar">
+                    <div class="navbar-inner">
+                        <ul class="nav">
+                            <li><a href="#">Pedir Livro</a></li>
+                            <li><a href="#">Histórico de Pedidos</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
             <div id="sidebar">
-                sidebar content here...sidebar content here...sidebar content here...sidebar content here...
-                sidebar content here...sidebar content here...sidebar content here...sidebar content here...
-                sidebar content here...sidebar content here...sidebar content here...sidebar content here...
-                sidebar content here...sidebar content here...sidebar content here...sidebar content here...
-                sidebar content here...sidebar content here...sidebar content here...sidebar content here...
             </div>
 
             <div id="footer">
                 footer content here
             </div>
         </div>
-        
+
     </body>
 </html>
