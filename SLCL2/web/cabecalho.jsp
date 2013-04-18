@@ -21,10 +21,15 @@
     <body>
         <div id="menuPrincipal">
 
-            <div class="navbar-fixed-top">
+            <div class="navbar">
                 <div class="navbar-inner">
-                   
                     <ul class="nav">
+                        <a class="brand" href="#">Logo Aqui...</a>
+                        <li><a href="#">Inicio</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="#">F.A.Q.</a></li>
+                        <li class="divider-vertical"></li>
+                        <li><a href="#">Contato</a></li>
                         <li><h5>NOME DA PESSOA</h5></li>
                         <form class="navbar-form pull-left" id="pesquisa">
                             <input type="text" class="search-query" placeholder="Buscar">

@@ -1,0 +1,24 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+#content {
+    padding: 15px;
+    float:right;
+    width:70%;
+    background-color: red;
+}
+
+#sidebar {
+    padding: 15px;
+    float:left;
+    width:25%;
+    background-color: yellow;
+}
+
+#footer {
+    padding: 15px;
+    clear:both;
+    background-color: green;
+}
