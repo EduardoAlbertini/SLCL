@@ -1,4 +1,4 @@
-package br.com.hibernate;
+package br.com.dao;
 
 import br.com.entitys.Bibliotecario;
 import br.com.entitys.Coordenador;
