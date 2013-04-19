@@ -15,28 +15,29 @@
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/CabecalhoCSS.css" rel="stylesheet" media="screen">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div id="menuPrincipal">
-
             <div class="navbar">
                 <div class="navbar-inner">
-                    <ul class="nav">
-                        <a class="brand" href="#">Logo Aqui...</a>
-                        <li><a href="#">Inicio</a></li>
-                        <li class="divider-vertical"></li>
-                        <li><a href="#">F.A.Q.</a></li>
-                        <li class="divider-vertical"></li>
-                        <li><a href="#">Contato</a></li>
-                        <li><h5>NOME DA PESSOA</h5></li>
-                        <form class="navbar-form pull-left" id="pesquisa">
-                            <input type="text" class="search-query" placeholder="Buscar">
-                            <a class="btn" href="#"><i class="icon-search"></i></a>
-                        </form>
-                        <li><button type="submit" class="btn btn-info"> Sair</button></li>
-                    </ul>
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    </a>
+                    <a class="brand" href="#">Logo Aqui...</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li><a href="#" class="active">Inicio</a></li>
+                            <li><a href="#">F.A.Q.</a></li>
+                            <li><a href="#">Contato</a></a> 
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="btn pull-right btn-info" style="margin: 5px">Sair</a>
+                    <form class="navbar-search pull-right" id="pesquisa" style="margin: 5px">
+                        <input type="text" class="search-query" placeholder="Buscar" style="height: 30px">
+                    </form>
+                    <h5 class="pull-right" style="margin-right: 5px">NOME DA PESSOA</h5>
                 </div>
             </div>
         </div>

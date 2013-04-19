@@ -6,6 +6,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
         <script type="text/javascript" src="js/bootstrap.js"></script>    
         <script type="text/javascript" src="js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="js/ajax.js"></script>  
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -22,17 +23,19 @@
 
             <div id="content">
                 <ul class="breadcrumb">
-                    <li class="active">Inicio</li>
+                    <li><a href="#">Inicio</a><span class="divider">></span></li>
+                    <li class="active">Pedir Livros</li>
                 </ul>
 
                 <div class="navbar">
                     <div class="navbar-inner">
                         <ul class="nav">
-                            <li><a href="#">Pedir Livro</a></li>
+                            <li><a href="javascript:open('pedidoLivro.jsp')">Pedir Livro</a></li>
                             <li><a href="#">Histórico de Pedidos</a></li>
                         </ul>
                     </div>
                 </div>
+                <div id="ajax"></div>
             </div>
 
             <div id="sidebar">
