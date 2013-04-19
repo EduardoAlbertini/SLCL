@@ -29,7 +29,7 @@
                         <ul class="nav">
                             <li><a href="javascript:open('index.jsp')" class="active">Inicio</a></li>
                             <li><a href="#">F.A.Q.</a></li>
-                            <li><a href="#">Contato</a></a> 
+                            <li><a href="javascript:open('contato.jsp')">Contato</a></a> 
                             </li>
                         </ul>
                     </div>

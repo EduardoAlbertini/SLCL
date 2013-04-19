@@ -19,23 +19,25 @@
         <div id="container">
             <div id="header">
                 <c:import url="cabecalho.jsp" ></c:import>
-            </div>
-
-            <div id="content">
-                <ul class="breadcrumb">
-                    <li><a href="javascript:open('index.jsp')">Inicio</a><span class="divider">></span></li>
-                    <li class="active">Pedir Livros</li>
-                </ul>
-
-                <div class="navbar">
-                    <div class="navbar-inner">
-                        <ul class="nav">
-                            <li><a href="javascript:open('pedidoLivro.jsp')">Pedir Livro</a></li>
-                            <li><a href="#">Histórico de Pedidos</a></li>
-                        </ul>
-                    </div>
                 </div>
-                <div id="ajax"></div>
+
+                <div id="content">
+                    <ul class="breadcrumb">
+                        <li><a href="javascript:open('index.jsp')">Inicio</a><span class="divider">></span></li>
+                        <li class="active">Pedir Livros</li>
+                    </ul>
+
+                    <div class="navbar">
+                        <div class="navbar-inner">
+                            <ul class="nav">
+                                <li><a href="javascript:open('pedidoLivro.jsp')">Pedir Livro</a></li>
+                                <li><a href="#">Histórico de Pedidos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="ajax">
+                    <c:import url="index.jsp"></c:import>
+                </div>
             </div>
 
             <div id="sidebar">
