@@ -23,7 +23,7 @@
 
             <div id="content">
                 <ul class="breadcrumb">
-                    <li><a href="#">Inicio</a><span class="divider">></span></li>
+                    <li><a href="javascript:open('index.jsp')">Inicio</a><span class="divider">></span></li>
                     <li class="active">Pedir Livros</li>
                 </ul>
 

@@ -27,7 +27,7 @@
                     <a class="brand" href="#">Logo Aqui...</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="#" class="active">Inicio</a></li>
+                            <li><a href="javascript:open('index.jsp')" class="active">Inicio</a></li>
                             <li><a href="#">F.A.Q.</a></li>
                             <li><a href="#">Contato</a></a> 
                             </li>
