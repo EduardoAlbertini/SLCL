@@ -1,5 +1,6 @@
 package br.com.dao;
 
+import br.com.entitys.Autor;
 import br.com.entitys.Bibliotecario;
 import br.com.entitys.Coordenador;
 import br.com.entitys.Curso;
@@ -34,6 +35,7 @@ public class HibernateConfiguration {
             cfg.addAnnotatedClass(Coordenador.class);
             cfg.addAnnotatedClass(Bibliotecario.class);
             cfg.addAnnotatedClass(Evento.class);
+            cfg.addAnnotatedClass(Autor.class);
             cfg.addAnnotatedClass(Livro.class);
             cfg.addAnnotatedClass(Curso.class);
             cfg.addAnnotatedClass(Disciplina.class);

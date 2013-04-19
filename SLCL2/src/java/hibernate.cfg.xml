@@ -11,6 +11,7 @@
     <mapping class="br.com.entitys.Coordenador"/>
     <mapping class="br.com.entitys.Bibliotecario"/>
     <mapping class="br.com.entitys.Evento"/>
+    <mapping class="br.com.entitys.Autor"/>
     <mapping class="br.com.entitys.Livro"/>
     <mapping class="br.com.entitys.Curso"/>
     <mapping class="br.com.entitys.Disciplina"/>

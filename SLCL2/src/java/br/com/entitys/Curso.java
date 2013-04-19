@@ -1,12 +1,8 @@
 package br.com.entitys;
 
-import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.CascadeType;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -25,14 +21,17 @@ public class Curso {
     private String codigo;
     @OneToOne
     private Usuario coordenador;
+    @OneToMany
+    private List<Disciplina> disciplinas;
 
     public Curso() {
     }
     
-    public Curso(String codigo, String nome, Usuario coordenador){
+    public Curso(String codigo, String nome, Usuario coordenador, List<Disciplina> disciplinas){
         this.codigo = codigo;
         this.nome = nome;
         this.coordenador = coordenador;
+        this.disciplinas = disciplinas;
     }
 
     public int getId() {
@@ -61,6 +60,14 @@ public class Curso {
 
     public void setCoordenador(Usuario coordenador) {
         this.coordenador = coordenador;
+    }
+
+    public List<Disciplina> getDisciplinas() {
+        return disciplinas;
+    }
+
+    public void setDisciplinas(List<Disciplina> disciplinas) {
+        this.disciplinas = disciplinas;
     }
     
     @Override
