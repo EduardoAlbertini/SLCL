@@ -30,8 +30,8 @@
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li><a>Cadastro de Professor</a></li>
-                                <li><a>Cadastro de Coordenador</a></li>
+                                <li><a href="javascript:open('crudProfessor.jsp')">Professor</a></li>
+                                <li><a href="javascript:open('crudCoordenador.jsp')">Coordenador</a></li>
                                 <li><a>Cadastro de Curso</a></li>
                                 <li><a>Cadastro de Disciplina</a></li>
                                 <li><a>Lista de Livros Pedidos</a></li>
@@ -40,11 +40,11 @@
                     </div>
                     <div id="ajax">
                     <c:import url="index.jsp"></c:import>
+                    </div>
                 </div>
-            </div>
 
-            <div id="sidebar">
-            </div>
+                <div id="sidebar">
+                </div>
 
                 <div id="footer">
                     <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
