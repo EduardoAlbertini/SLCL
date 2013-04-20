@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
         <script type="text/javascript" src="js/bootstrap.js"></script>    
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="js/bootstrap-dropdown.js"></script>    
         <script type="text/javascript" src="js/ajax.js"></script>  
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
@@ -33,7 +33,7 @@
                                 <li><a href="javascript:open('crudProfessor.jsp')">Professor</a></li>
                                 <li><a href="javascript:open('crudCoordenador.jsp')">Coordenador</a></li>
                                 <li><a>Cadastro de Curso</a></li>
-                                <li><a>Cadastro de Disciplina</a></li>
+                                <li><a href="javascript:open('crudDisciplina.jsp')">Disciplina</a></li>
                                 <li><a>Lista de Livros Pedidos</a></li>
                             </ul>
                         </div>
