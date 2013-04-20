@@ -31,7 +31,7 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li><a href="javascript:open('pedidoLivro.jsp')">Pedir Livro</a></li>
-                                <li><a href="#">Histórico de Pedidos</a></li>
+                                <li><a href="javascript:open('historicoPedidos.jsp')">Histórico de Pedidos</a></li>
                             </ul>
                         </div>
                     </div>
@@ -43,8 +43,8 @@
             <div id="sidebar">
             </div>
 
-            <div id="footer">
-                footer content here
+                <div id="footer">
+                    <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
             </div>
         </div>
 

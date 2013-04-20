@@ -30,7 +30,7 @@
             <input id="email" type="email" placeholder="email@email.com" class="input-xlarge" style="height: 30px">
             <label for="assunto">Assunto</label>
             <input id="assunto" type="text" placeholder="Assunto" class="input-xlarge" style="height: 30px">
-            <label for="mensagem">Assunto</label>
+            <label for="mensagem">Mensagem</label>
             <textarea id="mensagem" rows="5" placeholder="Mensagem" class="input-xlarge"></textarea>
         </fieldset>
         <button type="submit" class="btn btn-info">Enviar</button>
