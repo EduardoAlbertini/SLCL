@@ -38,7 +38,6 @@
             <button type="submit" class="btn btn-info ">Inserir</button>
             <button type="submit" class="btn btn-danger">Excluir</button>
             <button type="reset" class="btn">Limpar</button>
-        </fieldset>
-    </form>
-</body>
+        </form>
+    </body>
 </html>

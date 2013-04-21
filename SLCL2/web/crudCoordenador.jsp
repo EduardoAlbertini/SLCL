@@ -28,12 +28,16 @@
                 <a class="btn" href="#" title="Pesquisar Professor" ><i class="icon-search" ></i></a>
                 <label for="nome">Nome</label>
                 <input id="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
-                                
+                <label for="curso">Curso</label>
+                <select id="curso">
+                    <option>Selecione...</option>
+                    <option>opções</option>
+                </select>
+
             </fieldset>
             <button type="submit" class="btn btn-info ">Inserir</button>
             <button type="submit" class="btn btn-danger">Excluir</button>
             <button type="reset" class="btn">Limpar</button>
-            </fieldset>
         </form>
     </body>
 </html>
