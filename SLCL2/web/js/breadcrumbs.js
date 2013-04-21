@@ -1,9 +1,18 @@
-function breadcrumb(){
-    var caminho;
-    
-    caminho = document.getElementById('professor').value;
-    document.getElementById("migalhas").innerHTML = caminho;
-    
+function alterarTexto(id) {
+    if (id == 'inicio') {
+        document.getElementById("migalhas").innerHTML = "";
+    }
+    var novoTexto = document.getElementById(id).innerHTML;
+    document.getElementById("migalhas").innerHTML = novoTexto;
+
 }
+
+function adicionarTexto(id) {
+
+    var novoTexto = document.getElementById(id).innerHTML;
+    document.getElementById("migalhas").innerHTML += novoTexto;
+
+}
+
 
 

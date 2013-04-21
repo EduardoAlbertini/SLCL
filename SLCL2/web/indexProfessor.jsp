@@ -7,6 +7,7 @@
         <script type="text/javascript" src="js/bootstrap.js"></script>    
         <script type="text/javascript" src="js/bootstrap.min.js"></script>  
         <script type="text/javascript" src="js/ajax.js"></script>  
+        <script type="text/javascript" src="js/breadcrumbs.js"></script>
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -23,15 +24,15 @@
 
                 <div id="content">
                     <ul class="breadcrumb">
-                        <li><a href="javascript:open('index.jsp')">Inicio</a><span class="divider">></span></li>
-                        <li class="active">Pedir Livros</li>
+                        <li><a href="javascript:open('index.jsp')" onclick="alterarTexto('inicio')">Inicio</a><span class="divider">></span></li>
+                        <li class="active"><div id="migalhas"></div></li>
                     </ul>
 
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li><a href="javascript:open('pedidoLivro.jsp')">Pedir Livro</a></li>
-                                <li><a href="javascript:open('historicoPedidos.jsp')">Histórico de Pedidos</a></li>
+                                <li id="pedirLivro"><a href="javascript:open('crudProfessor.jsp')" onclick="alterarTexto('pedirLivro')">Pedir Livro</a></li>
+                                <li id="historicoPedidos"><a href="javascript:open('crudProfessor.jsp')" onclick="alterarTexto('historicoPedidos')">Histórico de Pedidos</a></li>
                             </ul>
                         </div>
                     </div>
