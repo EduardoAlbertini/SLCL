@@ -1,4 +1,4 @@
-package br.com.dao;
+package br.com.hibernate;
 
 import java.util.List;
 import org.hibernate.Query;
@@ -36,7 +36,7 @@ public class HibernateUtil {
 	return session.createQuery(hql);
     }
 
-    static Session getSession() {
+    public static Session getSession() {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }

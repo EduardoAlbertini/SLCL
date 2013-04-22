@@ -1,4 +1,4 @@
-package br.com.dao;
+package br.com.hibernate;
 
 import br.com.entitys.Autor;
 import br.com.entitys.Bibliotecario;

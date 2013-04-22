@@ -1,5 +1,6 @@
 package br.com.dao;
 
+import br.com.hibernate.HibernateUtil;
 import java.util.List;
 import org.hibernate.Session;
 
@@ -14,7 +15,7 @@ public class Dao<T> {
     }
 
     public void save(T t) {
-       this.session = HibernateUtil.getSession();
+        this.session = HibernateUtil.getSession();
         this.session.save(t);
         this.session.close();
     }
