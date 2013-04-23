@@ -37,6 +37,8 @@
                 <input id="edicao" type="text" placeholder="Edição" class="input-small" style="height: 30px">
                 <label for="assunto">Assunto</label>
                 <textarea id="assunto" rows="3" placeholder="Assunto do Livro" class="input-xlarge"></textarea>
+                <label for="quantidade">Quantidade</label>
+                <input id="quantidade" type="text" placeholder="Quantidade" class="input-small" style="height: 30px">
                 <label for="curso">Curso</label>
                 <select id="curso">
                     <option>Selecione...</option>
