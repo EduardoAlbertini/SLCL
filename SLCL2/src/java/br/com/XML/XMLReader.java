@@ -20,7 +20,7 @@ public class XMLReader {
     
     private String localXML = "http://isbndb.com/api/books.xml?access_key=BZSBMWHJ&index1=isbn&value1=";
 
-    public XMLReader(String ISBN) {
+    public XMLReader() {
     }
     
     public Livro getLivro(String ISBN) throws Exception{
@@ -33,7 +33,7 @@ public class XMLReader {
 
         List<Element> books = elem.getChildren();
         Iterator<Element> itr = books.iterator();
-        Livro livro;
+        Livro livro = null;
 
         while (itr.hasNext()) {
             Element book = itr.next();
@@ -45,10 +45,10 @@ public class XMLReader {
             String autores = book.getChildText("AuthorsText");
             String editora = book.getChildText("PublisherText");
             
-//            livro = new Livro(ISBN10, ISBN13, titulo, tituloCompleto, autores, editora);
+            livro = new Livro(tituloCompleto, titulo, autores, null, editora, ISBN13, null, null);
             
         }
-        return null;
+        return livro;
         
         
     }
