@@ -1,9 +1,23 @@
 package br.com.entitys;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "PedidoDeLivro")
 public class PedidoDeLivro {
+    @Id
+    @GeneratedValue
     private int id;
+    @Column(length = 3)
     private int qtde;
+    @OneToOne
     private Livro livro;
+    @OneToOne
     private Professor professor;
     
     public PedidoDeLivro() {

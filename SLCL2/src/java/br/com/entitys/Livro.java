@@ -23,8 +23,10 @@ public class Livro {
     private String edicao;
     @Column(length = 100)
     private String editora;
-    @Column(length = 13)
+    @Column(length = 10)
     private String isbn;
+    @Column(length = 13)
+    private String isbn13;
     @Column(length = 250)
     private String assunto;
     @Column(length = 12)
@@ -92,6 +94,10 @@ public class Livro {
         return isbn;
     }
 
+    public String getIsbn13() {
+        return isbn13;
+    }
+    
     public String getAssunto() {
         return assunto;
     }

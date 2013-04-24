@@ -1,12 +1,12 @@
 package br.com.hibernate;
 
-import br.com.entitys.Autor;
 import br.com.entitys.Bibliotecario;
 import br.com.entitys.Coordenador;
 import br.com.entitys.Curso;
 import br.com.entitys.Disciplina;
 import br.com.entitys.Evento;
 import br.com.entitys.Livro;
+import br.com.entitys.PedidoDeLivro;
 import br.com.entitys.Professor;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
@@ -35,10 +35,10 @@ public class HibernateConfiguration {
             cfg.addAnnotatedClass(Coordenador.class);
             cfg.addAnnotatedClass(Bibliotecario.class);
             cfg.addAnnotatedClass(Evento.class);
-            cfg.addAnnotatedClass(Autor.class);
             cfg.addAnnotatedClass(Livro.class);
             cfg.addAnnotatedClass(Curso.class);
             cfg.addAnnotatedClass(Disciplina.class);
+            cfg.addAnnotatedClass(PedidoDeLivro.class);
 
             factory = cfg.buildSessionFactory();
         }
