@@ -5,7 +5,6 @@
 package br.com.XML;
 
 import br.com.entitys.Livro;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.jdom2.Document;
@@ -17,17 +16,17 @@ import org.jdom2.input.SAXBuilder;
  * @author Miray
  */
 public class XMLReader {
-    
+
     private String localXML = "http://isbndb.com/api/books.xml?access_key=BZSBMWHJ&index1=isbn&value1=";
 
     public XMLReader() {
     }
-    
-    public Livro getLivro(String ISBN) throws Exception{
+
+    public Livro getLivro(String ISBN) throws Exception {
         SAXBuilder buider = new SAXBuilder();
         String xml = localXML + ISBN;
         Document dom = buider.build(xml);
-        
+
         Element root = dom.getRootElement();
         Element elem = root.getChild("BookList");
 
@@ -44,13 +43,12 @@ public class XMLReader {
             String tituloCompleto = book.getChildText("TitleLong");
             String autores = book.getChildText("AuthorsText");
             String editora = book.getChildText("PublisherText");
-            
-            livro = new Livro(tituloCompleto, titulo, autores, null, editora, ISBN13, null, null);
-            
+
+            livro = new Livro(tituloCompleto, titulo, autores, null, editora, ISBN10, ISBN13, null, null, null);
+
         }
         return livro;
-        
-        
+
+
     }
-    
 }

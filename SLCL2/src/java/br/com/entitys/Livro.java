@@ -36,20 +36,20 @@ public class Livro {
 
     public Livro() {
     }
-    
-    public Livro(String tituloOriginal, String titulo, String autor, String edicao, 
-            String editora, String isbn, String assunto, Bibliografia bibliografia) {
+
+    public Livro(String tituloOriginal, String titulo, String autor, String edicao, String editora, String isbn, String isbn13, String assunto, Bibliografia bibliografia, Evento estado) {
         this.tituloOriginal = tituloOriginal;
         this.titulo = titulo;
         this.autor = autor;
         this.edicao = edicao;
         this.editora = editora;
         this.isbn = isbn;
+        this.isbn13 = isbn13;
         this.assunto = assunto;
         this.bibliografia = bibliografia;
-        this.estado = new Evento();
+        this.estado = estado;
     }
-
+    
     public String getTituloOriginal() {
         return tituloOriginal;
     }
