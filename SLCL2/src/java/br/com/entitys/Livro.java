@@ -1,11 +1,9 @@
 package br.com.entitys;
 
-import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -19,8 +17,8 @@ public class Livro {
     private String tituloOriginal;
     @Column(length = 200)
     private String titulo;
-    @OneToMany
-    private List<Autor> autor;
+    @Column(length = 1000)
+    private String autor;
     @Column(length = 3)
     private String edicao;
     @Column(length = 100)
@@ -37,7 +35,7 @@ public class Livro {
     public Livro() {
     }
     
-    public Livro(String tituloOriginal, String titulo, List<Autor> autor, String edicao, 
+    public Livro(String tituloOriginal, String titulo, String autor, String edicao, 
             String editora, String isbn, String assunto, Bibliografia bibliografia) {
         this.tituloOriginal = tituloOriginal;
         this.titulo = titulo;
@@ -66,11 +64,11 @@ public class Livro {
         this.titulo = titulo;
     }
 
-    public List<Autor> getAutor() {
+    public String getAutor() {
         return autor;
     }
 
-    public void setAutor(List<Autor> autor) {
+    public void setAutor(String autor) {
         this.autor = autor;
     }
 
@@ -120,6 +118,6 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "Título Original: " + tituloOriginal + "\n Título: " + titulo + "\n Autor: " + autor.toString() + "\n ISBN: " + isbn + "\n Editora: " + editora + "\n Edição: " + edicao + "\n Assunto: " + assunto + "\n Tipo de Bibliografia: " + bibliografia;
+        return "Título Original: " + tituloOriginal + "\n Título: " + titulo + "\n Autor: " + autor + "\n ISBN: " + isbn + "\n Editora: " + editora + "\n Edição: " + edicao + "\n Assunto: " + assunto + "\n Tipo de Bibliografia: " + bibliografia;
     }   
 }
