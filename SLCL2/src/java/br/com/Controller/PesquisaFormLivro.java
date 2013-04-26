@@ -4,13 +4,19 @@
  */
 package br.com.Controller;
 
+import br.com.XML.XMLReader;
+import br.com.entitys.Livro;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.hibernate.Session;
 
 /**
  *
@@ -31,22 +37,6 @@ public class PesquisaFormLivro extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet PesquisaFormLivro</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet PesquisaFormLivro at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -62,7 +52,20 @@ public class PesquisaFormLivro extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            String isbn = request.getParameter("ISBN");
+
+            XMLReader leitor = new XMLReader();
+            Livro livro = leitor.getLivro(isbn);
+
+            request.setAttribute("livro", livro);
+            RequestDispatcher dispatcher;
+            dispatcher = request.getRequestDispatcher("pedidoLivro.jsp");
+            dispatcher.forward(request, response);
+            System.out.println("ENTROU");
+        } catch (Exception ex) {
+            Logger.getLogger(PesquisaFormLivro.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -77,7 +80,7 @@ public class PesquisaFormLivro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        System.out.println("ENTROU NO SERVLET");
     }
 
     /**
