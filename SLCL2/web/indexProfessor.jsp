@@ -31,7 +31,7 @@
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li id="pedirLivro"><a href="javascript:open('crudProfessor.jsp')" onclick="alterarTexto('pedirLivro')">Pedir Livro</a></li>
+                                <li id="pedirLivro"><a href="javascript:open('pedirLivro.jsp')" onclick="alterarTexto('pedirLivro')">Pedir Livro</a></li>
                                 <li id="historicoPedidos"><a href="javascript:open('crudProfessor.jsp')" onclick="alterarTexto('historicoPedidos')">Histórico de Pedidos</a></li>
                             </ul>
                         </div>

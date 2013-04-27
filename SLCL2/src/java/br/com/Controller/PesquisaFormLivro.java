@@ -11,6 +11,7 @@ import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -54,14 +55,23 @@ public class PesquisaFormLivro extends HttpServlet {
             throws ServletException, IOException {
         try {
             String isbn = request.getParameter("ISBN");
+            
+            Livro livro = null;
 
             XMLReader leitor = new XMLReader();
-            Livro livro = leitor.getLivro(isbn);
-
+            if (isbn != null) {
+                livro = leitor.getLivro(isbn);
+                
+            }
+            System.out.println("ISBN: " + isbn);
+            
             request.setAttribute("livro", livro);
-            RequestDispatcher dispatcher;
-            dispatcher = request.getRequestDispatcher("pedidoLivro.jsp");
-            dispatcher.forward(request, response);
+            
+            response.getWriter().write(livro.toString());
+            
+//            ServletContext contexto = this.getServletContext();
+//            contexto.setAttribute("livro", livro);
+            
             System.out.println("ENTROU");
         } catch (Exception ex) {
             Logger.getLogger(PesquisaFormLivro.class.getName()).log(Level.SEVERE, null, ex);

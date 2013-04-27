@@ -124,6 +124,6 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "Título Original: " + tituloOriginal + "\n Título: " + titulo + "\n Autor: " + autor + "\n ISBN: " + isbn + "\n Editora: " + editora + "\n Edição: " + edicao + "\n Assunto: " + assunto + "\n Tipo de Bibliografia: " + bibliografia;
+        return tituloOriginal + ";" + titulo + ";" + autor + ";" + isbn + ";" + editora + ";" + edicao + ";" + assunto + ";" + bibliografia;
     }   
 }
