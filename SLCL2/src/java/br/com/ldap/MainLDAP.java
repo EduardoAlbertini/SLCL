@@ -12,7 +12,7 @@ public class MainLDAP {
     public static void main(String args[]) {
         try {
             // criando o ldapSearch com os valores padrÃ£o
-            LDAPManager ldapManager = new LDAPManager("192.168.1.4:389", "ou=todos,dc=utfpr,dc=edu,dc=br");
+            LDAPManager ldapManager = new LDAPManager("172.17.2.4:389", "ou=todos,dc=utfpr,dc=edu,dc=br");
 
             ldapManager.connect();
             String username = "a1253840";
@@ -32,8 +32,8 @@ public class MainLDAP {
                 "a1344021",
                 "a1345842",
                 "a1309072",
-                "a1112210",
                 "a1321706",
+                "a1265067",
                 "a1321617",
                 "a1142780",
                 "a1142798",
@@ -47,13 +47,10 @@ public class MainLDAP {
                 "a1198572",
                 "a1322222",
                 "a1142844",
-                "a1154362",
                 "a1190784",
                 "a1190792",
                 "a1278380",                
-                "a1258893",
                 "a1215590",
-                "a1341693",
                 "a1345915",
                 "a1341880",
                 "a1198610",
@@ -61,7 +58,6 @@ public class MainLDAP {
                 "a1341430",
                 "a1341448",
                 "a1198254",
-                "a1345877",
                 "a1299301",
                 "a1198300",
                 "a1343971",
@@ -79,10 +75,8 @@ public class MainLDAP {
                 "a1258540",
                 "a1259024",
                 "a1320203",
-                "a1299344",
                 "a1299352",
                 "a1142925",
-                "a948527",
                 "a1198556",
                 "a1299441",
                 "a1344200",
@@ -90,8 +84,8 @@ public class MainLDAP {
                 "a1158090",
                 "a1070681",
                 "a1320416",
-                "a1341669",
                 "a1112392",
+                "a1028340",
                 "a947792",
                 "a1021877",
                 "a1198084",
