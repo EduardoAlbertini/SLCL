@@ -1,5 +1,6 @@
 package br.com.entitys;
 
+import br.edu.utfpr.cm.saa.entidades.Usuario;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
