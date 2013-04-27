@@ -26,15 +26,15 @@
             <fieldset>
                 <legend>Pedido de Livro</legend>
                 <label for="ISBN">ISBN</label>
-                <input id="ISBN" type="text" placeholder="ISBN" onblur="ajaxFunction()" class="input-medium" value="${requestScope.livro.isbn}" style="height: 30px">
+                <input id="ISBN" type="text" placeholder="ISBN" onblur="ajaxFunction()" class="input-medium" value="${livro.isbn}" style="height: 30px">
                 <label for="titulo">Título</label>
-                <input id="titulo" type="text" placeholder="Título do Livro" class="input-xxlarge" value="${requestScope.livro.titulo}" style="height: 30px">
+                <input id="titulo" type="text" placeholder="Título do Livro" class="input-xxlarge" value="${livro.titulo}" style="height: 30px">
                 <label for="tituloOriginal">Título Original</label>
                 <input id="tituloOriginal" type="text" placeholder="Título Original do Livro" class="input-xxlarge" style="height: 30px">
                 <label for="autor">Autor(es)</label>
-                <input id="autor" type="text" placeholder="Autor" class="input-xlarge" value="${requestScope.livro.autor}" style="height: 30px">
+                <input id="autor" type="text" placeholder="Autor" class="input-xlarge" value="${livro.autor}" style="height: 30px">
                 <label for="editora">Editora</label>
-                <input id="editora" type="text" placeholder="Editora" value="${requestScope.livro.editora}" style="height: 30px">
+                <input id="editora" type="text" placeholder="Editora" value="${livro.editora}" style="height: 30px">
                 <label for="edicao">Edição</label>
                 <input id="edicao" type="text" placeholder="Edição" class="input-small" style="height: 30px">
                 <label for="assunto">Assunto</label>
