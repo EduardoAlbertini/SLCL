@@ -11,9 +11,12 @@
     <mapping class="br.com.entitys.Coordenador"/>
     <mapping class="br.com.entitys.Bibliotecario"/>
     <mapping class="br.com.entitys.Evento"/>
-    <mapping class="br.com.entitys.Autor"/>
     <mapping class="br.com.entitys.Livro"/>
     <mapping class="br.com.entitys.Curso"/>
     <mapping class="br.com.entitys.Disciplina"/>
+    <mapping class="br.com.entitys.PedidoDeLivro"/>
+    <mapping class="br.edu.utfpr.cm.saa.entidades.Usuario"/>
+    <mapping class="br.edu.utfpr.cm.saa.entidades.Papel"/>
+    <mapping class="br.edu.utfpr.cm.saa.entidades.Sistema"/>
   </session-factory>
 </hibernate-configuration>

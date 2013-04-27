@@ -1,5 +1,6 @@
 package br.com.entitys;
 
+import br.edu.utfpr.cm.saa.entidades.Usuario;
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -10,11 +11,5 @@ import javax.persistence.Table;
 public class Bibliotecario extends Usuario{
     public Bibliotecario() {
         super();
-        super.setTipo(Tipo.BIBLIOTECARIO);
-    }
-    
-    public Bibliotecario(String codigo, String nome, String sobrenome) {
-        super(codigo, nome, sobrenome);
-        super.setTipo(Tipo.BIBLIOTECARIO);
     }
 }

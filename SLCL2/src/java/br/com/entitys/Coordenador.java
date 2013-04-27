@@ -11,17 +11,6 @@ import javax.persistence.Table;
 public class Coordenador extends Professor{
     @OneToOne
     private Curso curso;
-    
-    public Coordenador() {
-        super();
-        super.setTipo(Tipo.COORDENADOR);
-    }
-    
-    public Coordenador(Curso curso) {
-        super();
-        super.setTipo(Tipo.COORDENADOR);
-        this.curso = curso;
-    }
 
     public Curso getCurso() {
         return curso;
@@ -29,10 +18,5 @@ public class Coordenador extends Professor{
 
     public void setCurso(Curso curso) {
         this.curso = curso;
-    }
-
-    @Override
-    public String toString() {
-        return "Coordenador: " + super.getNome() + " " + super.getSobrenome() + " do curso "  + curso.toString();
     }
 }
