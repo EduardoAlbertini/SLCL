@@ -32,7 +32,6 @@ function ajaxFunction() {
             texto = xmlhttp.responseText;
             texto_quebrado = texto.split(";")
             
-            document.getElementById("ISBN").value = texto_quebrado[3];
             document.getElementById("titulo").value = texto_quebrado[0];
             document.getElementById("tituloOriginal").value = texto_quebrado[1];
             document.getElementById("autor").value = texto_quebrado[2];

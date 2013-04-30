@@ -46,16 +46,20 @@ public class PesquisaFormLivro extends HttpServlet {
             System.out.println("ISBN: " + isbn);
             if (!isbn.equals("")) {
                 DaoGenerics dao = new DaoLivro();
-                List<Livro> livros = dao.listar("FROM Livro WHERE isbn = " + isbn);
+                List<Livro> livros = dao.listar("FROM Livro WHERE isbn = '"+ isbn + "'");
+                Livro livro = null;
+                
+                if (livros.size()>0) {
+                    livro = livros.get(0);
+                }else{
 
-                Livro livro = livros.get(0);
-
-                if (livro == null) {
                     XMLReader leitor = new XMLReader();
                     livro = leitor.getLivro(isbn);
                 }
-
+                if(livro !=null)
                 response.getWriter().write(livro.toString());
+                
+                
             }
         } catch (Exception ex) {
             Logger.getLogger(PesquisaFormLivro.class.getName()).log(Level.SEVERE, null, ex);
