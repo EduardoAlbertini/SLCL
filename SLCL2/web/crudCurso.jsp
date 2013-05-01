@@ -12,6 +12,7 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
         <script type="text/javascript" src="js/bootstrap.js"></script>    
         <script type="text/javascript" src="js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="js/ajax.js"></script>  
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -19,14 +20,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>CRUD Curso</title>
     </head>
-    <form>
+    <form action="CadastroCurso" method="POST">
         <fieldset>
             <legend>Curso</legend>
             <label for="codigo">Código do Curso</label>
-            <input id="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
-            <a class="btn" href="#" title="Pesquisar Curso" ><i class="icon-search" ></i></a>
+            <input id="codigo" name="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
+            <a class="btn" href="javascript:ajaxPesquisaFunction()" title="Pesquisar Curso" ><i class="icon-search" ></i></a>
             <label for="nome">Nome</label>
-            <input id="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
+            <input id="nome" name="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
+            <label for="coordenador">Coordenador</label>
+                <select id="coordenador">
+                    <option>Selecione...</option>
+                    <option>opções</option>
+                </select>
 
         </fieldset>
         <button type="submit" class="btn btn-info ">Inserir</button>

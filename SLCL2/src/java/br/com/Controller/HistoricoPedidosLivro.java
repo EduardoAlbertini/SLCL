@@ -53,7 +53,7 @@ public class HistoricoPedidosLivro extends HttpServlet {
         DaoPedidoDeLivro dao = new DaoPedidoDeLivro();
         List<PedidoDeLivro> pedidos = dao.listar();
         
-        getServletContext().setAttribute("pedidosLivro", pedidos);
-        response.sendRedirect("historicoPedidos.jsp");
+        request.getSession().setAttribute("pedidosLivro", pedidos);
+        response.sendRedirect("indexProfessor.jsp");
     }
 }

@@ -14,7 +14,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/PageCSS.css" rel="stylesheet" media="screen">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicio</title>
+        <title>SLCL Bibliotecário</title>
     </head>
     <body>
         <div id="container">

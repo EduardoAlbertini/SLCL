@@ -34,7 +34,7 @@
                                 ${item.livro.titulo}
                             </a>
                         </div>
-                        <div id="collapse${count}" class="accordion-body collapse in">
+                        <div id="collapse${count}" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <p><b>ISBN:</b> ${item.livro.isbn}</p>
                                 <p><b>Titulo Original:</b> ${item.livro.tituloOriginal}</p>
@@ -51,7 +51,7 @@
                 </c:forEach>
                 </div>
             </fieldset>
-            <button type="submit" name="submit" class="btn btn-info">Visualizar Pedidos</button>
+            <button type="submit" name="submit" class="btn btn-info">Atualizar Lista</button>
         </form>
     </body>
 </html>

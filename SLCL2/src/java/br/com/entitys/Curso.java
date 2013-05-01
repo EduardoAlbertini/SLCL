@@ -73,6 +73,6 @@ public class Curso {
     
     @Override
     public String toString() {
-        return "(" + codigo + ") " + nome;
+        return codigo + ":" + nome;
     }    
 }

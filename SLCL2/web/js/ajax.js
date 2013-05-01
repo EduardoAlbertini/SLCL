@@ -79,6 +79,33 @@ function carregarServlet(servlet) {
     xmlhttp.open("GET",servlet,true);
     xmlhttp.send();
     alert("Saiu")
+}
+
+function ajaxPesquisaFunction() {
+    var xmlhttp;
+    var isIE;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        isIE = true;
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var url = "CadastroCurso?codigo=" + document.getElementById("codigo").value;
+
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            texto = xmlhttp.responseText;
+            texto_quebrado = texto.split(":")
+            
+            document.getElementById("codigo").value = texto_quebrado[0];
+            document.getElementById("nome").value = texto_quebrado[1];
+        }
+    }
+    
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send();
 
 }
 

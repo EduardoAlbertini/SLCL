@@ -41,7 +41,7 @@ public class PesquisaFormLivro extends HttpServlet {
         try {
             String isbn = request.getParameter("ISBN").trim();
             if (!isbn.equals("")) {
-                DaoGenerics dao = new DaoLivro();
+                DaoLivro dao = new DaoLivro();
                 Livro livro = new Livro();
                 List<Livro> livros = new ArrayList<Livro>();
                 livros = dao.listar("FROM Livro WHERE isbn = '" + isbn + "'");

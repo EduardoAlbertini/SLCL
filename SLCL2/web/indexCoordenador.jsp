@@ -14,7 +14,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="css/PageCSS.css" rel="stylesheet" media="screen">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Inicio</title>
+        <title>SLCL Coordenador</title>
     </head>
     <body>
         <div id="container">
@@ -31,8 +31,8 @@
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li id="pedirLivro"><a href="javascript:open('crudProfessor.jsp')" onclick="alterarTexto('pedirLivro')">Pedir Livro</a></li>
-                                <li id="historicoPedidos"><a href="javascript:open('crudProfessor.jsp')" onclick="alterarTexto('historicoPedidos')">Histórico de Pedidos</a></li>
+                                <li id="pedirLivro"><a href="javascript:open('pedidoLivro.jsp')" onclick="alterarTexto('pedirLivro')">Pedir Livro</a></li>
+                                <li id="historicoPedidos"><a href="javascript:open('historicoPedidos.jsp')" onclick="alterarTexto('historicoPedidos')">Histórico de Pedidos</a></li>
                                 <li id="pedidosCurso"><a href="javascript:open('pedidosCurso.jsp')" onclick="alterarTexto('pedidosCurso')">Pedidos do Curso</a></li>
                             </ul>
                         </div>
