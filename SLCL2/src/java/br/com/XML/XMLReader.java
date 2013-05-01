@@ -44,7 +44,7 @@ public class XMLReader {
             String autores = book.getChildText("AuthorsText");
             String editora = book.getChildText("PublisherText");
 
-            livro = new Livro(tituloCompleto, titulo, autores, null, editora, ISBN10, ISBN13, null, null, null);
+            livro = new Livro(tituloCompleto, titulo, autores, null, editora, ISBN10, null);
 
         }
         return livro;

@@ -66,4 +66,19 @@ function ajaxFunction() {
     xmlhttp.send();
 
 }
+function carregarServlet(servlet) {
+    alert("Entrou no Script")
+    var xmlhttp;
+    var isIE;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        isIE = true;
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.open("GET",servlet,true);
+    xmlhttp.send();
+    alert("Saiu")
+
+}
 
