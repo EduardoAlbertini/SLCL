@@ -23,31 +23,22 @@ public class Livro {
     private String edicao;
     @Column(length = 100)
     private String editora;
-    @Column(length = 10)
-    private String isbn;
     @Column(length = 13)
-    private String isbn13;
+    private String isbn;
     @Column(length = 250)
     private String assunto;
-    @Column(length = 12)
-    private Bibliografia bibliografia;
-    @OneToOne
-    private Evento estado;
 
     public Livro() {
     }
 
-    public Livro(String tituloOriginal, String titulo, String autor, String edicao, String editora, String isbn, String isbn13, String assunto, Bibliografia bibliografia, Evento estado) {
+    public Livro(String tituloOriginal, String titulo, String autor, String edicao, String editora, String isbn, String assunto) {
         this.tituloOriginal = tituloOriginal;
         this.titulo = titulo;
         this.autor = autor;
         this.edicao = edicao;
         this.editora = editora;
         this.isbn = isbn;
-        this.isbn13 = isbn13;
         this.assunto = assunto;
-        this.bibliografia = bibliografia;
-        this.estado = estado;
     }
     
     public String getTituloOriginal() {
@@ -93,10 +84,6 @@ public class Livro {
     public String getIsbn() {
         return isbn;
     }
-
-    public String getIsbn13() {
-        return isbn13;
-    }
     
     public String getAssunto() {
         return assunto;
@@ -106,24 +93,8 @@ public class Livro {
         this.assunto = assunto;
     }
 
-    public Bibliografia getBibliografia() {
-        return bibliografia;
-    }
-
-    public void setBibliografia(Bibliografia bibliografia) {
-        this.bibliografia = bibliografia;
-    }
-
-    public Evento getEstado() {
-        return estado;
-    }
-
-    public void setEstado(Evento estado) {
-        this.estado = estado;
-    }
-
     @Override
     public String toString() {
-        return tituloOriginal + ";" + titulo + ";" + autor + ";" + isbn + ";" + editora + ";" + edicao + ";" + assunto + ";" + bibliografia;
+        return tituloOriginal + ";" + titulo + ";" + autor + ";" + isbn + ";" + editora + ";" + edicao + ";" + assunto;
     }   
 }

@@ -4,16 +4,17 @@
     Author     : Miray
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jstl/core" prefix = "c"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
         <script type="text/javascript" src="js/bootstrap.js"></script>    
         <script type="text/javascript" src="js/bootstrap.min.js"></script>  
         <script type="text/javascript" src="js/breadcrumbs.js"></script>  
+        <script type="text/javascript" src="js/ajax.js"></script>  
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -22,39 +23,40 @@
         <title>Pedido de Livro</title>
     </head>
     <body>
-        <form target="PesquisaFormLivro" method="post">
+        <form action="CadastroPedidos" method="POST">
             <fieldset>
                 <legend>Pedido de Livro</legend>
                 <label for="ISBN">ISBN</label>
-                <input id="ISBN" type="text" placeholder="ISBN" onblur="ajaxFunction()" class="input-medium" value="${livro.isbn}" style="height: 30px">
-                <label for="titulo">TÃ­tulo</label>
-                <input id="titulo" type="text" placeholder="TÃ­tulo do Livro" class="input-xxlarge" value="${livro.titulo}" style="height: 30px">
-                <label for="tituloOriginal">TÃ­tulo Original</label>
-                <input id="tituloOriginal" type="text" placeholder="TÃ­tulo Original do Livro" class="input-xxlarge" style="height: 30px">
+                <input id="ISBN" name="ISBN" type="text" placeholder="ISBN" onblur="ajaxFunction()" class="input-medium" style="height: 30px">
+                <label for="titulo">Título</label>
+                <input id="titulo" name="titulo" type="text" placeholder="Título do Livro" class="input-xxlarge" style="height: 30px">
+                <label for="tituloOriginal">Título Original</label>
+                <input id="tituloOriginal" name="tituloOriginal" type="text" placeholder="Título Original do Livro" class="input-xxlarge" style="height: 30px">
                 <label for="autor">Autor(es)</label>
-                <input id="autor" type="text" placeholder="Autor" class="input-xlarge" value="${livro.autor}" style="height: 30px">
+                <input id="autor" name="autor" type="text" placeholder="Autor" class="input-xlarge" style="height: 30px">
                 <label for="editora">Editora</label>
-                <input id="editora" type="text" placeholder="Editora" value="${livro.editora}" style="height: 30px">
-                <label for="edicao">EdiÃ§Ã£o</label>
-                <input id="edicao" type="text" placeholder="EdiÃ§Ã£o" class="input-small" style="height: 30px">
+                <input id="editora" name="editora" type="text" placeholder="Editora" style="height: 30px">
+                <label for="edicao">Edição</label>
+                <input id="edicao" name="edicao" type="text" placeholder="Edição" class="input-small" style="height: 30px">
                 <label for="assunto">Assunto</label>
-                <textarea id="assunto" rows="3" placeholder="Assunto do Livro" class="input-xlarge"></textarea>
+                <textarea id="assunto" name="assunto" rows="3" placeholder="Assunto do Livro" class="input-xlarge"></textarea>
                 <label for="quantidade">Quantidade</label>
-                <input id="quantidade" type="text" placeholder="Quantidade" class="input-small" style="height: 30px">
+                <input id="quantidade" name="quantidade" type="text" placeholder="Quantidade" class="input-small" style="height: 30px">
                 <label for="curso">Curso</label>
-                <select id="curso">
+                <select id="curso" name="curso">
                     <option>Selecione...</option>
-                    <option>opÃ§Ãµes</option>
+                    <option>opções</option>
                 </select>
                 <label for="disciplina">Disciplina</label>
-                <select id="disciplina">
+                <select id="disciplina" name="disciplina">
                     <option>Selecione...</option>
-                    <option>opÃ§Ãµes</option>
+                    <option>opções</option>
                 </select>
-                <label for="referencia">ReferÃªncia</label>
-                <select id="referencia">
+                <label for="referencia">Referência</label>
+                <select id="referencia" name="referencia">
                     <option>Selecione...</option>
-                    <option>opÃ§Ãµes</option>
+                    <option>Básica</option>
+                    <option>Complementar</option>
                 </select>
             </fieldset>
             <button type="submit" name="submit" class="btn btn-info">Pedir</button>

@@ -35,3 +35,35 @@ function open(url){
     mreq.send(null);
 }
 
+function ajaxFunction() {
+    var xmlhttp;
+    var isIE;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        isIE = true;
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var url = "PesquisaFormLivro?ISBN=" + document.getElementById("ISBN").value;
+
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            texto = xmlhttp.responseText;
+            texto_quebrado = texto.split(";")
+            
+            document.getElementById("titulo").value = texto_quebrado[0];
+            document.getElementById("tituloOriginal").value = texto_quebrado[1];
+            document.getElementById("autor").value = texto_quebrado[2];
+            document.getElementById("editora").value = texto_quebrado[4];
+            document.getElementById("edicao").value = texto_quebrado[5];
+            document.getElementById("assunto").value = texto_quebrado[6];
+        }
+    }
+    
+    xmlhttp.open("GET",url,true);
+    xmlhttp.send();
+
+}
+

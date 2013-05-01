@@ -1,5 +1,6 @@
 package br.com.entitys;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,18 +16,24 @@ public class PedidoDeLivro {
     private int id;
     @Column(length = 3)
     private int qtde;
+    @Column(length = 12)
+    private Bibliografia bibliografia;
     @OneToOne
     private Livro livro;
     @OneToOne
     private Professor professor;
+    @OneToOne
+    private Curso curso;
     
     public PedidoDeLivro() {
     }
     
-    public PedidoDeLivro(int quantidade, Livro livro, Professor professor) {
+    public PedidoDeLivro(int quantidade,Bibliografia bibliografia, Livro livro, Professor professor, Curso curso) {
         this.qtde = quantidade;
+        this.bibliografia = bibliografia;
         this.livro = livro;
         this.professor = professor;
+        this.curso = curso;
     }
 
     public int getId() {
@@ -41,6 +48,14 @@ public class PedidoDeLivro {
         this.qtde = qtde;
     }
 
+    public Bibliografia getBibliografia() {
+        return bibliografia;
+    }
+
+    public void setBibliografia(Bibliografia bibliografia) {
+        this.bibliografia = bibliografia;
+    }
+    
     public Livro getLivro() {
         return livro;
     }
@@ -57,6 +72,14 @@ public class PedidoDeLivro {
         this.professor = professor;
     }
 
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
+    }
+    
     @Override
     public String toString() {
         return livro.toString() + " Quantidade: " + qtde;

@@ -9,18 +9,15 @@ import br.com.dao.DaoGenerics;
 import br.com.dao.entitys.DaoLivro;
 import br.com.entitys.Livro;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.Session;
 
 /**
  *
@@ -43,23 +40,22 @@ public class PesquisaFormLivro extends HttpServlet {
             throws ServletException, IOException {
         try {
             String isbn = request.getParameter("ISBN").trim();
-            System.out.println("ISBN: " + isbn);
             if (!isbn.equals("")) {
                 DaoGenerics dao = new DaoLivro();
-                List<Livro> livros = dao.listar("FROM Livro WHERE isbn = '"+ isbn + "'");
-                Livro livro = null;
-                
-                if (livros.size()>0) {
+                Livro livro = new Livro();
+                List<Livro> livros = new ArrayList<Livro>();
+                livros = dao.listar("FROM Livro WHERE isbn = '" + isbn + "'");
+
+                if (livros.size() > 0) {
                     livro = livros.get(0);
-                }else{
+                } else {
 
                     XMLReader leitor = new XMLReader();
                     livro = leitor.getLivro(isbn);
                 }
-                if(livro !=null)
-                response.getWriter().write(livro.toString());
-                
-                
+                if (livro != null) {
+                    response.getWriter().write(livro.toString());
+                }
             }
         } catch (Exception ex) {
             Logger.getLogger(PesquisaFormLivro.class.getName()).log(Level.SEVERE, null, ex);

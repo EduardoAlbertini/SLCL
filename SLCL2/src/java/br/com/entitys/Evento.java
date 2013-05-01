@@ -5,6 +5,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
@@ -20,6 +21,8 @@ public class Evento {
     private Date dataMod;
     @Column(length = 500)
     private String motivo;
+    @OneToOne
+    Livro livro;
     
     public Evento() {
         estado = Estado.REQUERIDO;
@@ -57,8 +60,19 @@ public class Evento {
         this.motivo = motivo;
     }
 
+    public Livro getLivro() {
+        return livro;
+    }
+
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
+
     @Override
     public String toString() {
-        return "(" + id + ") " + estado + " Modificado: " + dataMod + " - Motivo: " + motivo;
+        return "("+ id + ")" + estado + " Modificado" + dataMod + ", - Motivo=" + motivo + " - Livro=" + livro;
     }
+    
+    
+    
 }
