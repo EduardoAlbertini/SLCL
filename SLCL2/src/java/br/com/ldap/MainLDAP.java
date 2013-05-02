@@ -21,7 +21,27 @@ public class MainLDAP {
             // o segundo parametro null permite o retorno de todos os atributos do usuario
             boolean result;
 
-            String alunos[] = {"a1279106",
+            String alunos[] = {
+                "arethaalencar",
+                "frankhelbert",
+                "rcampiolo",
+                "filiper",
+                "paulogoncalves",
+                "rogerioag",
+                "radames",
+                "rodrigohubner",
+                "kraemer",
+                "liberato",
+                "ipolato",
+                "reginaldo",
+                "phsabo",
+                "luizsantos",
+                "igor",
+                "andreluis",
+                "anachaves",
+                "igorfs",
+                "lgvalentin",
+                "a1279106",
                 "a986151",
                 "a1269160",
                 "a1343904",
