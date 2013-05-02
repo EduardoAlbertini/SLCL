@@ -15,6 +15,7 @@
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -23,7 +24,7 @@
                 <div class="navbar-inner">
                     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                     </a>
-                    <a class="brand" href="#">Logo Aqui...</a>
+                    <a class="brand" href="#"><img src="img/LogoSLCL.png"></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li><a href="javascript:open('index.jsp')" onclick="alterarTexto('inicio')">Inicio</a></li>

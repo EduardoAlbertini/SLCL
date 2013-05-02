@@ -25,7 +25,7 @@
             <legend>Curso</legend>
             <label for="codigo">Código do Curso</label>
             <input id="codigo" name="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
-            <a class="btn" href="javascript:ajaxPesquisaFunction()" title="Pesquisar Curso" ><i class="icon-search" ></i></a>
+            <a class="btn" href="javascript:ajaxPesquisaCursoFunction()" title="Pesquisar Curso" ><i class="icon-search" ></i></a>
             <label for="nome">Nome</label>
             <input id="nome" name="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
             <label for="coordenador">Coordenador</label>
