@@ -7,7 +7,7 @@ package br.com.Controller;
 import br.com.dao.DaoGenerics;
 import br.com.dao.entitys.DaoLivro;
 import br.com.dao.entitys.DaoPedidoDeLivro;
-import br.com.entitys.Bibliografia2;
+import br.com.entitys.Bibliografia;
 import br.com.entitys.Evento;
 import br.com.entitys.Livro;
 import br.com.entitys.PedidoDeLivro;

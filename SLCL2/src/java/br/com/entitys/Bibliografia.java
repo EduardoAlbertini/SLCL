@@ -1,5 +1,5 @@
 package br.com.entitys;
 
-public enum Bibliografia2 {
+public enum Bibliografia {
     BASICA, COMPLEMENTAR;
 }

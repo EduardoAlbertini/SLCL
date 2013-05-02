@@ -16,7 +16,7 @@ public class PedidoDeLivro {
     @Column(length = 3)
     private int qtde;
     @Column(length = 12)
-    private Bibliografia2 bibliografia;
+    private Bibliografia bibliografia;
     @OneToOne
     private Livro livro;
     @OneToOne
@@ -29,7 +29,7 @@ public class PedidoDeLivro {
     
     public PedidoDeLivro(int quantidade, Livro livro, Professor professor, Curso curso) {
         this.qtde = quantidade;
-        this.bibliografia = Bibliografia2.BASICA;
+        this.bibliografia = Bibliografia.BASICA;
         this.livro = livro;
         this.professor = professor;
         this.curso = curso;
@@ -47,15 +47,15 @@ public class PedidoDeLivro {
         this.qtde = qtde;
     }
 
-    public Bibliografia2 getBibliografia() {
+    public Bibliografia getBibliografia() {
         return bibliografia;
     }
 
     public void setBibliografia() {
-        if (bibliografia.equals(Bibliografia2.BASICA)) {
-            this.bibliografia = Bibliografia2.COMPLEMENTAR;
+        if (bibliografia.equals(Bibliografia.BASICA)) {
+            this.bibliografia = Bibliografia.COMPLEMENTAR;
         } else {
-            this.bibliografia = Bibliografia2.BASICA;
+            this.bibliografia = Bibliografia.BASICA;
         }
     }
     
