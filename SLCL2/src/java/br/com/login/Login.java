@@ -1,5 +1,9 @@
 package br.com.login;
 
+import br.com.dao.entitys.DaoPapel;
+import br.com.dao.entitys.DaoProfessor;
+import br.com.dao.entitys.DaoUsuario;
+import br.com.entitys.Professor;
 import br.com.ldap.LDAP;
 import br.com.ldap.TransactionManager;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
@@ -132,74 +136,42 @@ public class Login extends HttpServlet {
 
     }
 
-//    private Usuario garantirQueUsuarioEstaNaBaseDoGerenciador(Usuario user, PrintWriter out, HttpServletRequest request) {
-//
-//        request.getSession().removeAttribute("UsuarioLogado");
-//
-//        if (user.getLogin().charAt(0) == 'a' && verificarSegundoDigito(user.getLogin().charAt(1))) {
-//
-//            DaoEstagiario daoE = new DaoEstagiario();
-//
-//
-//            Estagiario aluno = daoE.obterPorRA(user.getLogin());
-//
-//            if (aluno != null) {
-//                if (aluno.getPapel() == null) {
-//                    aluno.setPapel(new DaoPapel().obterPorId(3));
-//                    daoE.persistir(aluno);
-//                    request.getSession().setAttribute("UsuarioLogado", aluno);
-//                    return aluno;
-//                } else {
-//                    request.getSession().setAttribute("UsuarioLogado", aluno);
-//                    return aluno;
-//                }
-//
-//            } else {
-//                TransactionManager.beginTransaction();
-//                aluno = new Estagiario();
-//                aluno.setLogin(user.getLogin());
-//                aluno.setNome(user.getNome());
-//                aluno.setEmail(user.getEmail());
-//                aluno.setPapel(new DaoPapel().obterPorId(3));
-//                daoE.persistir(aluno);
-//                TransactionManager.commit();
-//                request.getSession().setAttribute("UsuarioLogado", aluno);
-//                return aluno;
-//            }
-//
-//        } else {
-//
-//
-//            DaoOrientador daoO = new DaoOrientador();
-//            Orientador orientador = daoO.obterPorSiape(user.getLogin());
-//
-//            if (orientador != null) {
-//                if (orientador.getPapel() == null) {
-//                    orientador.setPapel(new DaoPapel().obterPorId(2));
-//                    daoO.persistir(orientador);
-//                    request.getSession().setAttribute("UsuarioLogado", orientador);
-//                    return orientador;
-//                } else {
-//                    request.getSession().setAttribute("UsuarioLogado", orientador);
-//                    return orientador;
-//                }
-//            } else {
-//                TransactionManager.beginTransaction();
-//                orientador = new Orientador();
-//                orientador.setNome(user.getNome());
-//                orientador.setLogin(user.getLogin());
-//                orientador.setEmail(user.getEmail());
-//                orientador.setPapel(new DaoPapel().obterPorId(2));
-//                daoO.persistir(orientador);
-//                TransactionManager.commit();
-//                request.getSession().setAttribute("UsuarioLogado", orientador);
-//                return orientador;
-//            }
-//
-//
-//        }
-//
-//    }
+    private Usuario garantirQueUsuarioEstaNaBaseDoGerenciador(Usuario user, PrintWriter out, HttpServletRequest request) {
+
+        request.getSession().removeAttribute("UsuarioLogado");
+
+        if (!verificarSegundoDigito(user.getLogin().charAt(1))) {
+
+            DaoProfessor daoP = new DaoProfessor();
+            Professor professor = daoP.obterPorId(user.getId());
+
+            if (professor != null) {
+                if (professor.getPapel() == null) {
+                    professor.setPapel(new DaoPapel().obterPorId(1));
+                    daoP.persistir(professor);
+                    request.getSession().setAttribute("UsuarioLogado", professor);
+                    return professor;
+                } else {
+                    request.getSession().setAttribute("UsuarioLogado", professor);
+                    return professor;
+                }
+            } else {
+                TransactionManager.beginTransaction();
+                professor = new Professor();
+                professor.setNome(user.getNome());
+                professor.setLogin(user.getLogin());
+                professor.setEmail(user.getEmail());
+                professor.setPapel(new DaoPapel().obterPorId(2));
+                daoP.persistir(professor);
+                TransactionManager.commit();
+                request.getSession().setAttribute("UsuarioLogado", professor);
+                return professor;
+            }
+        } else {
+            return null;
+        }
+
+    }
 
     private boolean verificarSegundoDigito(char digito2) {
         switch (digito2) {
@@ -230,21 +202,19 @@ public class Login extends HttpServlet {
             return usuario;
         }
     }
-////    private boolean verificarSePapelDoEstagiarioEstaOk(Estagiario aluno) {
-////    }
 
-//    private Usuario ehOAdmin(String uLogin, String uSenha) {
-//        if (uLogin.equals("admin")) {
-//            DaoUsuario dao = new DaoUsuario();
-//            Usuario usuario = dao.obterPorLogin(uLogin);
-//            if (uSenha.equals("admin147")) {
-//                System.out.println(usuario);
-//                return usuario;
-//            } else {
-//                return null;
-//            }
-//        } else {
-//            return null;
-//        }
-//    }
+    private Usuario ehOAdmin(String uLogin, String uSenha) {
+        if (uLogin.equals("admin")) {
+            DaoUsuario dao = new DaoUsuario();
+            Usuario usuario = dao.obterPorLogin(uLogin);
+            if (uSenha.equals("admin147")) {
+                System.out.println(usuario);
+                return usuario;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
 }

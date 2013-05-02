@@ -3,13 +3,11 @@ package br.com.login;
 import br.com.ldap.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.ejb.TransactionManagement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.hibernate.Transaction;
 
 @WebServlet(name = "FazerLogout", urlPatterns = {"/FazerLogout"})
 public class FazerLogout extends HttpServlet {
@@ -31,7 +29,6 @@ public class FazerLogout extends HttpServlet {
             request.getSession().removeAttribute("tipoUsuario");
             TransactionManager.getCurrentSession().close();
             response.sendRedirect("index.jsp");
-           
             
         } finally {            
             out.close();
