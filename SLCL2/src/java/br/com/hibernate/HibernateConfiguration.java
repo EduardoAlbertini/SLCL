@@ -25,8 +25,14 @@ public class HibernateConfiguration {
 
     private static String userName = "root";
     private static String password = "root";
+    //Faculdade
+    //private static String dataBase = "aluno";
+    //Casa
     private static String dataBase = "SLCL";
-    private static String host = "localhost:3307";
+    //Principal
+    private static String host = "localhost:3306";
+    //EduardoDoido '-'
+    //private static String host = "localhost:3307";
     private static AnnotationConfiguration cfg = null;
     private static SessionFactory factory = null;
     
