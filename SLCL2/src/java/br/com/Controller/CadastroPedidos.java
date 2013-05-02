@@ -7,7 +7,7 @@ package br.com.Controller;
 import br.com.dao.DaoGenerics;
 import br.com.dao.entitys.DaoLivro;
 import br.com.dao.entitys.DaoPedidoDeLivro;
-import br.com.entitys.Bibliografia;
+import br.com.entitys.Bibliografia2;
 import br.com.entitys.Evento;
 import br.com.entitys.Livro;
 import br.com.entitys.PedidoDeLivro;
@@ -51,7 +51,8 @@ public class CadastroPedidos extends HttpServlet {
         String referencia = request.getParameter("referencia");
 
         Livro livro = new Livro(tituloOriginal, titulo, autor, edicao, editora, isbn, assunto);
-        PedidoDeLivro pedidoDeLivro = new PedidoDeLivro(qtde, Bibliografia.COMPLEMENTAR, livro, null, null);
+        PedidoDeLivro pedidoDeLivro = new PedidoDeLivro(qtde, livro, null, null);
+        pedidoDeLivro.setBibliografia();
         System.out.println(pedidoDeLivro.toString());
 
         DaoLivro daoLivro = new DaoLivro();

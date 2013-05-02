@@ -114,10 +114,7 @@ public class Login extends HttpServlet {
 
     private Usuario autenticarUsuario(String uLogin, String uSenha) {
 
-
         Usuario user = LDAP.buscarUsuario(uLogin);
-
-
 
         if (user != null) {
             try {
@@ -222,17 +219,17 @@ public class Login extends HttpServlet {
         }
     }
 
-//    private Usuario verificarNaBaseLocal(String uLogin, String uSenha) {
-//        if (uLogin.isEmpty() || uLogin.equals("")) {
-//            return null;
-//        } else {
-//            //TransactionManager.beginTransaction();
-//            DaoUsuario dao = new DaoUsuario();
-//            Usuario usuario = dao.obterPorLogin(uLogin);
-//            System.out.println(usuario);
-//            return usuario;
-//        }
-//    }
+    private Usuario verificarNaBaseLocal(String uLogin, String uSenha) {
+        if (uLogin.isEmpty() || uLogin.equals("")) {
+            return null;
+        } else {
+            //TransactionManager.beginTransaction();
+            DaoUsuario dao = new DaoUsuario();
+            Usuario usuario = dao.obterPorLogin(uLogin);
+            System.out.println(usuario);
+            return usuario;
+        }
+    }
 ////    private boolean verificarSePapelDoEstagiarioEstaOk(Estagiario aluno) {
 ////    }
 
