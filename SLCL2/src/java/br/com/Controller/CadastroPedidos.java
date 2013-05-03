@@ -61,6 +61,6 @@ public class CadastroPedidos extends HttpServlet {
         DaoPedidoDeLivro dao = new DaoPedidoDeLivro();
         dao.persistir(pedidoDeLivro);
 
-        response.sendRedirect("indexProfessor.jsp");
+        response.sendRedirect("pedidoLivro.jsp");
     }
 }

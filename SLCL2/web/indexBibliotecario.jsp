@@ -8,6 +8,7 @@
         <script type="text/javascript" src="js/bootstrap-dropdown.js"></script>    
         <script type="text/javascript" src="js/ajax.js"></script>  
         <script type="text/javascript" src="js/breadcrumbs.js"></script>  
+        <script type="text/javascript" src="js/carregarComboBox.js"></script>  
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -26,17 +27,16 @@
                 <div id="content">
 
                     <ul class="breadcrumb">
-                        <li><a href="javascript:open('index.jsp')" onclick="alterarTexto('inicio')">Inicio</a><span class="divider">></span></li>
-                        <li class="active"><div id="migalhas"></div></li>
+                        <li><a href="indexBibliotecario.jsp">Inicio</a><span class="divider">></span></li>
                     </ul>
 
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li id="professor"><a href="javascript:open('crudProfessor.jsp')" onclick="alterarTexto('professor')">Professor</a></li>
-                                <li id="coordenador"><a href="javascript:open('crudCoordenador.jsp')" onclick="alterarTexto('coordenador')">Coordenador</a></li>
-                                <li id="curso"><a href="javascript:open('crudCurso.jsp')" onclick="alterarTexto('curso')">Curso</a></li>
-                                <li id="disciplina"><a href="javascript:open('crudDisciplina.jsp')" onclick="alterarTexto('disciplina')">Disciplina</a></li>
+                                <li id="professor"><a href="crudProfessor.jsp">Professor</a></li>
+                                <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
+                                <li id="curso"><a href="crudCurso.jsp" >Curso</a></li>
+                                <li id="disciplina"><a href="crudDisciplina.jsp" >Disciplina</a></li>
                                 <li id="listaPedidos"><a>Lista de Livros Pedidos</a></li>
                             </ul>
                         </div>
