@@ -38,41 +38,41 @@ public class Login extends HttpServlet {
         String uSenha = request.getParameter("senha");
 
 
-//        try {
-//
-//            //Usar em casa//
-//            Usuario usuarioLocal = ehOAdmin(uLogin, uSenha);
-//            if (usuarioLocal != null) {
-//                request.getSession().setAttribute("UsuarioLogado", usuarioLocal);
-//                response.sendRedirect("Sistema/index.jsp");
-//            } else {
-//                //Usar em casa//                
-//                if (!uLogin.equals("admin")) {
-//                    usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
-//
-//                    //Usar em UTFPR//
-//                    //usuarioLocal = autenticarUsuario(uLogin, uSenha);
-//                    //System.out.println(autenticarUsuario(uLogin, uSenha));
-//                    //if (user != null) {
-//
+        try {
+
+            //Usar em casa//
+            Usuario usuarioLocal = ehOAdmin(uLogin, uSenha);
+            if (usuarioLocal != null) {
+                request.getSession().setAttribute("UsuarioLogado", usuarioLocal);
+                response.sendRedirect("indexProfessor.jsp");
+            } else {
+                //Usar em casa//                
+                if (!uLogin.equals("admin")) {
+                    usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
+
+                    //Usar em UTFPR//
+//                    usuarioLocal = autenticarUsuario(uLogin, uSenha);
+//                    System.out.println(autenticarUsuario(uLogin, uSenha));
 //                    if (usuarioLocal != null) {
-//                        Usuario userInterno = garantirQueUsuarioEstaNaBaseDoGerenciador(usuarioLocal, out, request);
-//                        request.getSession().setAttribute("UsuarioLogado", userInterno);
-//                        response.sendRedirect("Sistema/index.jsp");
-//                    } else {
-//                        request.getSession().setAttribute("erroLogin", "erro");
-//                        response.sendRedirect("index.jsp");
-//                    }
-//                } else {
-//                    request.getSession().setAttribute("erroLogin", "erro");
-//                    response.sendRedirect("index.jsp");
-//                }
-//            }
+
+                    if (usuarioLocal != null) {
+                        Usuario userInterno = garantirQueUsuarioEstaNaBaseDoGerenciador(usuarioLocal, out, request);
+                        request.getSession().setAttribute("UsuarioLogado", userInterno);
+                        response.sendRedirect("indexProfessor.jsp");
+                    } else {
+                        request.getSession().setAttribute("erroLogin", "erro");
+                        response.sendRedirect("Login.jsp");
+                    }
+                } else {
+                    request.getSession().setAttribute("erroLogin", "erro");
+                    response.sendRedirect("Login.jsp");
+                }
+            }
 
 
-//        } finally {
-//            out.close();
-//        }
+        } finally {
+            out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -218,3 +218,4 @@ public class Login extends HttpServlet {
         }
     }
 }
+
