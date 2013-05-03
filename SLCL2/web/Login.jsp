@@ -21,7 +21,7 @@
     </head>
     <body>
         <div id="box">
-            <form class="form-horizontal">
+            <form action="Login" method="POST" class="form-horizontal">
                 <fieldset >
                     <label for="username">Usuário</label>
                     <div>

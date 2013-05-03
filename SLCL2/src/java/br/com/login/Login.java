@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 
 @WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login2 extends HttpServlet {
+public class Login extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -51,9 +51,9 @@ public class Login2 extends HttpServlet {
                     usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
 
                     //Usar em UTFPR//
-                    //usuarioLocal = autenticarUsuario(uLogin, uSenha);
-                    //System.out.println(autenticarUsuario(uLogin, uSenha));
-                    //if (user != null) {
+//                    usuarioLocal = autenticarUsuario(uLogin, uSenha);
+//                    System.out.println(autenticarUsuario(uLogin, uSenha));
+//                    if (usuarioLocal != null) {
 
                     if (usuarioLocal != null) {
                         Usuario userInterno = garantirQueUsuarioEstaNaBaseDoGerenciador(usuarioLocal, out, request);
