@@ -15,9 +15,9 @@ public class Disciplina {
     @Id
     @GeneratedValue
     private int id;
-    @Column(length = 200)
-    private String codigo;
     @Column(length = 6)
+    private String codigo;
+    @Column(length = 200)
     private String nome;
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Curso curso;
@@ -61,6 +61,6 @@ public class Disciplina {
     
     @Override
     public String toString() {
-        return "(" + codigo + ") " + nome;
+        return codigo + ":" + nome;
     }
 }

@@ -5,11 +5,8 @@
 package br.com.Controller;
 
 import br.com.dao.entitys.DaoCurso;
-import br.com.dao.entitys.DaoDisciplina;
 import br.com.entitys.Curso;
-import br.com.entitys.Disciplina;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;

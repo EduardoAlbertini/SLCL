@@ -27,9 +27,9 @@
                     <a class="brand" href="#"><img src="img/LogoSLCL.png"></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="javascript:open('index.jsp')" onclick="alterarTexto('inicio')">Inicio</a></li>
-                            <li id="faq"><a href="#" onclick="alterarTexto('faq')">F.A.Q.</a></li>
-                            <li id="contato"><a href="javascript:open('contato.jsp')" onclick="alterarTexto('contato')">Contato</a></li>
+                            <li><a href="javascript:open('index.jsp')">Inicio</a></li>
+                            <li id="faq"><a href="#">F.A.Q.</a></li>
+                            <li id="contato"><a href="javascript:open('contato.jsp')">Contato</a></li>
                         </ul>
                     </div>
                     <a class="btn pull-right btn-info" style="margin: 5px">Sair</a>
