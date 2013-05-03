@@ -36,7 +36,7 @@
                     <form class="navbar-search pull-right" id="pesquisa" style="margin: 5px">
                         <input type="text" class="search-query" placeholder="Buscar" style="height: 30px">
                     </form>
-                    <h5 class="pull-right" style="margin-right: 5px">NOME DA PESSOA</h5>
+                    <h5 class="pull-right" style="margin-right: 5px">${uLogin}</h5>
                 </div>
             </div>
         </div>

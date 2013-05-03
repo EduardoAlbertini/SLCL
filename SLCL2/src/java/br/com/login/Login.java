@@ -34,8 +34,8 @@ public class Login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        String uLogin = request.getParameter("login");
-        String uSenha = request.getParameter("senha");
+        String uLogin = request.getParameter("username");
+        String uSenha = request.getParameter("password");
 
 
         try {
@@ -60,12 +60,12 @@ public class Login extends HttpServlet {
                         request.getSession().setAttribute("UsuarioLogado", userInterno);
                         response.sendRedirect("indexProfessor.jsp");
                     } else {
-                        request.getSession().setAttribute("erroLogin", "erro");
-                        response.sendRedirect("Login.jsp");
+                        request.getSession().setAttribute("Login", usuarioLocal);
+                        response.sendRedirect("indexCoordenador.jsp");
                     }
                 } else {
                     request.getSession().setAttribute("erroLogin", "erro");
-                    response.sendRedirect("Login.jsp");
+                    response.sendRedirect("indexBibliotecario.jsp");
                 }
             }
 
@@ -161,7 +161,7 @@ public class Login extends HttpServlet {
                 professor.setNome(user.getNome());
                 professor.setLogin(user.getLogin());
                 professor.setEmail(user.getEmail());
-                professor.setPapel(new DaoPapel().obterPorId(2));
+                professor.setPapel(new DaoPapel().obterPorId(1));
                 daoP.persistir(professor);
                 TransactionManager.commit();
                 request.getSession().setAttribute("UsuarioLogado", professor);
@@ -198,6 +198,7 @@ public class Login extends HttpServlet {
             //TransactionManager.beginTransaction();
             DaoUsuario dao = new DaoUsuario();
             Usuario usuario = dao.obterPorLogin(uLogin);
+            System.out.println("AQUI *************************************" + new DaoPapel().listar().toString());
             System.out.println(usuario);
             return usuario;
         }

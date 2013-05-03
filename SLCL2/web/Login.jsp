@@ -29,7 +29,7 @@
                             <span class="add-on">
                                 <i class="icon-user"></i>
                             </span>
-                            <input id="username" type="text" class="span3">
+                            <input id="username" name="username" type="text" class="span3">
                         </div>
                     </div>
                     <label for="password">Senha</label>
@@ -38,7 +38,7 @@
                             <span class="add-on">
                                 <i class="icon-lock"></i>
                             </span>
-                            <input id="password" type="password" class="span3">
+                            <input id="password" name="password" type="password" class="span3">
                             <div class="controls">
                                 <label class="checkbox">
                                     <input type="checkbox"> Lembrar
