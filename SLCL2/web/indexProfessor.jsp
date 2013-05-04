@@ -8,6 +8,7 @@
         <script type="text/javascript" src="js/bootstrap.min.js"></script>  
         <script type="text/javascript" src="js/ajax.js"></script>  
         <script type="text/javascript" src="js/breadcrumbs.js"></script>
+        <script type="text/javascript" src="js/carregarComboBox.js"></script>
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -32,7 +33,7 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="pedirLivro"><a href="pedidoLivroProfessor.jsp">Pedir Livro</a></li>
-                                <li id="historicoPedidos"><a href="historicoPedidos.jsp">Histórico de Pedidos</a></li>
+                                <li id="historicoPedidos"><a href="historicoPedidosProfessor.jsp">Histórico de Pedidos</a></li>
                             </ul>
                         </div>
                     </div>

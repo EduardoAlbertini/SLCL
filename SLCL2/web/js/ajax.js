@@ -90,7 +90,6 @@ function ajaxPesquisaDisciplinaFunction() {
         isIE = true;
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    alert("Entrou")
     var url = "CadastroDisciplina?codigo=" + document.getElementById("codigo").value;
 
     xmlhttp.onreadystatechange = function()
@@ -109,4 +108,3 @@ function ajaxPesquisaDisciplinaFunction() {
     xmlhttp.send();
 
 }
-

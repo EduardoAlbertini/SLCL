@@ -38,7 +38,7 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="pedirLivro"><a href="#" >Pedir Livro</a></li>
-                                <li id="historicoPedidos"><a href="#">Histórico de Pedidos</a></li>
+                                <li id="historicoPedidos"><a href="historicoPedidosProfessor.jsp">Histórico de Pedidos</a></li>
                             </ul>
                         </div>
                     </div>

@@ -4,15 +4,11 @@
  */
 package br.com.Controller;
 
-import br.com.dao.DaoGenerics;
 import br.com.dao.entitys.DaoLivro;
 import br.com.dao.entitys.DaoPedidoDeLivro;
-import br.com.entitys.Bibliografia;
-import br.com.entitys.Evento;
 import br.com.entitys.Livro;
 import br.com.entitys.PedidoDeLivro;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,17 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "CadastroPedidos", urlPatterns = {"/CadastroPedidos"})
 public class CadastroPedidos extends HttpServlet {
 
-    /**
-     * Handles the HTTP
-     * <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String isbn = request.getParameter("ISBN");
         String titulo = request.getParameter("titulo");
@@ -61,6 +47,21 @@ public class CadastroPedidos extends HttpServlet {
         DaoPedidoDeLivro dao = new DaoPedidoDeLivro();
         dao.persistir(pedidoDeLivro);
 
-        response.sendRedirect("pedidoLivro.jsp");
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        processRequest(request, response);
+        response.sendRedirect("pedidoLivroProfessor.jsp");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        processRequest(request, response);
+        response.sendRedirect("pedidoLivroCoordenador.jsp");
     }
 }
