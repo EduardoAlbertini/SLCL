@@ -30,9 +30,9 @@ public class HibernateConfiguration {
     //Casa
     private static String dataBase = "SLCL";
     //Principal
-    private static String host = "localhost:3306";
+//    private static String host = "localhost:3306";
     //EduardoDoido '-'
-    //private static String host = "localhost:3307";
+    private static String host = "localhost:3307";
     private static AnnotationConfiguration cfg = null;
     private static SessionFactory factory = null;
     

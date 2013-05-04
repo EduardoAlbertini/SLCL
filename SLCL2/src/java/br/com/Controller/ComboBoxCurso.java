@@ -7,7 +7,6 @@ package br.com.Controller;
 import br.com.dao.entitys.DaoCurso;
 import br.com.entitys.Curso;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,11 +33,12 @@ public class ComboBoxCurso extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        System.out.println("ENTROU NO SERVLET");
         DaoCurso dao = new DaoCurso();
         List<Curso> cursos = dao.listar();
         
         getServletContext().setAttribute("cursos", cursos);
-        
+        response.sendRedirect("crudDisciplina.jsp");
         
     }
 

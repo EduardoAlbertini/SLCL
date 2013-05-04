@@ -37,8 +37,9 @@
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li id="pedirLivro"><a href="#" >Pedir Livro</a></li>
-                                <li id="historicoPedidos"><a href="#">Histórico de Pedidos</a></li>
+                                <li id="pedirLivro"><a href="#">Pedir Livro</a></li>
+                                <li id="historicoPedidos"><a href="historicoPedidosCoordenador.jsp">Histórico de Pedidos</a></li>
+                                <li id="pedidosCurso"><a href="pedidosCurso.jsp">Pedidos do Curso</a></li>
                             </ul>
                         </div>
                     </div>
@@ -59,4 +60,3 @@
 
     </body>
 </html>
-

@@ -1,5 +1,10 @@
 function chamarComboCurso() {
-        document.location.href='ComboBoxCurso';
+    alert("Entrou JS");
+    document.location.href = 'ComboBoxCurso';
 
-    }
+}
+
+function chamarServlet(servlet){
+    document.location.href = servlet;
+}
 
