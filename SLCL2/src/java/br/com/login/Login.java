@@ -51,14 +51,18 @@ public class Login extends HttpServlet {
                     usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
 
                     //Usar em UTFPR//
-//                    usuarioLocal = autenticarUsuario(uLogin, uSenha);
-//                    System.out.println(autenticarUsuario(uLogin, uSenha));
+                    usuarioLocal = autenticarUsuario(uLogin, uSenha);
+                    System.out.println(autenticarUsuario(uLogin, uSenha));
 //                    if (usuarioLocal != null) {
 
                     if (usuarioLocal != null) {
                         Usuario userInterno = garantirQueUsuarioEstaNaBaseDoGerenciador(usuarioLocal, out, request);
-                        request.getSession().setAttribute("UsuarioLogado", userInterno);
-                        response.sendRedirect("indexProfessor.jsp");
+                        if (userInterno != null) {
+                            request.getSession().setAttribute("UsuarioLogado", userInterno);
+                            response.sendRedirect("indexProfessor.jsp");
+                        } else {
+                            response.sendRedirect("Login.jsp");
+                        }
                     } else {
                         request.getSession().setAttribute("Login", usuarioLocal);
                         response.sendRedirect("indexCoordenador.jsp");
@@ -119,18 +123,22 @@ public class Login extends HttpServlet {
     private Usuario autenticarUsuario(String uLogin, String uSenha) {
 
         Usuario user = LDAP.buscarUsuario(uLogin);
+        System.out.println("****************" + uLogin);
 
         if (user != null) {
             try {
                 if (LDAP.autenticacao(uLogin, uSenha)) {
+                    System.out.println("**************** Passei no if autenticar" + uLogin);
                     return user;
                 } else {
+                    System.out.println("**************** Passei no else do autenticar" + uLogin);
                     return null;
                 }
             } catch (IncorrectCredentialsException e) {
                 return null;
             }
         } else {
+            System.out.println("**************** dei null" + uLogin);
             return null;
         }
 
@@ -207,9 +215,9 @@ public class Login extends HttpServlet {
     private Usuario ehOAdmin(String uLogin, String uSenha) {
         if (uLogin.equals("admin")) {
             DaoUsuario dao = new DaoUsuario();
+            System.out.println("Passandooooooooo*********************************");
             Usuario usuario = dao.obterPorLogin(uLogin);
             if (uSenha.equals("admin147")) {
-                System.out.println(usuario);
                 return usuario;
             } else {
                 return null;
@@ -219,4 +227,3 @@ public class Login extends HttpServlet {
         }
     }
 }
-
