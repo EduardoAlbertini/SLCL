@@ -28,7 +28,7 @@ public class FazerLogout extends HttpServlet {
             request.getSession().removeAttribute("UsuarioLogado");
             request.getSession().removeAttribute("tipoUsuario");
             TransactionManager.getCurrentSession().close();
-            response.sendRedirect("index.jsp");
+            response.sendRedirect("Login.jsp");
             
         } finally {            
             out.close();
