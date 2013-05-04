@@ -6,7 +6,9 @@ package br.com.Controller;
 
 import br.com.dao.entitys.DaoCurso;
 import br.com.entitys.Curso;
+import br.com.entitys.Disciplina;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,8 +20,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Miray
  */
-@WebServlet(name = "ComboBoxCurso", urlPatterns = {"/ComboBoxCurso"})
-public class ComboBoxCurso extends HttpServlet {
+@WebServlet(name = "ComboBoxDisciplina", urlPatterns = {"/ComboBoxDisciplina"})
+public class ComboBoxDisciplina extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -34,10 +36,8 @@ public class ComboBoxCurso extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
      * <code>GET</code> method.
@@ -50,12 +50,13 @@ public class ComboBoxCurso extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("ENTROU NO SERVLET");
-        DaoCurso dao = new DaoCurso();
-        List<Curso> cursos = dao.listar();
+        String curso = request.getParameter("curso");
         
-        getServletContext().setAttribute("cursos", cursos);
-        response.sendRedirect("crudDisciplina.jsp");
+        DaoCurso daoCurso = new DaoCurso();
+        List<Curso> cursos = daoCurso.listar("FROM Curso WHERE nome = '" + curso + "'");
+        List<Disciplina> disciplinas = cursos.get(0).getDisciplinas();
+        
+        getServletContext().setAttribute("disciplinas", disciplinas);
     }
 
     /**

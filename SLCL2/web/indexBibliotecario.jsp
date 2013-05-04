@@ -36,7 +36,7 @@
                                 <li id="professor"><a href="crudProfessor.jsp">Professor</a></li>
                                 <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
                                 <li id="curso"><a href="crudCurso.jsp" >Curso</a></li>
-                                <li id="disciplina"><a href="crudDisciplina.jsp" onclick="chamarComboCurso();">Disciplina</a></li>
+                                <li id="disciplina"><a href="ComboBoxCurso">Disciplina</a></li>
                                 <li id="listaPedidos"><a>Lista de Livros Pedidos</a></li>
                             </ul>
                         </div>
