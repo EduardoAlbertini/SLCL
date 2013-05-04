@@ -11,5 +11,6 @@ import javax.persistence.Table;
 public class Bibliotecario extends Usuario{
     public Bibliotecario() {
         super();
+        this.setSenha("senhanaoutilizada");
     }
 }
