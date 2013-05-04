@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <fieldset>
     <legend>Pedido de Livro</legend>
     <label for="ISBN">ISBN</label>
@@ -19,7 +20,9 @@
     <label for="curso">Curso</label>
     <select id="curso" name="curso">
         <option>Selecione...</option>
-        <option>opções</option>
+        <c:forEach items="${cursos}" var="item">
+            <option>${item.nome}</option>
+        </c:forEach>
     </select>
     <label for="disciplina">Disciplina</label>
     <select id="disciplina" name="disciplina">

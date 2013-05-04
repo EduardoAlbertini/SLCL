@@ -77,6 +77,6 @@ public class CadastroDisciplina extends HttpServlet {
         DaoDisciplina daoDisciplina = new DaoDisciplina();
         daoDisciplina.persistir(disciplina);
 
-        response.sendRedirect("indexBibliotecario.jsp");
+        response.sendRedirect("crudDisciplina.jsp");
     }
 }
