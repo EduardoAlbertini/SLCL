@@ -26,9 +26,9 @@ public class HibernateConfiguration {
     private static String userName = "root";
     private static String password = "root";
     //Faculdade
-    //private static String dataBase = "aluno";
+    private static String dataBase = "aluno";
     //Casa
-    private static String dataBase = "SLCL";
+    //private static String dataBase = "SLCL";
     //Principal
     private static String host = "localhost:3306";
     //EduardoDoido '-'
