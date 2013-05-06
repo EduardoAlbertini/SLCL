@@ -15,6 +15,7 @@ public class Coordenador extends Professor{
 
     public Coordenador(){
         super();
+        this.setSenha("senhanaoutilizada");
     }
     
     public Curso getCurso() {

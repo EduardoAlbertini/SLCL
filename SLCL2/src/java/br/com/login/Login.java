@@ -52,7 +52,6 @@ public class Login extends HttpServlet {
 
                     //Usar em UTFPR//
                     usuarioLocal = autenticarUsuario(uLogin, uSenha);
-                    System.out.println(autenticarUsuario(uLogin, uSenha));
 //                    if (usuarioLocal != null) {
 
                     if (usuarioLocal != null) {
@@ -128,10 +127,10 @@ public class Login extends HttpServlet {
         if (user != null) {
             try {
                 if (LDAP.autenticacao(uLogin, uSenha)) {
-                    System.out.println("**************** Passei no if autenticar" + uLogin);
+                    System.out.println("**************** Passei no if autenticar " + uLogin);
                     return user;
                 } else {
-                    System.out.println("**************** Passei no else do autenticar" + uLogin);
+                    System.out.println("**************** Passei no else do autenticar " + uLogin);
                     return null;
                 }
             } catch (IncorrectCredentialsException e) {
@@ -150,8 +149,9 @@ public class Login extends HttpServlet {
 
         if (!verificarSegundoDigito(user.getLogin().charAt(1))) {
 
+            System.out.println("Entrei aqui!********* DaoProfessor");
             DaoProfessor daoP = new DaoProfessor();
-            Professor professor = daoP.obterPorId(user.getId());
+            Professor professor = daoP.obterPorLogin(user.getLogin());
 
             if (professor != null) {
                 if (professor.getPapel() == null) {

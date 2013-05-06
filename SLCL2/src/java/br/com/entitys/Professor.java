@@ -16,6 +16,7 @@ public class Professor extends Usuario{
     
     public Professor() {
         super();
+        this.setSenha("senhanaoutilizada");
     }   
 
     public Papel getPapel() {

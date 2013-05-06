@@ -10,12 +10,12 @@ public class DaoUsuario extends DaoGenerics<Usuario> {
     }
     
     public Usuario obterPorLogin(String login) {
-        Usuario objeto = null;
+        Usuario usuario = null;
         if (login != null) {
-            Query select = session.createQuery("From " + classe.getSimpleName() + " where login = '" + login +"'");
-            objeto = (Usuario) select.uniqueResult();
+            Query select = session.createQuery(" FROM " + classe.getSimpleName() + " WHERE login = '" + login + "'");
+            usuario = (Usuario) select.uniqueResult();
         }
-        return objeto;
+        return usuario;
     }
 }
 
