@@ -54,7 +54,17 @@ public class ComboBoxCurso extends HttpServlet {
         List<Curso> cursos = dao.listar();
         
         getServletContext().setAttribute("cursos", cursos);
+        String page = request.getHeader("REFERER");
+        if (page.contains("Coordenador.jsp")) {
+            response.sendRedirect("pedidoLivroCoordenador.jsp");
+        }
+        else if (page.contains("Professor.jsp")) {
+            response.sendRedirect("pedidoLivroProfessor.jsp");
+        }
+        else{
         response.sendRedirect("crudDisciplina.jsp");
+            
+        }
     }
 
     /**

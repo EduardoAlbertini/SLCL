@@ -32,7 +32,7 @@
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li id="pedirLivro"><a href="pedidoLivroProfessor.jsp">Pedir Livro</a></li>
+                                <li id="pedirLivro"><a href="ComboBoxCurso">Pedir Livro</a></li>
                                 <li id="historicoPedidos"><a href="HistoricoPedidosLivro" >Histórico de Pedidos</a></li>
                             </ul>
                         </div>
