@@ -1,6 +1,7 @@
 package br.com.entitys;
 
 import br.edu.utfpr.cm.saa.entidades.Usuario;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,6 +27,7 @@ public class Curso {
     private List<Disciplina> disciplinas;
 
     public Curso() {
+        disciplinas = new ArrayList<Disciplina>();
     }
     
     public Curso(String codigo, String nome, Usuario coordenador, List<Disciplina> disciplinas){
@@ -69,6 +71,10 @@ public class Curso {
 
     public void setDisciplinas(List<Disciplina> disciplinas) {
         this.disciplinas = disciplinas;
+    }
+    
+    public void addDisciplina(Disciplina disciplina){
+        this.disciplinas.add(disciplina);
     }
     
     @Override

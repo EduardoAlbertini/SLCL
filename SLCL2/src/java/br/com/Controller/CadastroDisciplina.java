@@ -67,15 +67,20 @@ public class CadastroDisciplina extends HttpServlet {
             throws ServletException, IOException {
         String codigo = request.getParameter("codigo");
         String nome = request.getParameter("nome");
-        String curso = request.getParameter("curso");
+        String curse = request.getParameter("curso");
         
         DaoCurso daoCurso = new DaoCurso();
-        List<Curso> cursos = daoCurso.listar("FROM Curso WHERE nome = '" + curso + "'");
+        List<Curso> cursos = daoCurso.listar("SELECT curso FROM Curso curso INNER JOIN curso.disciplina AS disciplina");
+        Curso curso = cursos.get(0);
 
-        Disciplina disciplina = new Disciplina(codigo, nome, cursos.get(0));
+        Disciplina disciplina = new Disciplina(codigo, nome, curso);
+        curso.addDisciplina(disciplina);
+        
+        
 
         DaoDisciplina daoDisciplina = new DaoDisciplina();
         daoDisciplina.persistir(disciplina);
+        daoCurso.persistir(curso);
 
         response.sendRedirect("crudDisciplina.jsp");
     }

@@ -44,7 +44,7 @@ public class CadastroCurso extends HttpServlet {
         DaoCurso dao = new DaoCurso();
         dao.persistir(curso);
         
-        response.sendRedirect("indexBibliotecario.jsp");
+        response.sendRedirect("crudCurso.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

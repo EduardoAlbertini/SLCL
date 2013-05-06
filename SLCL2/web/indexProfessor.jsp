@@ -33,7 +33,7 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="pedirLivro"><a href="pedidoLivroProfessor.jsp">Pedir Livro</a></li>
-                                <li id="historicoPedidos"><a href="historicoPedidosProfessor.jsp"  onclick="chamarServlet('HistoricoPedidosLivro')">Histórico de Pedidos</a></li>
+                                <li id="historicoPedidos"><a href="HistoricoPedidosLivro" >Histórico de Pedidos</a></li>
                             </ul>
                         </div>
                     </div>

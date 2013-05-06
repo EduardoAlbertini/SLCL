@@ -26,17 +26,22 @@ public class HistoricoPedidosLivro extends HttpServlet {
             throws ServletException, IOException {
         DaoPedidoDeLivro dao = new DaoPedidoDeLivro();
         List<PedidoDeLivro> pedidos = dao.listar();
-
         request.getSession().setAttribute("pedidosLivro", pedidos);
-//        response.sendRedirect("historicoPedidos.jsp");
+        System.out.println("URI: " + request.getHeader("REFERER"));
+        String page = request.getHeader("REFERER");
+        if (page.contains("Coordenador.jsp")) {
+            response.sendRedirect("historicoPedidosCoordenador.jsp");
+        }
+        if (page.contains("Professor.jsp")) {
+            response.sendRedirect("historicoPedidosProfessor.jsp");
+        }
+//                response.sendRedirect("historicoPedidos.jsp");
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         processRequest(request, response);
-        response.sendRedirect("historicoPedidos.jsp");
     }
 
     /**
@@ -53,6 +58,5 @@ public class HistoricoPedidosLivro extends HttpServlet {
             throws ServletException, IOException {
 
         processRequest(request, response);
-        response.sendRedirect("historicoPedidosProfessor.jsp");
     }
 }

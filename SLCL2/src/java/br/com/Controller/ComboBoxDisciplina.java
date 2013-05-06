@@ -55,6 +55,7 @@ public class ComboBoxDisciplina extends HttpServlet {
         DaoCurso daoCurso = new DaoCurso();
         List<Curso> cursos = daoCurso.listar("FROM Curso WHERE nome = '" + curso + "'");
         List<Disciplina> disciplinas = cursos.get(0).getDisciplinas();
+//        SELECT  d.codigo, d.nome, c.nome FROM disciplina d, curso c where c.nome like 'Tecnologia em Sistemas para Internet';
         
         getServletContext().setAttribute("disciplinas", disciplinas);
     }
