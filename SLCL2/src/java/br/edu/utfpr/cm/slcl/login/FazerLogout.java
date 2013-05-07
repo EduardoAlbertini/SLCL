@@ -1,6 +1,6 @@
-package br.com.login;
+package br.edu.utfpr.cm.slcl.login;
 
-import br.com.ldap.TransactionManager;
+import br.edu.utfpr.cm.slcl.ldap.TransactionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

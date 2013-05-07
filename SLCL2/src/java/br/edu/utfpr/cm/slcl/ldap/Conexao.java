@@ -1,6 +1,6 @@
-package br.com.ldap;
+package br.edu.utfpr.cm.slcl.ldap;
 
-import br.com.hibernate.HibernateConfiguration;
+import br.edu.utfpr.cm.slcl.hibernate.HibernateConfiguration;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

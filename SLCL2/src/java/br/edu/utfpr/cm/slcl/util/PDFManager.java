@@ -1,4 +1,4 @@
-package br.com.util;
+package br.edu.utfpr.cm.slcl.util;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

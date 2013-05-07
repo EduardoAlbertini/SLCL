@@ -1,4 +1,4 @@
-package br.com.hibernate;
+package br.edu.utfpr.cm.slcl.hibernate;
 
 import java.util.List;
 import org.hibernate.Query;

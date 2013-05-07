@@ -1,6 +1,6 @@
-package br.com.database;
+package br.edu.utfpr.cm.slcl.database;
 
-import br.com.dao.PopularDao;
+import br.edu.utfpr.cm.slcl.dao.PopularDao;
 
 public class CriarBanco {
     public static void main(String[] args) {

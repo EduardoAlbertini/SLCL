@@ -1,7 +1,7 @@
-package br.com.dao.entitys;
+package br.edu.utfpr.cm.slcl.dao.entitys;
 
-import br.com.dao.DaoGenerics;
-import br.com.entitys.Bibliotecario;
+import br.edu.utfpr.cm.slcl.dao.DaoGenerics;
+import br.edu.utfpr.cm.slcl.entitys.Bibliotecario;
 import org.hibernate.Query;
 
 public class DaoBibliotecario extends DaoGenerics<Bibliotecario> {

@@ -1,7 +1,7 @@
-package br.com.dao.entitys;
+package br.edu.utfpr.cm.slcl.dao.entitys;
 
-import br.com.dao.DaoGenerics;
-import br.com.entitys.Coordenador;
+import br.edu.utfpr.cm.slcl.dao.DaoGenerics;
+import br.edu.utfpr.cm.slcl.entitys.Coordenador;
 
 public class DaoCoordenador extends DaoGenerics<Coordenador> {
     public DaoCoordenador() {

@@ -1,7 +1,7 @@
-package br.com.dao.entitys;
+package br.edu.utfpr.cm.slcl.dao.entitys;
 
-import br.com.dao.DaoGenerics;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
+import br.edu.utfpr.cm.slcl.dao.DaoGenerics;
 import org.hibernate.Query;
 
 public class DaoUsuario extends DaoGenerics<Usuario> {

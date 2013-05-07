@@ -1,4 +1,4 @@
-package br.com.dao;
+package br.edu.utfpr.cm.slcl.dao;
 
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.cfg.Configuration;

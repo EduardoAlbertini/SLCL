@@ -1,4 +1,4 @@
-package br.com.entitys;
+package br.edu.utfpr.cm.slcl.entitys;
 
 import br.edu.utfpr.cm.saa.entidades.Papel;
 import br.edu.utfpr.cm.saa.entidades.Usuario;

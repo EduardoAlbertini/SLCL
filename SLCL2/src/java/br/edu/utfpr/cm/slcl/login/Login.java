@@ -1,13 +1,13 @@
-package br.com.login;
+package br.edu.utfpr.cm.slcl.login;
 
-import br.com.dao.entitys.DaoBibliotecario;
-import br.com.dao.entitys.DaoPapel;
-import br.com.dao.entitys.DaoProfessor;
-import br.com.dao.entitys.DaoUsuario;
-import br.com.entitys.Bibliotecario;
-import br.com.entitys.Professor;
-import br.com.ldap.LDAP;
-import br.com.ldap.TransactionManager;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoBibliotecario;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoPapel;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoProfessor;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoUsuario;
+import br.edu.utfpr.cm.slcl.entitys.Bibliotecario;
+import br.edu.utfpr.cm.slcl.entitys.Professor;
+import br.edu.utfpr.cm.slcl.ldap.LDAP;
+import br.edu.utfpr.cm.slcl.ldap.TransactionManager;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;

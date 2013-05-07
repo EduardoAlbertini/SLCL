@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.dao.entitys;
+package br.edu.utfpr.cm.slcl.dao.entitys;
 
-import br.com.dao.DaoGenerics;
-import br.com.entitys.PedidoDeLivro;
+import br.edu.utfpr.cm.slcl.dao.DaoGenerics;
+import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 
 /**
  *

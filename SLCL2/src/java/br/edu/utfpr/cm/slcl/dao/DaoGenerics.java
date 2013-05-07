@@ -1,8 +1,8 @@
-package br.com.dao;
+package br.edu.utfpr.cm.slcl.dao;
 
 
-import br.com.hibernate.HibernateConfiguration;
-import br.com.ldap.TransactionManager;
+import br.edu.utfpr.cm.slcl.hibernate.HibernateConfiguration;
+import br.edu.utfpr.cm.slcl.ldap.TransactionManager;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;

@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.Controller;
+package br.edu.utfpr.cm.slcl.Controller;
 
-import br.com.dao.entitys.DaoPedidoDeLivro;
-import br.com.entitys.PedidoDeLivro;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
+import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;

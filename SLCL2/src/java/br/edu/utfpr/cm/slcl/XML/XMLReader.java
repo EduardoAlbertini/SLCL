@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.XML;
+package br.edu.utfpr.cm.slcl.XML;
 
-import br.com.entitys.Livro;
+import br.edu.utfpr.cm.slcl.entitys.Livro;
 import java.util.Iterator;
 import java.util.List;
 import org.jdom2.Document;

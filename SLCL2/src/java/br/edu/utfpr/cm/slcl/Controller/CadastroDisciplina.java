@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.Controller;
+package br.edu.utfpr.cm.slcl.Controller;
 
-import br.com.dao.entitys.DaoCurso;
-import br.com.dao.entitys.DaoDisciplina;
-import br.com.entitys.Curso;
-import br.com.entitys.Disciplina;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
+import br.edu.utfpr.cm.slcl.entitys.Curso;
+import br.edu.utfpr.cm.slcl.entitys.Disciplina;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;

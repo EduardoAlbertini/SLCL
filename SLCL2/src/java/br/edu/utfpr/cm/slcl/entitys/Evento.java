@@ -1,4 +1,4 @@
-package br.com.entitys;
+package br.edu.utfpr.cm.slcl.entitys;
 
 import java.util.Date;
 import javax.persistence.Column;

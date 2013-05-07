@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.Controller;
+package br.edu.utfpr.cm.slcl.Controller;
 
-import br.com.dao.entitys.DaoCurso;
-import br.com.entitys.Curso;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
+import br.edu.utfpr.cm.slcl.entitys.Curso;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;

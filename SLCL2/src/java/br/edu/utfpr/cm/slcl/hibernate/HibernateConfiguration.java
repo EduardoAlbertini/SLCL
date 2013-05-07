@@ -1,14 +1,14 @@
-package br.com.hibernate;
+package br.edu.utfpr.cm.slcl.hibernate;
 
-import br.com.entitys.Bibliotecario;
-import br.com.entitys.Coordenador;
-import br.com.entitys.Curso;
-import br.com.entitys.Disciplina;
-import br.com.entitys.Evento;
-import br.com.entitys.Livro;
-import br.com.entitys.PedidoDeLivro;
-import br.com.entitys.Professor;
-import br.com.ldap.TransactionManager;
+import br.edu.utfpr.cm.slcl.entitys.Bibliotecario;
+import br.edu.utfpr.cm.slcl.entitys.Coordenador;
+import br.edu.utfpr.cm.slcl.entitys.Curso;
+import br.edu.utfpr.cm.slcl.entitys.Disciplina;
+import br.edu.utfpr.cm.slcl.entitys.Evento;
+import br.edu.utfpr.cm.slcl.entitys.Livro;
+import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
+import br.edu.utfpr.cm.slcl.entitys.Professor;
+import br.edu.utfpr.cm.slcl.ldap.TransactionManager;
 import br.edu.utfpr.cm.saa.entidades.Papel;
 import br.edu.utfpr.cm.saa.entidades.Sistema;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
@@ -30,9 +30,9 @@ public class HibernateConfiguration {
     //Casa
     //private static String dataBase = "SLCL";
     //Principal
-//    private static String host = "localhost:3306";
+    private static String host = "localhost:3306";
     //EduardoDoido '-'
-    private static String host = "localhost:3307";
+    //private static String host = "localhost:3307";
     private static AnnotationConfiguration cfg = null;
     private static SessionFactory factory = null;
     

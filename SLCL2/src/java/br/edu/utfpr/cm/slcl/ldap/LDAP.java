@@ -1,4 +1,4 @@
-package br.com.ldap;
+package br.edu.utfpr.cm.slcl.ldap;
 
 import br.edu.utfpr.cm.saa.entidades.Usuario;
 import br.edu.utfpr.cm.saa.security.LDAPManager;
