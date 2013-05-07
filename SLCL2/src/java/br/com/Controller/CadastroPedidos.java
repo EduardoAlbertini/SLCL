@@ -4,11 +4,14 @@
  */
 package br.com.Controller;
 
+import br.com.dao.entitys.DaoCurso;
 import br.com.dao.entitys.DaoLivro;
 import br.com.dao.entitys.DaoPedidoDeLivro;
+import br.com.entitys.Curso;
 import br.com.entitys.Livro;
 import br.com.entitys.PedidoDeLivro;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,11 +38,17 @@ public class CadastroPedidos extends HttpServlet {
         String curso = request.getParameter("curso");
         String disciplina = request.getParameter("disciplina");
         String referencia = request.getParameter("referencia");
-        
+
 
         Livro livro = new Livro(tituloOriginal, titulo, autor, edicao, editora, isbn, assunto);
-        PedidoDeLivro pedidoDeLivro = new PedidoDeLivro(qtde, livro, null, null);
-        pedidoDeLivro.setBibliografia();
+        
+        List<Curso> cursos =new DaoCurso().listar("FROM Curso Where nome = '" + curso+ "'");
+        Curso curse = cursos.get(0);
+        
+        PedidoDeLivro pedidoDeLivro = new PedidoDeLivro(qtde, livro, null, curse);
+        if (referencia.equalsIgnoreCase("complementar")) {
+            pedidoDeLivro.setBibliografia();
+        }
         System.out.println(pedidoDeLivro.toString());
 
         DaoLivro daoLivro = new DaoLivro();
