@@ -11,6 +11,8 @@
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
         <script type="text/javascript" src="js/bootstrap.js"></script>    
         <script type="text/javascript" src="js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="js/ajax.js"></script>  
+        <script type="text/javascript" src="js/breadcrumbs.js"></script>  
         <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="css/bootstrap.css" rel="stylesheet" media="screen">
@@ -29,7 +31,7 @@
                         <ul class="nav">
                             <li><a href="javascript:open('index.jsp')">Inicio</a></li>
                             <li id="faq"><a href="#">F.A.Q.</a></li>
-                            <li id="contato"><a href="javascript:open('contato.jsp')">Contato</a></li>
+                            <li id="contato"><a href="javascript:open('contato.jsp')" onclick="alterarTexto('contato')">Contato</a></li>
                         </ul>
                     </div>
                     <a class="btn pull-right btn-info" style="margin: 5px">Sair</a>
