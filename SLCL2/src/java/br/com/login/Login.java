@@ -1,8 +1,10 @@
 package br.com.login;
 
+import br.com.dao.entitys.DaoBibliotecario;
 import br.com.dao.entitys.DaoPapel;
 import br.com.dao.entitys.DaoProfessor;
 import br.com.dao.entitys.DaoUsuario;
+import br.com.entitys.Bibliotecario;
 import br.com.entitys.Professor;
 import br.com.ldap.LDAP;
 import br.com.ldap.TransactionManager;
@@ -42,6 +44,8 @@ public class Login extends HttpServlet {
 
             //Usar em casa//
             Usuario usuarioLocal = ehOAdmin(uLogin, uSenha);
+            //Usuario usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
+            
             if (usuarioLocal != null) {
                 request.getSession().setAttribute("UsuarioLogado", usuarioLocal);
                 response.sendRedirect("indexProfessor.jsp");
@@ -51,7 +55,7 @@ public class Login extends HttpServlet {
                     usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
 
                     //Usar em UTFPR//
-                    usuarioLocal = autenticarUsuario(uLogin, uSenha);
+                    //usuarioLocal = autenticarUsuario(uLogin, uSenha);
 //                    if (usuarioLocal != null) {
 
                     if (usuarioLocal != null) {
@@ -155,7 +159,7 @@ public class Login extends HttpServlet {
 
             if (professor != null) {
                 if (professor.getPapel() == null) {
-                    professor.setPapel(new DaoPapel().obterPorId(1));
+                    professor.setPapel(new DaoPapel().obterPorId(3));
                     daoP.persistir(professor);
                     request.getSession().setAttribute("UsuarioLogado", professor);
                     return professor;
@@ -169,7 +173,7 @@ public class Login extends HttpServlet {
                 professor.setNome(user.getNome());
                 professor.setLogin(user.getLogin());
                 professor.setEmail(user.getEmail());
-                professor.setPapel(new DaoPapel().obterPorId(1));
+                professor.setPapel(new DaoPapel().obterPorId(3));
                 daoP.persistir(professor);
                 TransactionManager.commit();
                 request.getSession().setAttribute("UsuarioLogado", professor);
@@ -214,13 +218,48 @@ public class Login extends HttpServlet {
 
     private Usuario ehOAdmin(String uLogin, String uSenha) {
         if (uLogin.equals("admin")) {
+            System.out.println("++++++++++++++" + uLogin);
             DaoUsuario dao = new DaoUsuario();
-            System.out.println("Passandooooooooo*********************************");
-            Usuario usuario = dao.obterPorLogin(uLogin);
+            System.out.println(" Passandooooooooo*********************************" + dao.obterPorId(1));
+            Usuario usuario = dao.obterPorId(1);
             if (uSenha.equals("admin147")) {
                 return usuario;
             } else {
                 return null;
+            }
+        } else {
+            return null;
+        }
+    }
+    
+    private Usuario ehOBibliotecario(Usuario user, HttpServletRequest request) {
+        if (!verificarSegundoDigito(user.getLogin().charAt(1))) {
+
+            System.out.println("Entrei aqui!********* DaoBibliotecario");
+            DaoBibliotecario daoB = new DaoBibliotecario();
+            Bibliotecario bibliotecario = daoB.obterPorLogin(user.getLogin());
+
+            if (bibliotecario != null) {
+                if (bibliotecario.getPapel() == null) {
+                    bibliotecario.setPapel(new DaoPapel().obterPorId(1));
+                    daoB.persistir(bibliotecario);
+                    request.getSession().setAttribute("UsuarioLogado", bibliotecario);
+                    return bibliotecario;
+                } else {
+                    request.getSession().setAttribute("UsuarioLogado", bibliotecario);
+                    return bibliotecario;
+                }
+            } else {
+                TransactionManager.beginTransaction();
+                bibliotecario = new Bibliotecario();
+                bibliotecario.setNome(user.getNome());
+                bibliotecario.setLogin(user.getLogin());
+                bibliotecario.setEmail(user.getEmail());
+                bibliotecario.setPapel(new DaoPapel().obterPorId(1));
+                daoB.persistir(bibliotecario);
+                TransactionManager.commit();
+                request.getSession().setAttribute("UsuarioLogado", bibliotecario);
+                return bibliotecario;
             }
         } else {
             return null;
