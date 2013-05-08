@@ -1,5 +1,8 @@
 package br.edu.utfpr.cm.slcl.hibernate;
 
+import br.edu.utfpr.cm.saa.entidades.Papel;
+import br.edu.utfpr.cm.saa.entidades.Sistema;
+import br.edu.utfpr.cm.saa.entidades.Usuario;
 import br.edu.utfpr.cm.slcl.entitys.Bibliotecario;
 import br.edu.utfpr.cm.slcl.entitys.Coordenador;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
@@ -9,9 +12,6 @@ import br.edu.utfpr.cm.slcl.entitys.Livro;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import br.edu.utfpr.cm.slcl.entitys.Professor;
 import br.edu.utfpr.cm.slcl.ldap.TransactionManager;
-import br.edu.utfpr.cm.saa.entidades.Papel;
-import br.edu.utfpr.cm.saa.entidades.Sistema;
-import br.edu.utfpr.cm.saa.entidades.Usuario;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

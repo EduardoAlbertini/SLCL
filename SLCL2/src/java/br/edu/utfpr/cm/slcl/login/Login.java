@@ -51,7 +51,7 @@ public class Login extends HttpServlet {
                 response.sendRedirect("indexProfessor.jsp");
             } else {
                 //Usar em casa//                
-                if (!uLogin.equals("admin")) {
+                if (!uLogin.equals("bibliotecario")) {
                     usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
 
                     //Usar em UTFPR//
@@ -217,12 +217,12 @@ public class Login extends HttpServlet {
     }
 
     private Usuario ehOAdmin(String uLogin, String uSenha) {
-        if (uLogin.equals("admin")) {
+        if (uLogin.equals("bibliotecario")) {
             System.out.println("++++++++++++++" + uLogin);
             DaoUsuario dao = new DaoUsuario();
-            System.out.println(" Passandooooooooo*********************************" + dao.obterPorId(1));
+            System.out.println(" Passandooooooooo*********************************" + dao.obterPorLogin(uLogin));
             Usuario usuario = dao.obterPorId(1);
-            if (uSenha.equals("admin147")) {
+            if (uSenha.equals("bibliotecario123")) {
                 return usuario;
             } else {
                 return null;
