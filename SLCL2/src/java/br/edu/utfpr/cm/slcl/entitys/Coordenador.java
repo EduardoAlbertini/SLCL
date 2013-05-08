@@ -10,31 +10,31 @@ import javax.persistence.Table;
 //@Table(name = "Coordenador")
 //@PrimaryKeyJoinColumn(name = "id")
 public class Coordenador extends Professor{
-    @OneToOne
-    private Curso curso;
+//    @OneToOne
+//    private Curso curso;
     
-    @OneToOne
-    private Papel papel;
+//    @OneToOne
+//    private Papel papel;
     
     public Coordenador(){
         this.setSenha("default");
     }
     
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
+//    public Curso getCurso() {
+//        return curso;
+//    }
+//
+//    public void setCurso(Curso curso) {
+//        this.curso = curso;
+//    }
     
-    @Override
-    public Papel getPapel() {
-        return papel;
-    }
-
-    @Override
-    public void setPapel(Papel papel) {
-        this.papel = papel;
-    }
+//    @Override
+//    public Papel getPapel() {
+//        return papel;
+//    }
+//
+//    @Override
+//    public void setPapel(Papel papel) {
+//        this.papel = papel;
+//    }
 } 

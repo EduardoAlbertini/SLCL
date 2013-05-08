@@ -43,6 +43,6 @@ public class Bibliotecario extends Usuario{
 
     @Override
     public String toString() {
-        return "(" + this.getId() + ") Nome: " + this.getNome();
+        return "(" + this.getId() + ") " + this.papel.getNome() + ": " + this.getNome();
     }
 }

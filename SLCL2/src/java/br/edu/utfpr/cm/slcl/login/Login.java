@@ -7,6 +7,7 @@ import br.edu.utfpr.cm.slcl.dao.entitys.DaoPapel;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoProfessor;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoUsuario;
 import br.edu.utfpr.cm.slcl.entitys.Bibliotecario;
+import br.edu.utfpr.cm.slcl.entitys.Coordenador;
 import br.edu.utfpr.cm.slcl.entitys.Professor;
 import br.edu.utfpr.cm.slcl.ldap.LDAP;
 import br.edu.utfpr.cm.slcl.ldap.TransactionManager;
@@ -49,7 +50,7 @@ public class Login extends HttpServlet {
 
             if (usuarioLocal != null) {
                 request.getSession().setAttribute("UsuarioLogado", usuarioLocal.getNome());
-                response.sendRedirect("indexProfessor.jsp");
+                response.sendRedirect("indexBibliotecario.jsp");
             } else {
                 //Usar em casa//                
                 if (!uLogin.equals("admin")) {
@@ -62,13 +63,13 @@ public class Login extends HttpServlet {
                     if (usuarioLocal != null) {
                         Usuario userInterno = garantirQueUsuarioEstaNaBaseDoGerenciador(usuarioLocal, out, request);
                         if (userInterno != null) {
-                            if (qualOPapel(userInterno).equalsIgnoreCase("Bibliotecario")) {
+                            if (userInterno instanceof Bibliotecario) {
                                 request.getSession().setAttribute("UsuarioLogado", userInterno.getNome());
                                 response.sendRedirect("indexBibliotecario.jsp");
-                            } else if (qualOPapel(userInterno).equalsIgnoreCase("Coordenador")) {
+                            } else if (userInterno instanceof Coordenador) {
                                 request.getSession().setAttribute("UsuarioLogado", userInterno.getNome());
                                 response.sendRedirect("indexCoordenador.jsp");
-                            } else if (qualOPapel(userInterno).equalsIgnoreCase("Professor")) {
+                            } else if (userInterno instanceof Professor) {
                                 request.getSession().setAttribute("UsuarioLogado", userInterno.getNome());
                                 response.sendRedirect("indexProfessor.jsp");
                             } else {
@@ -84,8 +85,8 @@ public class Login extends HttpServlet {
                         response.sendRedirect("Login.jsp");
                     }
                 } else {
-                    request.getSession().setAttribute("UsuarioLogado", usuarioLocal.getNome());
-                    response.sendRedirect("indexBibliotecario.jsp");
+                    request.getSession().setAttribute("erroLogin", "erro");
+                    response.sendRedirect("Login.jsp");
                 }
             }
 
@@ -233,8 +234,8 @@ public class Login extends HttpServlet {
         if (uLogin.equals("admin")) {
             System.out.println("++++++++++++++" + uLogin);
             DaoUsuario dao = new DaoUsuario();
-            System.out.println(" Passandooooooooo*********************************" + dao.obterPorLogin(uLogin));
-            Usuario usuario = dao.obterPorId(1);
+            System.out.println(" Passandooooooooo*********************************");
+            Usuario usuario = dao.obterPorLogin(uLogin);
             if (uSenha.equals("admin123")) {
                 return usuario;
             } else {
@@ -245,17 +246,18 @@ public class Login extends HttpServlet {
         }
     }
 
-    private String qualOPapel(Usuario user) {
-        if (user.getPapelList().get(0).equals(new DaoPapel().obterPorId(1))) {
-            return "Bibliotecario";
-        } else if (user.getPapelList().get(0).equals(new DaoPapel().obterPorId(2))) {
-            return "Coordenador";
-        } else if (user.getPapelList().get(0).equals(new DaoPapel().obterPorId(3))) {
-            return "Professor";
-        } else {
-            return null;
-        }
-    }
+//    private String qualOPapel(Usuario user) {
+//        System.out.println(user.toString());
+//        if (user.getPapelList().get(0).equals(new DaoPapel().obterPorId(1))) {
+//            return "Bibliotecario";
+//        } else if (user.getPapelList().get(0).equals(new DaoPapel().obterPorId(2))) {
+//            return "Coordenador";
+//        } else if (user.getPapelList().get(0).equals(new DaoPapel().obterPorId(3))) {
+//            return "Professor";
+//        } else {
+//            return null;
+//        }
+//    }
 
     private Usuario ehOBibliotecario(Usuario user, HttpServletRequest request) {
         if (!verificarSegundoDigito(user.getLogin().charAt(1))) {

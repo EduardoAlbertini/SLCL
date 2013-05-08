@@ -28,7 +28,7 @@ public class DaoGenerics<T> implements Dao<T> {
     public T obterPorId(int id) {
         T objeto = null;
         if (id > 0) {
-            Query select = session.createQuery("From "+classe.getSimpleName()+" where id = " + id);
+            Query select = session.createQuery("From " + classe.getSimpleName() + " where id = " + id);
             objeto = (T) select.uniqueResult();
         }
         return objeto;

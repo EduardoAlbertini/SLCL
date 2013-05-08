@@ -24,12 +24,10 @@ public class FazerLogout extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            
             request.getSession().removeAttribute("UsuarioLogado");
             request.getSession().removeAttribute("tipoUsuario");
             TransactionManager.getCurrentSession().close();
             response.sendRedirect("Login.jsp");
-            
         } finally {            
             out.close();
         }

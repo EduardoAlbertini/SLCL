@@ -15,11 +15,11 @@
 
 
 --
--- Create schema aluno
+-- Create schema slcl
 --
 
-CREATE DATABASE IF NOT EXISTS aluno;
-USE aluno;
+CREATE DATABASE IF NOT EXISTS slcl;
+USE slcl;
 
 
 
@@ -27,8 +27,8 @@ USE aluno;
 -- Definition of table `papel`
 --
 
-DROP TABLE IF EXISTS `papel`;
-CREATE TABLE `papel` (
+DROP TABLE IF EXISTS `Papel`;
+CREATE TABLE `Papel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) DEFAULT NULL,
   `nome` varchar(20) NOT NULL,
@@ -42,20 +42,20 @@ CREATE TABLE `papel` (
 -- Dumping data for table `papel`
 --
 
-/*!40000 ALTER TABLE `papel` DISABLE KEYS */;
-INSERT INTO `papel` (`id`,`descricao`,`nome`,`Sistema_id`) VALUES 
- (1,'Bibliotecario','Bibliotecario',1),
- (2,'Coordenador','Coordenador',1),
- (3,'Professor','Professor',1);
-/*!40000 ALTER TABLE `papel` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Papel` DISABLE KEYS */;
+INSERT INTO `Papel` (`id`,`descricao`,`nome`,`Sistema_id`) VALUES 
+ (1,'Bibliotecario','Bibliotecario',2),
+ (2,'Coordenador','Coordenador',2),
+ (3,'Professor','Professor',2);
+/*!40000 ALTER TABLE `Papel` ENABLE KEYS */;
 
 
 --
 -- Definition of table `papeldousuario`
 --
 
-DROP TABLE IF EXISTS `papeldousuario`;
-CREATE TABLE `papeldousuario` (
+DROP TABLE IF EXISTS `PapelDoUsuario`;
+CREATE TABLE `PapelDoUsuario` (
   `Papel_id` int(11) NOT NULL,
   `Usuario_id` int(11) NOT NULL,
   KEY `FKE8008D5D7A46405F` (`Usuario_id`),
@@ -68,16 +68,16 @@ CREATE TABLE `papeldousuario` (
 -- Dumping data for table `papeldousuario`
 --
 
-/*!40000 ALTER TABLE `papeldousuario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `papeldousuario` ENABLE KEYS */;
+/*!40000 ALTER TABLE `PapelDoUsuario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `PapelDoUsuario` ENABLE KEYS */;
 
 
 --
 -- Definition of table `sistema`
 --
 
-DROP TABLE IF EXISTS `sistema`;
-CREATE TABLE `sistema` (
+DROP TABLE IF EXISTS `Sistema`;
+CREATE TABLE `Sistema` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `descricao` varchar(45) NOT NULL,
   `sigla` varchar(10) NOT NULL,
@@ -88,18 +88,18 @@ CREATE TABLE `sistema` (
 -- Dumping data for table `sistema`
 --
 
-/*!40000 ALTER TABLE `sistema` DISABLE KEYS */;
-INSERT INTO `sistema` (`id`,`descricao`,`sigla`) VALUES 
+/*!40000 ALTER TABLE `Sistema` DISABLE KEYS */;
+INSERT INTO `Sistema` (`id`,`descricao`,`sigla`) VALUES 
  (2,'Sistema de Licitação de Compra de Livros','SLCL');
-/*!40000 ALTER TABLE `sistema` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Sistema` ENABLE KEYS */;
 
 
 --
 -- Definition of table `usuario`
 --
 
-DROP TABLE IF EXISTS `usuario`;
-CREATE TABLE `usuario` (
+DROP TABLE IF EXISTS `Usuario`;
+CREATE TABLE `Usuario` (
   `DTYPE` varchar(31) NOT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(45) NOT NULL,
@@ -116,11 +116,13 @@ CREATE TABLE `usuario` (
 -- Dumping data for table `usuario`
 --
 
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` (`DTYPE`,`id`,`email`,`login`,`nome`,`senha`,`papel_id`) VALUES 
-
- ('Bibliotecario',1,'admin@hotmail.com','admin','Administrador do sistema','admin147',1);
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Usuario` DISABLE KEYS */;
+INSERT INTO `Usuario` (`DTYPE`,`id`,`email`,`login`,`nome`,`senha`,`papel_id`) VALUES 
+('Professor',2,'eduardoalbertini@hotmail.com','eduardoalbertini','Eduardo Albertini','edu123',3),
+('Professor',3,'carloseduardo@hotmail.com','carloseduardo','Carlos Eduardo','carlos123',3),
+('Coordenador',4,'joaodasilva@hotmail.com','joaodasilva','João da Silva','joao123',2),
+('Bibliotecario',1,'admin@hotmail.com','admin','Administrador do sistema','admin123',1);
+/*!40000 ALTER TABLE `Usuario` ENABLE KEYS */;
 
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
