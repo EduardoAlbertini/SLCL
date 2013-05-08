@@ -7,15 +7,17 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Coordenador")
-@PrimaryKeyJoinColumn(name = "id")
+//@Table(name = "Coordenador")
+//@PrimaryKeyJoinColumn(name = "id")
 public class Coordenador extends Professor{
     @OneToOne
     private Curso curso;
-
+    
+    @OneToOne
+    private Papel papel;
+    
     public Coordenador(){
-        super();
-        this.setSenha("senhanaoutilizada");
+        this.setSenha("default");
     }
     
     public Curso getCurso() {
@@ -24,5 +26,15 @@ public class Coordenador extends Professor{
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+    
+    @Override
+    public Papel getPapel() {
+        return papel;
+    }
+
+    @Override
+    public void setPapel(Papel papel) {
+        this.papel = papel;
     }
 } 

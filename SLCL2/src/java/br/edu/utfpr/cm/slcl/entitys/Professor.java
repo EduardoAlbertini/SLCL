@@ -4,19 +4,20 @@ import br.edu.utfpr.cm.saa.entidades.Papel;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Professor")
-@PrimaryKeyJoinColumn(name = "id")
+//@Table(name = "Professor")
+//@PrimaryKeyJoinColumn(name = "id")
 public class Professor extends Usuario{
-    @ManyToOne
+    @OneToOne
     private Papel papel;
     
     public Professor() {
         super();
-        this.setSenha("senhanaoutilizada");
+        this.setSenha("default");
     }   
 
     public Papel getPapel() {
