@@ -34,11 +34,11 @@
                             <li id="contato"><a href="javascript:open('contato.jsp')" onclick="alterarTexto('contato')">Contato</a></li>
                         </ul>
                     </div>
-                    <a class="btn pull-right btn-info" style="margin: 5px">Sair</a>
+                    <a href="FazerLogout" class="btn pull-right btn-info" style="margin: 5px">Sair</a>
                     <form class="navbar-search pull-right" id="pesquisa" style="margin: 5px">
                         <input type="text" class="search-query" placeholder="Buscar" style="height: 30px">
                     </form>
-                    <h5 class="pull-right" style="margin-right: 5px">${uLogin}</h5>
+                    <h5 class="pull-right" style="margin-right: 5px">${UsuarioLogado}</h5>
                 </div>
             </div>
         </div>

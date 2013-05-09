@@ -23,7 +23,7 @@
         <div id="box">
             <form action="Login" method="POST" class="form-horizontal">
                 <fieldset >
-                    <label for="username">Usuário</label>
+                    <label for="username">UsuÃ¡rio</label>
                     <div>
                         <div class="input-prepend">
                             <span class="add-on">
@@ -40,9 +40,7 @@
                             </span>
                             <input id="password" name="password" type="password" class="span3">
                             <div class="controls">
-                                <label class="checkbox">
-                                    <input type="checkbox"> Lembrar
-                                </label>
+                                <br /> 
                                 <button type="submit" class="btn-large btn-info">Login</button>
                             </div>
                         </div>
