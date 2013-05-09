@@ -9,7 +9,6 @@ import br.com.dao.entitys.DaoDisciplina;
 import br.com.entitys.Curso;
 import br.com.entitys.Disciplina;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -68,19 +67,24 @@ public class CadastroDisciplina extends HttpServlet {
         String codigo = request.getParameter("codigo");
         String nome = request.getParameter("nome");
         String curse = request.getParameter("curso");
+        String botao = request.getParameter("botao");
         
         DaoCurso daoCurso = new DaoCurso();
-        List<Curso> cursos = daoCurso.listar("SELECT curso FROM Curso curso INNER JOIN curso.disciplina AS disciplina");
-        Curso curso = cursos.get(0);
-
-        Disciplina disciplina = new Disciplina(codigo, nome, curso);
-        curso.addDisciplina(disciplina);
-        
-        
-
         DaoDisciplina daoDisciplina = new DaoDisciplina();
+        List<Curso> cursos = daoCurso.listar("FROM Curso curso WHERE nome = '"+curse+"'");
+        Curso curso = cursos.get(0);
+        Disciplina disciplina = new Disciplina(codigo, nome, curso);
+        
+        if(botao.equalsIgnoreCase("inserir")){
+        curso.addDisciplina(disciplina);
         daoDisciplina.persistir(disciplina);
         daoCurso.persistir(curso);
+        }
+        if (botao.equalsIgnoreCase("excluir")) {
+            daoDisciplina.remover(disciplina);
+//            daoCurso.remover(curso);
+        }
+
 
         response.sendRedirect("crudDisciplina.jsp");
     }

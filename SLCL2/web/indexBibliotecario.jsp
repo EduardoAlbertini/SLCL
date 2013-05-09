@@ -33,7 +33,6 @@
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li id="professor"><a href="crudProfessor.jsp">Professor</a></li>
                                 <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
                                 <li id="curso"><a href="crudCurso.jsp" >Curso</a></li>
                                 <li id="disciplina"><a href="ComboBoxCurso">Disciplina</a></li>

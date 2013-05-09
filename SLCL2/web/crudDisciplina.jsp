@@ -38,7 +38,6 @@
                     <div class="navbar">
                         <div class="navbar-inner">
                             <ul class="nav">
-                                <li id="professor"><a href="crudProfessor.jsp">Professor</a></li>
                                 <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
                                 <li id="curso"><a href="crudCurso.jsp" >Curso</a></li>
                                 <li id="disciplina"><a href="#" >Disciplina</a></li>
@@ -64,8 +63,8 @@
                             </select>
 
                         </fieldset>
-                        <button type="submit" class="btn btn-info ">Inserir</button>
-                        <button type="submit" class="btn btn-danger">Excluir</button>
+                            <button type="submit" name ="botao" class="btn btn-info" value="inserir">Inserir</button>
+                            <button type="submit" name ="botao" class="btn btn-danger" value="excluir">Excluir</button>
                         <button type="reset" class="btn">Limpar</button>
                     </form>
                 </div>
