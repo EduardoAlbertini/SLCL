@@ -5,20 +5,20 @@
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <!-- Faculdade -->
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/aluno</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/slcl</property>
     <!-- Casa
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/SLCL</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/SLCL</property> -->
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
-    <mapping class="br.com.entitys.Professor"/>
-    <mapping class="br.com.entitys.Coordenador"/>
-    <mapping class="br.com.entitys.Bibliotecario"/>
-    <mapping class="br.com.entitys.Evento"/>
-    <mapping class="br.com.entitys.Livro"/>
-    <mapping class="br.com.entitys.Curso"/>
-    <mapping class="br.com.entitys.Disciplina"/>
-    <mapping class="br.com.entitys.PedidoDeLivro"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.Professor"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.Coordenador"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.Bibliotecario"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.Evento"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.Livro"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.Curso"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.Disciplina"/>
+    <mapping class="br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro"/>
     <mapping class="br.edu.utfpr.cm.saa.entidades.Usuario"/>
     <mapping class="br.edu.utfpr.cm.saa.entidades.Papel"/>
     <mapping class="br.edu.utfpr.cm.saa.entidades.Sistema"/>
