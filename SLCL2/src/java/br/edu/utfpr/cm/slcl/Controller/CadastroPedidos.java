@@ -7,9 +7,11 @@ package br.edu.utfpr.cm.slcl.Controller;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoLivro;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoProfessor;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
 import br.edu.utfpr.cm.slcl.entitys.Livro;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
+import br.edu.utfpr.cm.slcl.entitys.Professor;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -38,14 +40,17 @@ public class CadastroPedidos extends HttpServlet {
         String curso = request.getParameter("curso");
         String disciplina = request.getParameter("disciplina");
         String referencia = request.getParameter("referencia");
+        String professor = (String) request.getSession().getAttribute("UsuarioLogado");
 
 
         Livro livro = new Livro(tituloOriginal, titulo, autor, edicao, editora, isbn, assunto);
+        List<Professor> professores = new DaoProfessor().listar("FROM Usuario WHERE nome = '"+professor+"'");
+        Professor prof = professores.get(0);
         
         List<Curso> cursos =new DaoCurso().listar("FROM Curso Where nome = '" + curso+ "'");
         Curso curse = cursos.get(0);
         
-        PedidoDeLivro pedidoDeLivro = new PedidoDeLivro(qtde, livro, null, curse);
+        PedidoDeLivro pedidoDeLivro = new PedidoDeLivro(qtde, livro, prof, curse);
         if (referencia.equalsIgnoreCase("complementar")) {
             pedidoDeLivro.setBibliografia();
         }

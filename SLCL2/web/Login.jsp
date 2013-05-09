@@ -23,7 +23,7 @@
         <div id="box">
             <form action="Login" method="POST" class="form-horizontal">
                 <fieldset >
-                    <label for="username">UsuÃ¡rio</label>
+                    <label for="username">Usuário</label>
                     <div>
                         <div class="input-prepend">
                             <span class="add-on">

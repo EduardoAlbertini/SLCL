@@ -5,7 +5,9 @@
 package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoProfessor;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
+import br.edu.utfpr.cm.slcl.entitys.Professor;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -24,8 +26,11 @@ public class HistoricoPedidosLivro extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String professor = (String) request.getSession().getAttribute("UsuarioLogado");
         DaoPedidoDeLivro dao = new DaoPedidoDeLivro();
-        List<PedidoDeLivro> pedidos = dao.listar();
+        List<Professor> professores = new DaoProfessor().listar("FROM Usuario WHERE nome = '"+professor+"'");
+        Professor prof = professores.get(0);
+        List<PedidoDeLivro> pedidos = dao.listar("FROM PedidoDeLivro WHERE professor_id ="+prof.getId());
         request.getSession().setAttribute("pedidosLivro", pedidos);
         System.out.println("URI: " + request.getHeader("REFERER"));
         String page = request.getHeader("REFERER");
