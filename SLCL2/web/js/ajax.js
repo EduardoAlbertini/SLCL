@@ -99,6 +99,7 @@ function ajaxPesquisaDisciplinaFunction() {
             texto_quebrado = texto.split(":")
 
             document.getElementById("nome").value = texto_quebrado[1];
+            alert('Preencheu Nome')
         }
     }
 

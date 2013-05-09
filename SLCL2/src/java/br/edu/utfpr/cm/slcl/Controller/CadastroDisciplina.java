@@ -41,9 +41,9 @@ public class CadastroDisciplina extends HttpServlet {
             DaoDisciplina dao = new DaoDisciplina();
             Disciplina disciplina = new Disciplina();
             List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-            disciplinas = dao.listar("FROM Disciplina WHERE codigo = '"+codigo+"'");
-            
-            if (disciplinas.size()>0) {
+            disciplinas = dao.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
+
+            if (disciplinas.size() > 0) {
                 disciplina = disciplinas.get(0);
             }
             if (disciplina != null) {
@@ -68,19 +68,22 @@ public class CadastroDisciplina extends HttpServlet {
         String nome = request.getParameter("nome");
         String curse = request.getParameter("curso");
         String botao = request.getParameter("botao");
-        
+
         DaoCurso daoCurso = new DaoCurso();
         DaoDisciplina daoDisciplina = new DaoDisciplina();
-        List<Curso> cursos = daoCurso.listar("FROM Curso curso WHERE nome = '"+curse+"'");
+        List<Curso> cursos = daoCurso.listar("FROM Curso curso WHERE nome = '" + curse + "'");
         Curso curso = cursos.get(0);
-        Disciplina disciplina = new Disciplina(codigo, nome, curso);
-        
-        if(botao.equalsIgnoreCase("inserir")){
-        curso.addDisciplina(disciplina);
-        daoDisciplina.persistir(disciplina);
-        daoCurso.persistir(curso);
+        Disciplina disciplina;
+
+        if (botao.equalsIgnoreCase("inserir")) {
+            disciplina = new Disciplina(codigo, nome, curso);
+            curso.addDisciplina(disciplina);
+            daoDisciplina.persistir(disciplina);
+            daoCurso.persistir(curso);
         }
         if (botao.equalsIgnoreCase("excluir")) {
+            List<Disciplina> disciplinas = daoDisciplina.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
+            disciplina = disciplinas.get(0);
             daoDisciplina.remover(disciplina);
 //            daoCurso.remover(curso);
         }

@@ -61,6 +61,6 @@ public class Disciplina {
     
     @Override
     public String toString() {
-        return codigo + ":" + nome;
+        return codigo + ":" + nome + ":" + curso;
     }
 }
