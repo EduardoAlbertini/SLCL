@@ -6,9 +6,11 @@ package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoLivro;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoProfessor;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
+import br.edu.utfpr.cm.slcl.entitys.Disciplina;
 import br.edu.utfpr.cm.slcl.entitys.Livro;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import br.edu.utfpr.cm.slcl.entitys.Professor;
@@ -49,6 +51,9 @@ public class CadastroPedidos extends HttpServlet {
         
         List<Curso> cursos =new DaoCurso().listar("FROM Curso Where nome = '" + curso+ "'");
         Curso curse = cursos.get(0);
+        
+        List<Disciplina>disciplinas = new DaoDisciplina().listar("FROM Disciplina WHERE nome = '"+disciplina+"'");
+        System.out.println("Disciplina: "+disciplinas.get(0));
         
         PedidoDeLivro pedidoDeLivro = new PedidoDeLivro(qtde, livro, prof, curse);
         if (referencia.equalsIgnoreCase("complementar")) {

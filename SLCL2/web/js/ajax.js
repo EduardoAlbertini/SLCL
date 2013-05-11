@@ -99,7 +99,39 @@ function ajaxPesquisaDisciplinaFunction() {
             texto_quebrado = texto.split(":")
 
             document.getElementById("nome").value = texto_quebrado[1];
-            alert('Preencheu Nome')
+        }
+    }
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+}
+function ajaxComboBoxDisciplina() {
+    var xmlhttp;
+    var isIE;
+    if (window.XMLHttpRequest) {
+        xmlhttp = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        isIE = true;
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    var url = "ComboBoxDisciplina?curso=" + document.getElementById("curso").value;
+
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            texto = xmlhttp.responseText;
+            texto = texto.replace("[", "").replace("]", "")
+            texto_quebrado = texto.split(",");
+            var select = document.getElementById('disciplina');
+
+            select.innerHTML = "<option>Selecione...</option>";
+            for (i = 0; i < texto_quebrado.length; i++) {
+                if (texto_quebrado[i] != "") {
+                    select.innerHTML += "<option>" + texto_quebrado[i] + "</option>"
+                }
+            }
         }
     }
 
@@ -123,7 +155,7 @@ function callServlet(servlet, method) {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
         {
             texto = xmlhttp.responseText;
-            
+
 
             document.getElementById("ajax").value = texto;
         }
