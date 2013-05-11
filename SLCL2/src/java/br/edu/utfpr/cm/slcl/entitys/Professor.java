@@ -16,7 +16,7 @@ public class Professor extends Usuario{
     private Papel papel;
     
     public Professor() {
-        super();
+//        super();
         this.setSenha("default");
     }   
 

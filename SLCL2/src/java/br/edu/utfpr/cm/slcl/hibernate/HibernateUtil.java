@@ -8,8 +8,17 @@ import org.hibernate.cfg.AnnotationConfiguration;
 
 public class HibernateUtil {
 
+//    private static HibernateUtil singleton;
+    
     private static final SessionFactory sessionFactory;
 
+//    public static HibernateUtil getInstance() {
+//        if (singleton == null) {
+//            singleton = new HibernateUtil();
+//        }
+//        return singleton;
+//    }
+//    
     static {
 	try {
 	    sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
@@ -36,7 +45,11 @@ public class HibernateUtil {
 	return session.createQuery(hql);
     }
 
-    public static Session getSession() {
-        throw new UnsupportedOperationException("Not yet implemented");
+    public Session getSession() {
+        return sessionFactory.openSession();
+    }
+    
+    public void closeSession(Session hibernateSession) {
+        hibernateSession.close();
     }
 }

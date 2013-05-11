@@ -2,6 +2,7 @@ package br.edu.utfpr.cm.slcl.dao;
 
 
 import br.edu.utfpr.cm.slcl.hibernate.HibernateConfiguration;
+import br.edu.utfpr.cm.slcl.hibernate.HibernateUtil;
 import br.edu.utfpr.cm.slcl.ldap.TransactionManager;
 import java.util.List;
 import org.hibernate.Query;

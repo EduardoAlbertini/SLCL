@@ -54,12 +54,12 @@ public class Login extends HttpServlet {
             } else {
                 //Usar em casa//                
                 if (!uLogin.equals("admin")) {
-                    usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
-
-                    //Usar em UTFPR//
-                    //usuarioLocal = autenticarUsuario(uLogin, uSenha);
-//                    if (usuarioLocal != null) {
-
+                    if (verificarNaBaseLocal(uLogin, uSenha) != null) {
+                        usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
+                    } else {
+                        usuarioLocal = autenticarUsuario(uLogin, uSenha);
+                    }
+                    
                     if (usuarioLocal != null) {
                         Usuario userInterno = garantirQueUsuarioEstaNaBaseDoGerenciador(usuarioLocal, out, request);
                         if (userInterno != null) {
@@ -166,14 +166,14 @@ public class Login extends HttpServlet {
         request.getSession().removeAttribute("UsuarioLogado");
 
         if (!verificarSegundoDigito(user.getLogin().charAt(1))) {
-
+            
             System.out.println("Entrei aqui!********* DaoProfessor");
             DaoProfessor daoP = new DaoProfessor();
             Professor professor = daoP.obterPorLogin(user.getLogin());
 
             if (professor != null) {
                 if (professor.getPapel() == null) {
-                    professor.setPapel(new DaoPapel().obterPorId(3));
+                    professor.setPapel(new DaoPapel().listar().get(3));
                     daoP.persistir(professor);
                     request.getSession().setAttribute("UsuarioLogado", professor);
                     return professor;
@@ -224,7 +224,7 @@ public class Login extends HttpServlet {
             //TransactionManager.beginTransaction();
             DaoUsuario dao = new DaoUsuario();
             Usuario usuario = dao.obterPorLogin(uLogin);
-            System.out.println("AQUI *************************************" + new DaoPapel().listar().toString());
+            System.out.println("AQUI *************************************");
             System.out.println(usuario);
             return usuario;
         }
@@ -258,7 +258,6 @@ public class Login extends HttpServlet {
 //            return null;
 //        }
 //    }
-
     private Usuario ehOBibliotecario(Usuario user, HttpServletRequest request) {
         if (!verificarSegundoDigito(user.getLogin().charAt(1))) {
 
