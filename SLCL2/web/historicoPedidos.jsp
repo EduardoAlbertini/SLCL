@@ -21,7 +21,7 @@
                             <p><b>Edição:</b> ${item.livro.edicao}</p>
                             <p><b>Quantidade:</b> ${item.qtde}</p>
                             <p><b>Curso:</b> ${item.curso.nome}</p>
-                            <p><b>Disciplina:</b></p>
+                            <p><b>Disciplina:</b> </p>
                             <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
                         </div>
                     </div>

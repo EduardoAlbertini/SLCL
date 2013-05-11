@@ -5,9 +5,11 @@
 package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
 import br.edu.utfpr.cm.slcl.entitys.Disciplina;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,15 +51,28 @@ public class ComboBoxDisciplina extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        List<Disciplina> disciplinas = new ArrayList<Disciplina>();
+        List<String> disciplinas_nome = new ArrayList<String>();
+        Curso curse;
         String curso = request.getParameter("curso");
+        System.out.println("Curso: "+ curso);
+        DaoDisciplina daoDisciplina = new DaoDisciplina();
+        if(!curso.equalsIgnoreCase("selecione...")){
+        List<Curso> cursos = new DaoCurso().listar("FROM Curso Where nome = '" + curso+ "'");
+        curse = cursos.get(0);
+        disciplinas = daoDisciplina.listar("FROM Disciplina WHERE curso_id = "+curse.getId());
+        }
+        for (Disciplina disc : disciplinas) {
+            disciplinas_nome.add(disc.getNome());
+        }
         
-        DaoCurso daoCurso = new DaoCurso();
-        List<Curso> cursos = daoCurso.listar("FROM Curso WHERE nome = '" + curso + "'");
-        List<Disciplina> disciplinas = cursos.get(0).getDisciplinas();
-//        SELECT  d.codigo, d.nome, c.nome FROM disciplina d, curso c where c.nome like 'Tecnologia em Sistemas para Internet';
+        response.getWriter().write(disciplinas_nome.toString());
         
-        System.out.println(disciplinas.toString());
-        getServletContext().setAttribute("disciplinas", disciplinas);
+//        List<Disciplina> disciplinas = cursos.get(0).getDisciplinas();
+////        SELECT  d.codigo, d.nome, c.nome FROM disciplina d, curso c where c.nome like 'Tecnologia em Sistemas para Internet';
+//        
+//        System.out.println(disciplinas.toString());
+//        getServletContext().setAttribute("disciplinas", disciplinas);
     }
 
     /**

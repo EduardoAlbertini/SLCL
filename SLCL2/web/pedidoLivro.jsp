@@ -18,16 +18,15 @@
     <label for="quantidade">Quantidade</label>
     <input id="quantidade" name="quantidade" type="text" placeholder="Quantidade" class="input-small" style="height: 30px">
     <label for="curso">Curso</label>
-    <select id="curso" name="curso">
+    <select id="curso" name="curso" onchange="ajaxComboBoxDisciplina()">
         <option>Selecione...</option>
         <c:forEach items="${cursos}" var="item">
             <option>${item.nome}</option>
         </c:forEach>
     </select>
     <label for="disciplina">Disciplina</label>
-    <select id="disciplina" name="disciplina">
+    <select id="disciplina" name="disciplina" >
         <option>Selecione...</option>
-        <option>opções</option>
     </select>
     <label for="referencia">Referência</label>
     <select id="referencia" name="referencia">
