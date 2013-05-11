@@ -34,7 +34,6 @@ public class ComboBoxCurso extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -50,10 +49,10 @@ public class ComboBoxCurso extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        DaoCurso dao = new DaoCurso();
-        List<Curso> cursos = dao.listar();
         
-        getServletContext().setAttribute("cursos", cursos);
+        List<Curso> cursos = new DaoCurso().listar();
+        
+        request.getSession().setAttribute("cursos", cursos);
         String page = request.getHeader("REFERER");
         if (page.contains("indexCoordenador.jsp")) {
             response.sendRedirect("pedidoLivroCoordenador.jsp");
@@ -79,6 +78,6 @@ public class ComboBoxCurso extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        doGet(request, response);
     }
 }

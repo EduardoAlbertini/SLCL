@@ -38,7 +38,7 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="coordenador"><a href="#" >Coordenador</a></li>
-                                <li id="curso"><a href="crudCurso.jsp" >Curso</a></li>
+                                <li id="curso"><a href="ComboBoxCoordenador" >Curso</a></li>
                                 <li id="disciplina"><a href="ComboBoxCurso" >Disciplina</a></li>
                                 <li id="listaPedidos"><a>Lista de Livros Pedidos</a></li>
                             </ul>

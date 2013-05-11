@@ -4,8 +4,12 @@
  */
 package br.edu.utfpr.cm.slcl.Controller;
 
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoCoordenador;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
+import br.edu.utfpr.cm.slcl.entitys.Coordenador;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
+import br.edu.utfpr.cm.slcl.entitys.Disciplina;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,10 +40,12 @@ public class CadastroCurso extends HttpServlet {
             throws ServletException, IOException {
         String codigo = request.getParameter("codigo");
         String nomeCurso = request.getParameter("nome");
-        System.out.println("Código: " + codigo);
-        System.out.println("Nome:" + nomeCurso);
+        String coordenador = request.getParameter("coordenador");
+        List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome = '"+ coordenador + "'");
+        Coordenador coord = coords.get(0);
 
-        Curso curso = new Curso(codigo, nomeCurso, null, null);
+        Curso curso = new Curso(codigo, nomeCurso, coord, null);
+        
 
         DaoCurso dao = new DaoCurso();
         dao.persistir(curso);
@@ -51,10 +57,8 @@ public class CadastroCurso extends HttpServlet {
             throws ServletException, IOException {
         String codigo = request.getParameter("codigo");
         if (!codigo.equals("")) {
-            DaoCurso dao = new DaoCurso();
             Curso curso = new Curso();
-            List<Curso> cursos = new ArrayList<Curso>();
-            cursos = dao.listar("FROM Curso WHERE codigo = '" + codigo + "'");
+            List<Curso> cursos = new DaoCurso().listar("FROM Curso WHERE codigo = '" + codigo + "'");
             
             if (cursos.size()>0) {
                 curso = cursos.get(0);

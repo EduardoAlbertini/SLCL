@@ -54,9 +54,11 @@
                                 <label for="nome">Nome</label>
                                 <input id="nome" name="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
                                 <label for="coordenador">Coordenador</label>
-                                <select id="coordenador">
+                                <select id="coordenador" name="coordenador">
                                     <option>Selecione...</option>
-                                    <option>opções</option>
+                                <c:forEach items="${coordenadores}" var="item" >
+                                    <option>${item.nome}</option>
+                                </c:forEach>
                                 </select>
 
                             </fieldset>

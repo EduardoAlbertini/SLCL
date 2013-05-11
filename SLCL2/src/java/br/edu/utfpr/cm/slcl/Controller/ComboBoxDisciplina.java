@@ -67,12 +67,6 @@ public class ComboBoxDisciplina extends HttpServlet {
         }
         
         response.getWriter().write(disciplinas_nome.toString());
-        
-//        List<Disciplina> disciplinas = cursos.get(0).getDisciplinas();
-////        SELECT  d.codigo, d.nome, c.nome FROM disciplina d, curso c where c.nome like 'Tecnologia em Sistemas para Internet';
-//        
-//        System.out.println(disciplinas.toString());
-//        getServletContext().setAttribute("disciplinas", disciplinas);
     }
 
     /**
