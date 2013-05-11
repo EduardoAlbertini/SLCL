@@ -23,16 +23,23 @@ public class PedidoDeLivro {
     private Professor professor;
     @OneToOne
     private Curso curso;
+    @OneToOne
+    private Disciplina disciplina;
+    @OneToOne
+    private Evento evento;
     
     public PedidoDeLivro() {
     }
     
-    public PedidoDeLivro(int quantidade, Livro livro, Professor professor, Curso curso) {
+    public PedidoDeLivro(int quantidade, Livro livro, Professor professor, Curso curso,
+            Disciplina disciplina, Evento evento) {
         this.qtde = quantidade;
         this.bibliografia = Bibliografia.BASICA;
         this.livro = livro;
         this.professor = professor;
         this.curso = curso;
+        this.disciplina = disciplina;
+        this.evento = evento;
     }
 
     public int getId() {
@@ -81,6 +88,22 @@ public class PedidoDeLivro {
 
     public void setCurso(Curso curso) {
         this.curso = curso;
+    }
+
+    public Disciplina getDisciplina() {
+        return disciplina;
+    }
+
+    public void setDisciplina(Disciplina disciplina) {
+        this.disciplina = disciplina;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
     }
     
     @Override

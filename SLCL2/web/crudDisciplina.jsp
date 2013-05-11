@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div id="conteudo">
-                        <form action="CadastroDisciplina" method="POST">
+                        <form action="CadastroDisciplina" method="POST" accept-charset="ISO-8859-1">
                             <fieldset>
                                 <legend>Disciplina</legend>
                                 <label for="codigo">Código da Disciplina</label>

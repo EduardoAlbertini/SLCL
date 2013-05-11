@@ -21,7 +21,7 @@
     </head>
     <body>
         <div id="box">
-            <form action="Login" method="POST" class="form-horizontal">
+            <form action="Login" method="POST" class="form-horizontal" accept-charset="ISO-8859-1">
                 <fieldset >
                     <label for="username">Usuário</label>
                     <div>

@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div id="conteudo">
-                        <form action="CadastroCurso" method="POST">
+                        <form action="CadastroCurso" method="POST" accept-charset="ISO-8859-1">
                             <fieldset>
                                 <legend>Curso</legend>
                                 <label for="codigo">Código do Curso</label>

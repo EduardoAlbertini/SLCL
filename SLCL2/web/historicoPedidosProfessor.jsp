@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <div id="conteudo">
-                        <form action="CadastroPedidos" method="POST">
+                        <form action="CadastroPedidos" method="POST" accept-charset="ISO-8859-1">
                         <c:import url="historicoPedidos.jsp"></c:import>
                         </form>
                     </div>

@@ -1,4 +1,4 @@
-<form>
+<form accept-charset="ISO-8859-1">
     <fieldset>
         <legend>Contato</legend>
         <label for="nome">Nome</label>

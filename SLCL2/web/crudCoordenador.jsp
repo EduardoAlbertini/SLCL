@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div id="conteudo">
-                        <form>
+                        <form accept-charset="ISO-8859-1">
                             <fieldset>
                                 <legend>Coordenador</legend>
                                 <label for="codigo">Código do Professor</label>

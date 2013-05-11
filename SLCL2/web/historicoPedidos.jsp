@@ -1,7 +1,7 @@
 
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 
-<form action="CadastroPedidos" method="GET">
+<form action="CadastroPedidos" method="GET" accept-charset="ISO-8859-1">
     <fieldset>
         <legend>Histórico de Pedidos de Livros</legend>
         <div class="accordion" id="accordion2">
@@ -10,7 +10,7 @@
                 <div class="accordion-group">
                     <div class="accordion-heading">
                         <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse${count}">
-                            ${item.livro.titulo}
+                            ${item.livro.titulo} - ${item.evento.estado}
                         </a>
                     </div>
                     <div id="collapse${count}" class="accordion-body collapse">
@@ -21,7 +21,7 @@
                             <p><b>Edição:</b> ${item.livro.edicao}</p>
                             <p><b>Quantidade:</b> ${item.qtde}</p>
                             <p><b>Curso:</b> ${item.curso.nome}</p>
-                            <p><b>Disciplina:</b> </p>
+                            <p><b>Disciplina:</b> ${item.disciplina.nome}</p>
                             <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
                         </div>
                     </div>
