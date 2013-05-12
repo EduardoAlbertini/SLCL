@@ -3,10 +3,7 @@ package br.edu.utfpr.cm.slcl.entitys;
 import br.edu.utfpr.cm.saa.entidades.Papel;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
 
 @Entity
 //@Table(name = "Professor")

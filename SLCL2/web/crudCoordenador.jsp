@@ -45,18 +45,18 @@
                         </div>
                     </div>
                     <div id="conteudo">
-                        <form accept-charset="ISO-8859-1">
+                        <form action="CadastroCoordenador" method="POST" accept-charset="ISO-8859-1">
                             <fieldset>
                                 <legend>Coordenador</legend>
                                 <label for="codigo">Código do Professor</label>
-                                <input id="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
+                                <input id="codigo" name="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
                                 <a class="btn" href="#" title="Pesquisar Professor" ><i class="icon-search" ></i></a>
                                 <label for="nome">Nome</label>
-                                <input id="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
+                                <input id="nome" name="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
 
                             </fieldset>
-                            <button type="submit" class="btn btn-info ">Inserir</button>
-                            <button type="submit" class="btn btn-danger">Excluir</button>
+                            <button type="submit" name ="botao"class="btn btn-info" value="inserir">Inserir</button>
+                            <button type="submit" class="btn btn-danger" value="excluir">Excluir</button>
                             <button type="reset" class="btn">Limpar</button>
                         </form>
                     </div>

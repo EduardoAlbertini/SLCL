@@ -85,7 +85,6 @@ public class CadastroDisciplina extends HttpServlet {
             List<Disciplina> disciplinas = daoDisciplina.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
             disciplina = disciplinas.get(0);
             daoDisciplina.remover(disciplina);
-//            daoCurso.remover(curso);
         }
 
 
