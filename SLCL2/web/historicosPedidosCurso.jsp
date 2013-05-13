@@ -66,6 +66,10 @@
                                                 <p><b>Edição:</b> ${item.livro.edicao}</p>
                                                 <p><b>Quantidade:</b> ${item.qtde}</p>
                                                 <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
+                                                <p><label for="motivo">Assunto</label>
+                                                    <textarea id="motivo" name="motivo" rows="3" placeholder="Motivo do Cancelamento" class="input-xlarge"></textarea></p>
+                                                <button type="submit" name ="botao" class="btn btn-success" value="autorizar">Autorizar</button>
+                                                <button type="submit" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</button>
                                             </div>
                                         </div>
                                     </div>
