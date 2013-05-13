@@ -4,6 +4,7 @@
     Author     : Miray
 --%>
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <html>
     <head>
@@ -45,58 +46,42 @@
                         </div>
                     </div>
                     <div id="conteudo">  
-                        <form>
+                        <form action="" method="" accept-charset="ISO-8859-1">
                             <fieldset>
-                                <legend>Livros Pedidos do Curso</legend>
+                                <legend>Histórico de Pedidos de Livros do Curso</legend>
                                 <div class="accordion" id="accordion2">
+                                <c:set var="count" value="${0}" />
+                                <c:forEach items="${listaPedidosCurso}" var="item">
                                     <div class="accordion-group">
                                         <div class="accordion-heading">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                                                Disciplina #1
+                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse${count}">
+                                                ${item.livro.titulo} (${item.disciplina.nome})
                                             </a>
                                         </div>
-                                        <div id="collapseOne" class="accordion-body collapse in">
+                                        <div id="collapse${count}" class="accordion-body collapse">
                                             <div class="accordion-inner">
-                                                Anim pariatur cliche...
+                                                <p><b>ISBN:</b> ${item.livro.isbn}</p>
+                                                <p><b>Titulo Original:</b> ${item.livro.tituloOriginal}</p>
+                                                <p><b>Editora:</b> ${item.livro.editora}</p>
+                                                <p><b>Edição:</b> ${item.livro.edicao}</p>
+                                                <p><b>Quantidade:</b> ${item.qtde}</p>
+                                                <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="accordion-group">
-                                        <div class="accordion-heading">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                                Disciplina #2
-                                            </a>
-                                        </div>
-                                        <div id="collapseTwo" class="accordion-body collapse">
-                                            <div class="accordion-inner">
-                                                Anim pariatur cliche...
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="accordion-group">
-                                        <div class="accordion-heading">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                                                Disciplina #3
-                                            </a>
-                                        </div>
-                                        <div id="collapseThree" class="accordion-body collapse">
-                                            <div class="accordion-inner">
-                                                Anim pariatur cliche...
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </fieldset>
-                        </form>
-                    </div>
+                                    <c:set var="count" value="${count +1}" />    
+                                </c:forEach>
+                            </div>
+                        </fieldset>
+                    </form>
                 </div>
+            </div>
 
-                <div id="sidebar">
-                </div>
+            <div id="sidebar">
+            </div>
 
-                <div id="footer">
-                    <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
+            <div id="footer">
+                <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
             </div>
         </div>
 

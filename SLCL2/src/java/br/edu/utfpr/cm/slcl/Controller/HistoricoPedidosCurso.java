@@ -5,10 +5,13 @@
 package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.saa.entidades.Usuario;
+import br.edu.utfpr.cm.slcl.dao.DaoGenerics;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCoordenador;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoUsuario;
 import br.edu.utfpr.cm.slcl.entitys.Coordenador;
+import br.edu.utfpr.cm.slcl.entitys.Estado;
+import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -42,7 +45,10 @@ public class HistoricoPedidosCurso extends HttpServlet {
         List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" +nomeUser+"'");
         System.out.println(coords.toString());
         Coordenador coord = coords.get(0);
-        System.out.println(new DaoPedidoDeLivro().listar("SELECT PedidoDeLivro FROM PedidoDeLivro, Curso , Usuario  WHERE curso_id = Curso.id AND Curso.coordenador_id=" + coord.getId()));
+        List<PedidoDeLivro> pedidos = new DaoPedidoDeLivro().listar();
+        //        "SELECT PedidoDeLivro FROM PedidoDeLivro, Curso, Usuario  WHERE curso_id = Curso.id AND Curso.coordenador_id=" + coord.getId();
+        request.getSession().setAttribute("listaPedidosCurso", pedidos);
+        response.sendRedirect("historicosPedidosCurso.jsp");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
