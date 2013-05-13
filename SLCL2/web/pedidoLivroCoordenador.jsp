@@ -39,7 +39,7 @@
                             <ul class="nav">
                                 <li id="pedirLivro"><a href="#">Pedir Livro</a></li>
                                 <li id="historicoPedidos"><a href="HistoricoPedidosLivro">Histórico de Pedidos</a></li>
-                                <li id="pedidosCurso"><a href="pedidosCurso.jsp">Pedidos do Curso</a></li>
+                                <li id="pedidosCurso"><a href="HistoricoPedidosCurso">Pedidos do Curso</a></li>
                             </ul>
                         </div>
                     </div>
