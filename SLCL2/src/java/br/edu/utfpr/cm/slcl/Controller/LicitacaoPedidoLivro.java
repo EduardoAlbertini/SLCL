@@ -10,7 +10,6 @@ import br.edu.utfpr.cm.slcl.entitys.Estado;
 import br.edu.utfpr.cm.slcl.entitys.Evento;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,33 +43,44 @@ public class LicitacaoPedidoLivro extends HttpServlet {
         DaoEvento daoEvento = new DaoEvento();
         DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
         Evento evento = pedidoLivro.getEvento();
+        Estado status = evento.getEstado();
 
         if (botao.equalsIgnoreCase("licitar")) {
-            evento.setEstado(Estado.LICITADO);
-            evento.setDataMod(new Date());
-            pedidoLivro.setEvento(evento);
+            if (status == Estado.AUTORIZADO) {
+                evento.setEstado(Estado.LICITADO);
+                evento.setDataMod(new Date());
+                pedidoLivro.setEvento(evento);
+            }
 
         } else if (botao.equalsIgnoreCase("adquirir")) {
-            evento.setEstado(Estado.ADQUIRIDO);
-            evento.setDataMod(new Date());
-            pedidoLivro.setEvento(evento);
+            if (status == Estado.LICITADO) {
+                evento.setEstado(Estado.ADQUIRIDO);
+                evento.setDataMod(new Date());
+                pedidoLivro.setEvento(evento);
+            }
 
         } else if (botao.equalsIgnoreCase("disponivel")) {
-            evento.setEstado(Estado.DISPONIVEL);
-            evento.setDataMod(new Date());
-            pedidoLivro.setEvento(evento);
+            if (status == Estado.ADQUIRIDO) {
+                evento.setEstado(Estado.DISPONIVEL);
+                evento.setDataMod(new Date());
+                pedidoLivro.setEvento(evento);
+            }
 
         } else if (botao.equalsIgnoreCase("cancelar")) {
-            evento.setEstado(Estado.CANCELADO);
-            evento.setDataMod(new Date());
-            pedidoLivro.setEvento(evento);
+            if (status == Estado.LICITADO) {
+                evento.setEstado(Estado.CANCELADO);
+                evento.setDataMod(new Date());
+                pedidoLivro.setEvento(evento);
+            }
 
         } else if (botao.equalsIgnoreCase("recusar")) {
-            evento.setEstado(Estado.RECUSADO);
-            evento.setDataMod(new Date());
-            pedidoLivro.setEvento(evento);
+            if (status == Estado.AUTORIZADO) {
+                evento.setEstado(Estado.NEGADO);
+                evento.setDataMod(new Date());
+                pedidoLivro.setEvento(evento);
+            }
         }
-        
+
         daoEvento.persistir(evento);
         daoPedidoDeLivro.persistir(pedidoLivro);
 
