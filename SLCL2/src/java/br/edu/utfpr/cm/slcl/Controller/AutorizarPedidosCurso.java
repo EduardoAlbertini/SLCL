@@ -10,9 +10,7 @@ import br.edu.utfpr.cm.slcl.entitys.Estado;
 import br.edu.utfpr.cm.slcl.entitys.Evento;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,32 +38,26 @@ public class AutorizarPedidosCurso extends HttpServlet {
             throws ServletException, IOException {
         String botao = request.getParameter("botao");
         String idPedido = request.getParameter("pedido");
-//        String motivo = request.getParameter("motivo");
-        List<PedidoDeLivro> pedidos = new DaoPedidoDeLivro().listar("FROM PedidoDeLivro WHERE id = " + idPedido);
-        PedidoDeLivro pedidoLivro = pedidos.get(0);
+        PedidoDeLivro pedidoLivro = new DaoPedidoDeLivro().obterPorId(Integer.parseInt(idPedido));
         DaoEvento daoEvento = new DaoEvento();
         DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
         Evento evento = pedidoLivro.getEvento();
-        
+
         if (botao.equalsIgnoreCase("autorizar")) {
             evento.setEstado(Estado.AUTORIZADO);
             evento.setDataMod(new Date());
             pedidoLivro.setEvento(evento);
-            daoEvento.persistir(evento);
-            daoPedidoDeLivro.persistir(pedidoLivro);
         }
         if (botao.equalsIgnoreCase("cancelar")) {
             evento.setEstado(Estado.RECUSADO);
             evento.setDataMod(new Date());
             pedidoLivro.setEvento(evento);
-            daoEvento.persistir(evento);
-            daoPedidoDeLivro.persistir(pedidoLivro);
-            
         }
+        daoEvento.persistir(evento);
+        daoPedidoDeLivro.persistir(pedidoLivro);
         response.sendRedirect("HistoricoPedidosCurso");
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
      * <code>GET</code> method.
@@ -95,14 +87,4 @@ public class AutorizarPedidosCurso extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 }

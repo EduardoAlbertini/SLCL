@@ -5,15 +5,12 @@
 package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.saa.entidades.Papel;
-import br.edu.utfpr.cm.saa.entidades.Usuario;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCoordenador;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoProfessor;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoUsuario;
 import br.edu.utfpr.cm.slcl.entitys.Coordenador;
 import br.edu.utfpr.cm.slcl.entitys.Professor;
-import br.edu.utfpr.cm.slcl.entitys.Tipo;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

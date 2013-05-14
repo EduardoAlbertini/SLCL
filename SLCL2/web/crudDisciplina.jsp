@@ -41,7 +41,7 @@
                                 <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
                                 <li id="curso"><a href="ComboBoxCoordenador" >Curso</a></li>
                                 <li id="disciplina"><a href="#" >Disciplina</a></li>
-                                <li id="listaPedidos"><a>Lista de Livros Pedidos</a></li>
+                                <li id="listaPedidos"><a href="HistoricoPedidosAprovados">Lista de Livros Pedidos</a></li>
                             </ul>
                         </div>
                     </div>

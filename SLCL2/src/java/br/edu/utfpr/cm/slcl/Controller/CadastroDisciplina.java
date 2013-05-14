@@ -9,7 +9,6 @@ import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
 import br.edu.utfpr.cm.slcl.entitys.Disciplina;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,8 +39,7 @@ public class CadastroDisciplina extends HttpServlet {
         if (!codigo.equals("")) {
             DaoDisciplina dao = new DaoDisciplina();
             Disciplina disciplina = new Disciplina();
-            List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-            disciplinas = dao.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
+            List<Disciplina> disciplinas = dao.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
 
             if (disciplinas.size() > 0) {
                 disciplina = disciplinas.get(0);
