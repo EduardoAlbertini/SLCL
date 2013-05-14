@@ -5,10 +5,14 @@
 package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCoordenador;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
 import br.edu.utfpr.cm.slcl.entitys.Coordenador;
+import br.edu.utfpr.cm.slcl.entitys.Curso;
+import br.edu.utfpr.cm.slcl.entitys.Estado;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,14 +39,19 @@ public class HistoricoPedidosCurso extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String nomeUser = (String) request.getSession().getAttribute("UsuarioLogado");
-        System.out.println("usuário: "+nomeUser);
-        List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" +nomeUser+"'");
-        System.out.println(coords.toString());
+        String nomeUser = (String) request.getSession().getAttribute("UsuarioLogado");
+        List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" + nomeUser + "'");
         Coordenador coord = coords.get(0);
-        List<PedidoDeLivro> pedidos = new DaoPedidoDeLivro().listar();
-        //        "FROM PedidoDeLivro LEFT JOIN FETCH Curso LEFT JOIN FETCH Usuario ON curso_id = Curso.id AND Curso.coordenador_id=" + coord.getId();
-        //FROM PedidoDeLivro p, Curso c, Usuario u  WHERE p.curso_id = c.id AND c.coordenador_id =" + coord.getId(); 
+        List<Curso> cursos = new DaoCurso().listar("FROM Curso WHERE coordenador_id=" + coord.getId());
+        Curso curso = cursos.get(0);
+        List<PedidoDeLivro> pedidosLivro = new DaoPedidoDeLivro().listar("FROM PedidoDeLivro WHERE curso_id=" + curso.getId() + " AND " + curso.getCoordenador().getId() + "=" + coord.getId());
+        List<PedidoDeLivro> pedidos = new ArrayList<PedidoDeLivro>();
+
+        for (PedidoDeLivro pedido : pedidosLivro) {
+            if (pedido.getEvento().getEstado() == Estado.REQUERIDO) {
+                pedidos.add(pedido);
+            }
+        }
         request.getSession().setAttribute("listaPedidosCurso", pedidos);
         response.sendRedirect("historicosPedidosCurso.jsp");
     }
