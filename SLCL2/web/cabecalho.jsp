@@ -30,7 +30,7 @@
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li id="inicio"><a href="javascript:open('index.jsp')" onclick="alterarTexto('inicio')" >Inicio</a></li>
-                            <li id="faq"><a href="#" onclick="alterarTexto('faq')">F.A.Q.</a></li>
+                            <li id="faq"><a href="javascript:open('faq.jsp')" onclick="alterarTexto('faq')">F.A.Q.</a></li>
                             <li id="contato"><a href="javascript:open('contato.jsp')" onclick="alterarTexto('contato')">Contato</a></li>
                         </ul>
                     </div>
