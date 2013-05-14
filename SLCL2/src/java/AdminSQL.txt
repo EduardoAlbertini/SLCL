@@ -68,6 +68,11 @@ CREATE TABLE `PapelDoUsuario` (
 -- Dumping data for table `papeldousuario`
 --
 
+INSERT INTO `PapelDoUsuario` (`Papel_id`,`Usuario_id`) VALUES 
+ (1,1),
+ (2,3),
+ (3,3),
+ (4,2);
 /*!40000 ALTER TABLE `PapelDoUsuario` DISABLE KEYS */;
 /*!40000 ALTER TABLE `PapelDoUsuario` ENABLE KEYS */;
 
@@ -109,7 +114,7 @@ CREATE TABLE `Usuario` (
   `papel_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `FK5B4D8B0EAAFD969F` (`papel_id`),
-  CONSTRAINT `FK5B4D8B0EAAFD969F` FOREIGN KEY (`papel_id`) REFERENCES `papel` (`id`)
+  CONSTRAINT `FK5B4D8B0EAAFD969F` FOREIGN KEY (`papel_id`) REFERENCES `Papel` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=131 DEFAULT CHARSET=latin1;
 
 --
