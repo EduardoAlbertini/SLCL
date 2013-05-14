@@ -4,16 +4,14 @@
  */
 package br.edu.utfpr.cm.slcl.Controller;
 
-import br.edu.utfpr.cm.saa.entidades.Usuario;
-import br.edu.utfpr.cm.slcl.dao.DaoGenerics;
-import br.edu.utfpr.cm.slcl.dao.entitys.DaoCoordenador;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoEvento;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
-import br.edu.utfpr.cm.slcl.dao.entitys.DaoUsuario;
-import br.edu.utfpr.cm.slcl.entitys.Coordenador;
 import br.edu.utfpr.cm.slcl.entitys.Estado;
+import br.edu.utfpr.cm.slcl.entitys.Evento;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,8 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Miray
  */
-@WebServlet(name = "HistoricoPedidosCurso", urlPatterns = {"/HistoricoPedidosCurso"})
-public class HistoricoPedidosCurso extends HttpServlet {
+@WebServlet(name = "AutorizarPedidosCurso", urlPatterns = {"/AutorizarPedidosCurso"})
+public class AutorizarPedidosCurso extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -40,16 +38,31 @@ public class HistoricoPedidosCurso extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String nomeUser = (String) request.getSession().getAttribute("UsuarioLogado");
-        System.out.println("usuário: "+nomeUser);
-        List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" +nomeUser+"'");
-        System.out.println(coords.toString());
-        Coordenador coord = coords.get(0);
-        List<PedidoDeLivro> pedidos = new DaoPedidoDeLivro().listar();
-        //        "FROM PedidoDeLivro LEFT JOIN FETCH Curso LEFT JOIN FETCH Usuario ON curso_id = Curso.id AND Curso.coordenador_id=" + coord.getId();
-        //FROM PedidoDeLivro p, Curso c, Usuario u  WHERE p.curso_id = c.id AND c.coordenador_id =" + coord.getId(); 
-        request.getSession().setAttribute("listaPedidosCurso", pedidos);
-        response.sendRedirect("historicosPedidosCurso.jsp");
+        String botao = request.getParameter("botao");
+        String idPedido = request.getParameter("pedido");
+//        String motivo = request.getParameter("motivo");
+        List<PedidoDeLivro> pedidos = new DaoPedidoDeLivro().listar("FROM PedidoDeLivro WHERE id = " + idPedido);
+        PedidoDeLivro pedidoLivro = pedidos.get(0);
+        DaoEvento daoEvento = new DaoEvento();
+        DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
+        Evento evento = pedidoLivro.getEvento();
+        
+        if (botao.equalsIgnoreCase("autorizar")) {
+            evento.setEstado(Estado.AUTORIZADO);
+            evento.setDataMod(new Date());
+            pedidoLivro.setEvento(evento);
+            daoEvento.persistir(evento);
+            daoPedidoDeLivro.persistir(pedidoLivro);
+        }
+        if (botao.equalsIgnoreCase("cancelar")) {
+            evento.setEstado(Estado.RECUSADO);
+            evento.setDataMod(new Date());
+            pedidoLivro.setEvento(evento);
+            daoEvento.persistir(evento);
+            daoPedidoDeLivro.persistir(pedidoLivro);
+            
+        }
+        response.sendRedirect("HistoricoPedidosCurso");
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

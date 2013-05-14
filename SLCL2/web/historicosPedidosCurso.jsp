@@ -21,7 +21,7 @@
         <link href="css/PageCSS.css" rel="stylesheet" media="screen">
         <link rel="icon" type="image/png" href="img/LogoSLCL.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SLCL - Lista de Livros Pedidos</title>
+        <title>SLCL -Pedidos do Curso</title>
     </head>
     <body>
         <div id="container">
@@ -60,16 +60,15 @@
                                         </div>
                                         <div id="collapse${count}" class="accordion-body collapse">
                                             <div class="accordion-inner">
+                                                <input type="hidden" name="pedido${count}" value="${item.id}" />
                                                 <p><b>ISBN:</b> ${item.livro.isbn}</p>
                                                 <p><b>Titulo Original:</b> ${item.livro.tituloOriginal}</p>
                                                 <p><b>Editora:</b> ${item.livro.editora}</p>
                                                 <p><b>Edição:</b> ${item.livro.edicao}</p>
                                                 <p><b>Quantidade:</b> ${item.qtde}</p>
                                                 <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
-                                                <p><label for="motivo">Assunto</label>
-                                                    <textarea id="motivo" name="motivo" rows="3" placeholder="Motivo do Cancelamento" class="input-xlarge"></textarea></p>
-                                                <button type="submit" name ="botao" class="btn btn-success" value="autorizar">Autorizar</button>
-                                                <button type="submit" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</button>
+                                                <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=autorizar" name ="botao" class="btn btn-success" value="autorizar">Autorizar</a>
+                                                <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</a>
                                             </div>
                                         </div>
                                     </div>
@@ -88,6 +87,5 @@
                 <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
             </div>
         </div>
-
     </body>
 </html>
