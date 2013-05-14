@@ -42,8 +42,6 @@ public class CadastroCurso extends HttpServlet {
         Coordenador coord = coords.get(0);
 
         Curso curso = new Curso(codigo, nomeCurso, coord, null);
-        
-
         DaoCurso dao = new DaoCurso();
         dao.persistir(curso);
         
