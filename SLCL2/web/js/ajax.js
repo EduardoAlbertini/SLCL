@@ -39,12 +39,12 @@ function ajaxFunction() {
             texto = xmlhttp.responseText;
             texto_quebrado = texto.split(";")
 
-            document.getElementById("tituloOriginal").value = ((texto_quebrado[0]!= null || texto_quebrado[0]!='undefined')? texto_quebrado[0] : "");
-            document.getElementById("titulo").value = ((texto_quebrado[1]!= null || texto_quebrado[1]!='undefined')? texto_quebrado[1] : "");
-            document.getElementById("autor").value = ((texto_quebrado[2]!= null || texto_quebrado[2]!='undefined')? texto_quebrado[2] : "");
-            document.getElementById("editora").value = ((texto_quebrado[4]!= null || texto_quebrado[4]!='undefined')? texto_quebrado[4] : "");
-            document.getElementById("edicao").value = ((texto_quebrado[5]!= null || texto_quebrado[5]!='undefined')? texto_quebrado[5] : "");
-            document.getElementById("assunto").value = ((texto_quebrado[6]!= null || texto_quebrado[6]!='undefined')? texto_quebrado[6] : "");
+            document.getElementById("tituloOriginal").value = ((texto_quebrado[0]!= null)? texto_quebrado[0] : "");
+            document.getElementById("titulo").value = ((texto_quebrado[1]!= null)? texto_quebrado[1] : "");
+            document.getElementById("autor").value = ((texto_quebrado[2]!= null)? texto_quebrado[2] : "");
+            document.getElementById("editora").value = ((texto_quebrado[4]!= null)? texto_quebrado[4] : "");
+            document.getElementById("edicao").value = ((texto_quebrado[5]!= null)? texto_quebrado[5] : "");
+            document.getElementById("assunto").value = ((texto_quebrado[6]!= null)? texto_quebrado[6] : "");
         }
     }
 
@@ -71,7 +71,7 @@ function ajaxPesquisaCursoFunction() {
             texto = xmlhttp.responseText;
             texto_quebrado = texto.split(":")
 
-            document.getElementById("nome").value = ((texto_quebrado[1]!= null || texto_quebrado[1]!='undefined')? texto_quebrado[1] : "");
+            document.getElementById("nome").value = ((texto_quebrado[1]!= null)? texto_quebrado[1] : "");
         }
     }
 
@@ -98,7 +98,7 @@ function ajaxPesquisaDisciplinaFunction() {
             texto = xmlhttp.responseText;
             texto_quebrado = texto.split(":")
 
-            document.getElementById("nome").value = ((texto_quebrado[1]!= null || texto_quebrado[1]!='undefined')? texto_quebrado[1] : "");
+            document.getElementById("nome").value = ((texto_quebrado[1]!= null)? texto_quebrado[1] : "");
         }
     }
 

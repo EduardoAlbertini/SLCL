@@ -23,6 +23,7 @@
         <div id="box">
             <form action="Login" method="POST" class="form-horizontal" accept-charset="ISO-8859-1">
                 <fieldset >
+                    <h5 class="row">${erroLogin}</h5>
                     <label for="username">Usuário</label>
                     <div>
                         <div class="input-prepend">

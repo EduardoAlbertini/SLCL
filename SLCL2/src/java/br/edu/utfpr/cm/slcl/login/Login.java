@@ -73,19 +73,19 @@ public class Login extends HttpServlet {
                                 request.getSession().setAttribute("UsuarioLogado", userInterno.getNome());
                                 response.sendRedirect("indexProfessor.jsp");
                             } else {
-                                request.getSession().setAttribute("erroLogin", "erro");
+                                request.getSession().setAttribute("erroLogin", "Login ou Senha incorretos");
                                 response.sendRedirect("Login.jsp");
                             }
                         } else {
-                            request.getSession().setAttribute("erroLogin", "erro");
+                            request.getSession().setAttribute("erroLogin", "Login ou Senha incorretos");
                             response.sendRedirect("Login.jsp");
                         }
                     } else {
-                        request.getSession().setAttribute("erroLogin", "erro");
+                        request.getSession().setAttribute("erroLogin", "Login ou Senha incorretos");
                         response.sendRedirect("Login.jsp");
                     }
                 } else {
-                    request.getSession().setAttribute("erroLogin", "erro");
+                    request.getSession().setAttribute("erroLogin", "Login ou Senha incorretos");
                     response.sendRedirect("Login.jsp");
                 }
             }
@@ -194,7 +194,7 @@ public class Login extends HttpServlet {
                 return professor;
             }
         } else {
-            return null;
+            return null;            
         }
 
     }
