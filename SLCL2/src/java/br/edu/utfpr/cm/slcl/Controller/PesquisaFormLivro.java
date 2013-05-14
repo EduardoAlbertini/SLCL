@@ -5,7 +5,6 @@
 package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.XML.XMLReader;
-import br.edu.utfpr.cm.slcl.dao.DaoGenerics;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoLivro;
 import br.edu.utfpr.cm.slcl.entitys.Livro;
 import java.io.IOException;
@@ -42,9 +41,8 @@ public class PesquisaFormLivro extends HttpServlet {
             String isbn = request.getParameter("ISBN").trim();
             if (!isbn.equals("")) {
                 DaoLivro dao = new DaoLivro();
-                Livro livro = new Livro();
-                List<Livro> livros = new ArrayList<Livro>();
-                livros = dao.listar("FROM Livro WHERE isbn = '" + isbn + "'");
+                Livro livro;
+                List<Livro> livros = dao.listar("FROM Livro WHERE isbn = '" + isbn + "'");
 
                 if (livros.size() > 0) {
                     livro = livros.get(0);

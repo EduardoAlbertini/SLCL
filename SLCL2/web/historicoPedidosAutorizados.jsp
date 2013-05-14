@@ -21,7 +21,7 @@
         <link href="css/PageCSS.css" rel="stylesheet" media="screen">
         <link rel="icon" type="image/png" href="img/LogoSLCL.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>SLCL -Pedidos do Curso</title>
+        <title>SLCL -Pedidos Aprovados</title>
     </head>
     <body>
         <div id="container">
@@ -52,11 +52,11 @@
                                     <legend>Histórico de Pedidos de Livros do Curso</legend>
                                     <div class="accordion" id="accordion2">
                                     <c:set var="count" value="${0}" />
-                                    <c:forEach items="${listaPedidosCurso}" var="item">
+                                    <c:forEach items="${pedidosAutorizados}" var="item">
                                         <div class="accordion-group">
                                             <div class="accordion-heading">
                                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse${count}">
-                                                    ${item.livro.titulo} (${item.disciplina.nome})
+                                                    ${item.livro.titulo} (${item.curso.codigo}) - ${item.evento.estado}
                                                 </a>
                                             </div>
                                             <div id="collapse${count}" class="accordion-body collapse">
@@ -67,9 +67,14 @@
                                                     <p><b>Editora:</b> ${item.livro.editora}</p>
                                                     <p><b>Edição:</b> ${item.livro.edicao}</p>
                                                     <p><b>Quantidade:</b> ${item.qtde}</p>
+                                                    <p><b>Curso:</b> ${item.curso.nome}</p>
+                                                    <p><b>Disciplina:</b> ${item.disciplina.nome}</p>
                                                     <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
-                                                    <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=autorizar" name ="botao" class="btn btn-success" value="autorizar">Autorizar</a>
-                                                    <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</a>
+                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=licitar" name ="botao" class="btn btn-info" value="licitar">Licitar</a>
+                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=adquirir" name ="botao" class="btn btn-inverse" value="adquirir">Adquirir</a>
+                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=disponivel" name ="botao" class="btn btn-success" value="disponivel">Disponível</a>
+                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-warning" value="cancelar">Cancelar</a>
+                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=recusar" name ="botao" class="btn btn-danger" value="recusar">Recusado</a>
                                                 </div>
                                             </div>
                                         </div>

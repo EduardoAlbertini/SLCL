@@ -7,7 +7,6 @@ package br.edu.utfpr.cm.slcl.Controller;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCoordenador;
 import br.edu.utfpr.cm.slcl.entitys.Coordenador;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

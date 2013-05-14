@@ -6,12 +6,9 @@ package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.saa.entidades.Usuario;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
-import br.edu.utfpr.cm.slcl.dao.entitys.DaoProfessor;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoUsuario;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
-import br.edu.utfpr.cm.slcl.entitys.Professor;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,7 +39,6 @@ public class HistoricoPedidosLivro extends HttpServlet {
         if (page.contains("Professor.jsp")) {
             response.sendRedirect("historicoPedidosProfessor.jsp");
         }
-//                response.sendRedirect("historicoPedidos.jsp");
     }
 
     @Override

@@ -4,16 +4,13 @@
  */
 package br.edu.utfpr.cm.slcl.Controller;
 
-import br.edu.utfpr.cm.slcl.dao.entitys.DaoCoordenador;
-import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoEvento;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
-import br.edu.utfpr.cm.slcl.entitys.Coordenador;
-import br.edu.utfpr.cm.slcl.entitys.Curso;
 import br.edu.utfpr.cm.slcl.entitys.Estado;
+import br.edu.utfpr.cm.slcl.entitys.Evento;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Miray
  */
-@WebServlet(name = "HistoricoPedidosCurso", urlPatterns = {"/HistoricoPedidosCurso"})
-public class HistoricoPedidosCurso extends HttpServlet {
+@WebServlet(name = "AutorizarPedidosCurso", urlPatterns = {"/AutorizarPedidosCurso"})
+public class AutorizarPedidosCurso extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -39,21 +36,26 @@ public class HistoricoPedidosCurso extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nomeUser = (String) request.getSession().getAttribute("UsuarioLogado");
-        List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" + nomeUser + "'");
-        Coordenador coord = coords.get(0);
-        List<Curso> cursos = new DaoCurso().listar("FROM Curso WHERE coordenador_id=" + coord.getId());
-        Curso curso = cursos.get(0);
-        List<PedidoDeLivro> pedidosLivro = new DaoPedidoDeLivro().listar("FROM PedidoDeLivro WHERE curso_id=" + curso.getId() + " AND " + curso.getCoordenador().getId() + "=" + coord.getId());
-        List<PedidoDeLivro> pedidos = new ArrayList<PedidoDeLivro>();
+        String botao = request.getParameter("botao");
+        String idPedido = request.getParameter("pedido");
+        PedidoDeLivro pedidoLivro = new DaoPedidoDeLivro().obterPorId(Integer.parseInt(idPedido));
+        DaoEvento daoEvento = new DaoEvento();
+        DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
+        Evento evento = pedidoLivro.getEvento();
 
-        for (PedidoDeLivro pedido : pedidosLivro) {
-            if (pedido.getEvento().getEstado() == Estado.REQUERIDO) {
-                pedidos.add(pedido);
-            }
+        if (botao.equalsIgnoreCase("autorizar")) {
+            evento.setEstado(Estado.AUTORIZADO);
+            evento.setDataMod(new Date());
+            pedidoLivro.setEvento(evento);
         }
-        request.getSession().setAttribute("listaPedidosCurso", pedidos);
-        response.sendRedirect("historicosPedidosCurso.jsp");
+        if (botao.equalsIgnoreCase("cancelar")) {
+            evento.setEstado(Estado.RECUSADO);
+            evento.setDataMod(new Date());
+            pedidoLivro.setEvento(evento);
+        }
+        daoEvento.persistir(evento);
+        daoPedidoDeLivro.persistir(pedidoLivro);
+        response.sendRedirect("HistoricoPedidosCurso");
     }
 
     /**

@@ -28,6 +28,7 @@
 
                     <ul class="breadcrumb">
                         <li><a href="indexBibliotecario.jsp">Inicio</a><span class="divider">></span></li>
+                        <li class="active"><div id="migalhas"></div></li>
                     </ul>
 
                     <div class="navbar">
@@ -36,7 +37,7 @@
                                 <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
                                 <li id="curso"><a href="ComboBoxCoordenador" >Curso</a></li>
                                 <li id="disciplina"><a href="ComboBoxCurso">Disciplina</a></li>
-                                <li id="listaPedidos"><a>Lista de Livros Pedidos</a></li>
+                                <li id="listaPedidos"><a href="HistoricoPedidosAprovados">Lista de Livros Pedidos</a></li>
                             </ul>
                         </div>
                     </div>

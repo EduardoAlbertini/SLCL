@@ -31,7 +31,7 @@
                 <div id="content">
                     <ul class="breadcrumb">
                         <li><a href="indexProfessor.jsp">Inicio</a><span class="divider">></span></li>
-                        <li class="active">Pedir Livro</li>
+                        <li class="active"><div id="migalhas">Pedir Livro</div></li>
                     </ul>
 
                     <div class="navbar">
@@ -42,12 +42,15 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="conteudo">
-                        <form action="CadastroPedidos" method="POST" accept-charset="ISO-8859-1">
-                        <c:import url="pedidoLivro.jsp"></c:import>
-                        </form>
+                    <div id="ajax">
+                        <div id="conteudo">
+                            <form action="CadastroPedidos" method="POST" accept-charset="ISO-8859-1">
+                            <c:import url="pedidoLivro.jsp"></c:import>
+                            </form>
+                        </div>
                     </div>
                 </div>
+
 
                 <div id="sidebar">
                 </div>

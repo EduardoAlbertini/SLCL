@@ -32,7 +32,7 @@
                 <div id="content">
                     <ul class="breadcrumb">
                         <li><a href="indexCoordenador.jsp">Inicio</a><span class="divider">></span></li>
-                        <li class="active">Histórico de Pedidos</li>
+                        <li class="active"><div id="migalhas">Histórico de Pedidos</div></li>
                     </ul>
 
                     <div class="navbar">
@@ -44,10 +44,12 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="conteudo">
-                        <form action="CadastroPedidos" method="GET" accept-charset="ISO-8859-1">
-                        <c:import url="historicoPedidos.jsp"></c:import>
-                        </form>
+                    <div id="ajax">
+                        <div id="conteudo">
+                            <form action="CadastroPedidos" method="GET" accept-charset="ISO-8859-1">
+                            <c:import url="historicoPedidos.jsp"></c:import>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
