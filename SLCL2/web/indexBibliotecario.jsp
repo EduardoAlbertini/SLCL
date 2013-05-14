@@ -28,6 +28,7 @@
 
                     <ul class="breadcrumb">
                         <li><a href="indexBibliotecario.jsp">Inicio</a><span class="divider">></span></li>
+                        <li class="active"><div id="migalhas"></div></li>
                     </ul>
 
                     <div class="navbar">

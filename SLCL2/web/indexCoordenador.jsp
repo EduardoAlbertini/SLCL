@@ -26,6 +26,7 @@
                 <div id="content">
                     <ul class="breadcrumb">
                         <li><a href="indexCoordenador.jsp">Inicio</a><span class="divider">></span></li>
+                        <li class="active"><div id="migalhas"></div></li>
                     </ul>
 
                     <div class="navbar">
@@ -39,11 +40,11 @@
                     </div>
                     <div id="ajax">
                     <c:import url="index.jsp"></c:import>
+                    </div>
                 </div>
-            </div>
 
-            <div id="sidebar">
-            </div>
+                <div id="sidebar">
+                </div>
 
                 <div id="footer">
                     <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>

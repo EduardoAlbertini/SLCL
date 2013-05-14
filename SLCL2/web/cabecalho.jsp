@@ -29,15 +29,12 @@
                     <a class="brand" href="#"><img src="img/LogoSLCL.png"></a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li><a href="javascript:open('index.jsp')">Inicio</a></li>
-                            <li id="faq"><a href="#">F.A.Q.</a></li>
+                            <li id="inicio"><a href="javascript:open('index.jsp')" onclick="alterarTexto('inicio')" >Inicio</a></li>
+                            <li id="faq"><a href="#" onclick="alterarTexto('faq')">F.A.Q.</a></li>
                             <li id="contato"><a href="javascript:open('contato.jsp')" onclick="alterarTexto('contato')">Contato</a></li>
                         </ul>
                     </div>
                     <a href="FazerLogout" class="btn pull-right btn-info" style="margin: 5px">Sair</a>
-                    <form class="navbar-search pull-right" id="pesquisa" style="margin: 5px">
-                        <input type="text" class="search-query" placeholder="Buscar" style="height: 30px">
-                    </form>
                     <h5 class="pull-right" style="margin-right: 5px">${UsuarioLogado}</h5>
                 </div>
             </div>

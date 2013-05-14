@@ -1,9 +1,10 @@
 function alterarTexto(id) {
     if (id == 'inicio') {
         document.getElementById("migalhas").innerHTML = "";
+    } else {
+        var novoTexto = document.getElementById(id).innerHTML;
+        document.getElementById("migalhas").innerHTML = novoTexto;
     }
-    var novoTexto = document.getElementById(id).innerHTML;
-    document.getElementById("migalhas").innerHTML = novoTexto;
 
 }
 

@@ -31,7 +31,7 @@
                 <div id="content">
                     <ul class="breadcrumb">
                         <li><a href="indexBibliotecario.jsp">Inicio</a><span class="divider">></span></li>
-                        <li class="active">Cadastro de Curso</li>
+                        <li class="active"><div>Cadastro de Curso</div></li>
                     </ul>
 
                     <div class="navbar">
@@ -44,21 +44,22 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="conteudo">
-                        <form action="CadastroCurso" method="POST" accept-charset="ISO-8859-1">
-                            <fieldset>
-                                <legend>Curso</legend>
-                                <label for="codigo">Código do Curso</label>
-                                <input id="codigo" name="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
-                                <a class="btn" href="javascript:ajaxPesquisaCursoFunction()" title="Pesquisar Curso" ><i class="icon-search" ></i></a>
-                                <label for="nome">Nome</label>
-                                <input id="nome" name="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
-                                <label for="coordenador">Coordenador</label>
-                                <select id="coordenador" name="coordenador">
-                                    <option>Selecione...</option>
-                                <c:forEach items="${coordenadores}" var="item" >
-                                    <option>${item.nome}</option>
-                                </c:forEach>
+                    <div id="ajax">
+                        <div id="conteudo">
+                            <form action="CadastroCurso" method="POST" accept-charset="ISO-8859-1">
+                                <fieldset>
+                                    <legend>Curso</legend>
+                                    <label for="codigo">Código do Curso</label>
+                                    <input id="codigo" name="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
+                                    <a class="btn" href="javascript:ajaxPesquisaCursoFunction()" title="Pesquisar Curso" ><i class="icon-search" ></i></a>
+                                    <label for="nome">Nome</label>
+                                    <input id="nome" name="nome" type="text" placeholder="Nome" class="input-xxlarge" style="height: 30px">
+                                    <label for="coordenador">Coordenador</label>
+                                    <select id="coordenador" name="coordenador">
+                                        <option>Selecione...</option>
+                                    <c:forEach items="${coordenadores}" var="item" >
+                                        <option>${item.nome}</option>
+                                    </c:forEach>
                                 </select>
 
                             </fieldset>
@@ -67,12 +68,13 @@
                         </form>
                     </div>
                 </div>
+            </div>
 
-                <div id="sidebar">
-                </div>
+            <div id="sidebar">
+            </div>
 
-                <div id="footer">
-                    <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
+            <div id="footer">
+                <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
             </div>
         </div>
 

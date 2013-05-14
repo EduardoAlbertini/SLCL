@@ -27,6 +27,7 @@
                 <div id="content">
                     <ul class="breadcrumb">
                         <li><a href="indexProfessor.jsp">Inicio</a><span class="divider">></span></li>
+                                     <li class="active"><div id="migalhas"></div></li>
                     </ul>
 
                     <div class="navbar">

@@ -32,7 +32,7 @@
                 <div id="content">
                     <ul class="breadcrumb">
                         <li><a href="indexBibliotecario.jsp">Inicio</a><span class="divider">></span></li>
-                        <li class="active">Lista de Livros Pedidos</li>
+                        <li class="active"><div id="migalhas">Lista de Livros Pedidos</div></li>
                     </ul>
 
                     <div class="navbar">
@@ -45,44 +45,45 @@
                             </ul>
                         </div>
                     </div>
-                    <div id="conteudo">  
-                        <form action="" method="" accept-charset="ISO-8859-1">
-                            <fieldset>
-                                <legend>Histórico de Pedidos de Livros do Curso</legend>
-                                <div class="accordion" id="accordion2">
-                                <c:set var="count" value="${0}" />
-                                <c:forEach items="${listaPedidosCurso}" var="item">
-                                    <div class="accordion-group">
-                                        <div class="accordion-heading">
-                                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse${count}">
-                                                ${item.livro.titulo} (${item.disciplina.nome})
-                                            </a>
-                                        </div>
-                                        <div id="collapse${count}" class="accordion-body collapse">
-                                            <div class="accordion-inner">
-                                                <input type="hidden" name="pedido${count}" value="${item.id}" />
-                                                <p><b>ISBN:</b> ${item.livro.isbn}</p>
-                                                <p><b>Titulo Original:</b> ${item.livro.tituloOriginal}</p>
-                                                <p><b>Editora:</b> ${item.livro.editora}</p>
-                                                <p><b>Edição:</b> ${item.livro.edicao}</p>
-                                                <p><b>Quantidade:</b> ${item.qtde}</p>
-                                                <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
-                                                <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=autorizar" name ="botao" class="btn btn-success" value="autorizar">Autorizar</a>
-                                                <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</a>
+                    <div id="ajax">
+                        <div id="conteudo">  
+                            <form action="" method="" accept-charset="ISO-8859-1">
+                                <fieldset>
+                                    <legend>Histórico de Pedidos de Livros do Curso</legend>
+                                    <div class="accordion" id="accordion2">
+                                    <c:set var="count" value="${0}" />
+                                    <c:forEach items="${listaPedidosCurso}" var="item">
+                                        <div class="accordion-group">
+                                            <div class="accordion-heading">
+                                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse${count}">
+                                                    ${item.livro.titulo} (${item.disciplina.nome})
+                                                </a>
+                                            </div>
+                                            <div id="collapse${count}" class="accordion-body collapse">
+                                                <div class="accordion-inner">
+                                                    <input type="hidden" name="pedido${count}" value="${item.id}" />
+                                                    <p><b>ISBN:</b> ${item.livro.isbn}</p>
+                                                    <p><b>Titulo Original:</b> ${item.livro.tituloOriginal}</p>
+                                                    <p><b>Editora:</b> ${item.livro.editora}</p>
+                                                    <p><b>Edição:</b> ${item.livro.edicao}</p>
+                                                    <p><b>Quantidade:</b> ${item.qtde}</p>
+                                                    <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
+                                                    <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=autorizar" name ="botao" class="btn btn-success" value="autorizar">Autorizar</a>
+                                                    <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <c:set var="count" value="${count +1}" />    
-                                </c:forEach>
-                            </div>
-                        </fieldset>
-                    </form>
+                                        <c:set var="count" value="${count +1}" />    
+                                    </c:forEach>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
             </div>
 
             <div id="sidebar">
             </div>
-
             <div id="footer">
                 <p style="text-align: center"><c:import url="rodape.jsp"></c:import></p>
             </div>
