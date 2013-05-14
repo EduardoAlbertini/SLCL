@@ -5,9 +5,10 @@
 package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
+import br.edu.utfpr.cm.slcl.entitys.Estado;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,7 +35,17 @@ public class HistoricoPedidosAprovados extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<PedidoDeLivro> pedidosAutorizados = new DaoPedidoDeLivro().listar();
+        List<PedidoDeLivro> pedidos = new DaoPedidoDeLivro().listar();
+        List<PedidoDeLivro> pedidosAutorizados = new ArrayList<PedidoDeLivro>();
+        Estado status;
+
+        for (PedidoDeLivro pedido : pedidos) {
+            status = pedido.getEvento().getEstado();
+            if (status == Estado.AUTORIZADO || status == Estado.LICITADO || status == Estado.ADQUIRIDO) {
+                pedidosAutorizados.add(pedido);
+            }
+        }
+
         request.getSession().setAttribute("pedidosAutorizados", pedidosAutorizados);
         response.sendRedirect("historicoPedidosAutorizados.jsp");
     }

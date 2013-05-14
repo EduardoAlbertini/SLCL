@@ -56,7 +56,7 @@
                                         <div class="accordion-group">
                                             <div class="accordion-heading">
                                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse${count}">
-                                                    ${item.livro.titulo} (${item.curso.codigo})
+                                                    ${item.livro.titulo} (${item.curso.codigo}) - ${item.evento.estado}
                                                 </a>
                                             </div>
                                             <div id="collapse${count}" class="accordion-body collapse">
