@@ -6,8 +6,10 @@ package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
+import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
 import br.edu.utfpr.cm.slcl.entitys.Disciplina;
+import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -69,6 +71,7 @@ public class CadastroDisciplina extends HttpServlet {
 
         DaoCurso daoCurso = new DaoCurso();
         DaoDisciplina daoDisciplina = new DaoDisciplina();
+        DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
         List<Curso> cursos = daoCurso.listar("FROM Curso curso WHERE nome = '" + curse + "'");
         Curso curso = cursos.get(0);
         Disciplina disciplina;
@@ -82,6 +85,10 @@ public class CadastroDisciplina extends HttpServlet {
         if (botao.equalsIgnoreCase("excluir")) {
             List<Disciplina> disciplinas = daoDisciplina.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
             disciplina = disciplinas.get(0);
+//            List<PedidoDeLivro> pedidos = daoPedidoDeLivro.listar("FROM PedidoDeLivro WHERE disciplina_id = "+disciplina.getId());
+//            for(PedidoDeLivro pedido : pedidos){
+//                daoPedidoDeLivro.remover(pedido);
+//            }
             daoDisciplina.remover(disciplina);
         }
 

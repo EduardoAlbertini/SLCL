@@ -19,7 +19,7 @@ public class Disciplina {
     private String codigo;
     @Column(length = 200)
     private String nome;
-    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @ManyToOne
     private Curso curso;
 
     public Disciplina() {

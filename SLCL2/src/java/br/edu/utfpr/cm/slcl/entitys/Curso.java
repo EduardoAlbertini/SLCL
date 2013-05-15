@@ -3,6 +3,7 @@ package br.edu.utfpr.cm.slcl.entitys;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +24,7 @@ public class Curso {
     private String codigo;
     @OneToOne
     private Usuario coordenador;
-    @OneToMany
+    @OneToMany(orphanRemoval=true)
     private List<Disciplina> disciplinas;
 
     public Curso() {
