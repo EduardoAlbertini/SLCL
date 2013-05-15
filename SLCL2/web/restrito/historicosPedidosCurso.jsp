@@ -67,8 +67,8 @@
                                                     <p><b>Edição:</b> ${item.livro.edicao}</p>
                                                     <p><b>Quantidade:</b> ${item.qtde}</p>
                                                     <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
-                                                    <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=autorizar" name ="botao" class="btn btn-success" value="autorizar">Autorizar</a>
-                                                    <a href="AutorizarPedidosCurso?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</a>
+                                                    <a href="../AutorizarPedidosCurso?pedido=${item.id}&botao=autorizar" name ="botao" class="btn btn-success" value="autorizar">Autorizar</a>
+                                                    <a href="../AutorizarPedidosCurso?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-danger" value="cancelar">Cancelar</a>
                                                 </div>
                                             </div>
                                         </div>

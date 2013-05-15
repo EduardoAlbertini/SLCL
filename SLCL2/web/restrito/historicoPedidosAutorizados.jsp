@@ -72,15 +72,15 @@
                                                     <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
 
                                                     <c:if test="${item.evento.estado eq 'AUTORIZADO'}">
-                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=licitar" name ="botao" class="btn btn-info" value="licitar">Licitar</a>
-                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=recusar" name ="botao" class="btn btn-danger" value="recusar">Recusado</a>
+                                                        <a href="../LicitacaoPedidoLivro?pedido=${item.id}&botao=licitar" name ="botao" class="btn btn-info" value="licitar">Licitar</a>
+                                                        <a href="../LicitacaoPedidoLivro?pedido=${item.id}&botao=recusar" name ="botao" class="btn btn-danger" value="recusar">Recusado</a>
                                                     </c:if>
                                                     <c:if test="${item.evento.estado eq 'LICITADO'}">
-                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=adquirir" name ="botao" class="btn btn-inverse" value="adquirir">Adquirir</a>
-                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-warning" value="cancelar">Cancelar</a>
+                                                        <a href="../LicitacaoPedidoLivro?pedido=${item.id}&botao=adquirir" name ="botao" class="btn btn-inverse" value="adquirir">Adquirir</a>
+                                                        <a href="../LicitacaoPedidoLivro?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-warning" value="cancelar">Cancelar</a>
                                                     </c:if>
                                                     <c:if test="${item.evento.estado eq 'ADQUIRIDO'}">
-                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=disponivel" name ="botao" class="btn btn-success" value="disponivel">Disponível</a>
+                                                        <a href="../LicitacaoPedidoLivro?pedido=${item.id}&botao=disponivel" name ="botao" class="btn btn-success" value="disponivel">Disponível</a>
                                                     </c:if>
                                                 </div>
                                             </div>
