@@ -34,7 +34,7 @@
                             <li id="contato"><a href="javascript:open('contato.jsp')" onclick="alterarTexto('contato')">Contato</a></li>
                         </ul>
                     </div>
-                    <a href="FazerLogout" class="btn pull-right btn-info" style="margin: 5px">Sair</a>
+                    <a href="../FazerLogout" class="btn pull-right btn-info" style="margin: 5px">Sair</a>
                     <h5 class="pull-right" style="margin-right: 5px">${UsuarioLogado.nome}</h5>
                 </div>
             </div>
