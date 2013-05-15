@@ -50,7 +50,7 @@ public class Login extends HttpServlet {
 
             if (usuarioLocal != null) {
                 request.getSession().setAttribute("UsuarioLogado", usuarioLocal);
-                response.sendRedirect("indexBibliotecario.jsp");
+                response.sendRedirect("restrito/indexBibliotecario.jsp");
             } else {
                 //Usar em casa//                
                 if (!uLogin.equals("admin")) {

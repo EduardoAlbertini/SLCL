@@ -43,16 +43,18 @@ public class HistoricoPedidosCurso extends HttpServlet {
         List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" + nomeUser.getNome() + "'");
         Coordenador coord = coords.get(0);
         List<Curso> cursos = new DaoCurso().listar("FROM Curso WHERE coordenador_id=" + coord.getId());
-        Curso curso = cursos.get(0);
-        List<PedidoDeLivro> pedidosLivro = new DaoPedidoDeLivro().listar("FROM PedidoDeLivro WHERE curso_id=" + curso.getId() + " AND " + curso.getCoordenador().getId() + "=" + coord.getId());
-        List<PedidoDeLivro> pedidos = new ArrayList<PedidoDeLivro>();
+        if (cursos.size() != 0) {
+            Curso curso = cursos.get(0);
+            List<PedidoDeLivro> pedidosLivro = new DaoPedidoDeLivro().listar("FROM PedidoDeLivro WHERE curso_id=" + curso.getId() + " AND " + curso.getCoordenador().getId() + "=" + coord.getId());
+            List<PedidoDeLivro> pedidos = new ArrayList<PedidoDeLivro>();
 
-        for (PedidoDeLivro pedido : pedidosLivro) {
-            if (pedido.getEvento().getEstado() == Estado.REQUERIDO) {
-                pedidos.add(pedido);
+            for (PedidoDeLivro pedido : pedidosLivro) {
+                if (pedido.getEvento().getEstado() == Estado.REQUERIDO) {
+                    pedidos.add(pedido);
+                }
             }
+            request.getSession().setAttribute("listaPedidosCurso", pedidos);
         }
-        request.getSession().setAttribute("listaPedidosCurso", pedidos);
         response.sendRedirect("restrito/historicosPedidosCurso.jsp");
     }
 

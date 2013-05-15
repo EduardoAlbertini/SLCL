@@ -33,7 +33,7 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="pedirLivro"><a href="../ComboBoxCurso">Pedir Livro</a></li>
-                                <li id="historicoPedidos"><a href=".historicoPedidosCoordenador.jsp"  onclick="chamarServlet('HistoricoPedidosLivro')">Histórico de Pedidos</a></li>
+                                <li id="historicoPedidos"><a href="historicoPedidosCoordenador.jsp"  onclick="chamarServlet('HistoricoPedidosLivro')">Histórico de Pedidos</a></li>
                                 <li id="pedidosCurso"><a href="../HistoricoPedidosCurso">Pedidos do Curso</a></li>
                             </ul>
                         </div>
