@@ -45,9 +45,11 @@ public class CadastroCurso extends HttpServlet {
         DaoCurso dao = new DaoCurso();
         dao.persistir(curso);
         
-        response.sendRedirect("crudCurso.jsp");
+        request.setAttribute("cursoCadastrado", "O curso foi cadastrado com Sucesso!");
+        request.getRequestDispatcher("restrito/crudCurso.jsp").forward(request, response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String codigo = request.getParameter("codigo");

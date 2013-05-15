@@ -39,13 +39,13 @@ public class ComboBoxCurso extends HttpServlet {
         request.getSession().setAttribute("cursos", cursos);
         String page = request.getHeader("REFERER");
         if (page.contains("indexCoordenador.jsp")) {
-            response.sendRedirect("pedidoLivroCoordenador.jsp");
+            response.sendRedirect("restrito/pedidoLivroCoordenador.jsp");
         }
         else if (page.contains("indexProfessor.jsp")) {
-            response.sendRedirect("pedidoLivroProfessor.jsp");
+            response.sendRedirect("restrito/pedidoLivroProfessor.jsp");
         }
         else{
-        response.sendRedirect("crudDisciplina.jsp");
+        response.sendRedirect("restrito/crudDisciplina.jsp");
             
         }
     }

@@ -8,6 +8,7 @@ import br.edu.utfpr.cm.saa.entidades.Usuario;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoUsuario;
 import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
+import br.edu.utfpr.cm.slcl.entitys.Professor;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -25,19 +26,19 @@ public class HistoricoPedidosLivro extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String professor = (String) request.getSession().getAttribute("UsuarioLogado");
+        Professor professor = (Professor) request.getSession().getAttribute("UsuarioLogado");
         DaoPedidoDeLivro dao = new DaoPedidoDeLivro();
-        List<Usuario> users = new DaoUsuario().listar("FROM Usuario WHERE nome = '"+professor+"'");
+        List<Usuario> users = new DaoUsuario().listar("FROM Usuario WHERE nome = '"+professor.getNome()+"'");
         Usuario user = users.get(0);
         List<PedidoDeLivro> pedidos = dao.listar("FROM PedidoDeLivro WHERE professor_id ="+user.getId());
         request.getSession().setAttribute("pedidosLivro", pedidos);
         System.out.println("URI: " + request.getHeader("REFERER"));
         String page = request.getHeader("REFERER");
         if (page.contains("Coordenador.jsp")) {
-            response.sendRedirect("historicoPedidosCoordenador.jsp");
+            response.sendRedirect("restrito/historicoPedidosCoordenador.jsp");
         }
         if (page.contains("Professor.jsp")) {
-            response.sendRedirect("historicoPedidosProfessor.jsp");
+            response.sendRedirect("restrito/historicoPedidosProfessor.jsp");
         }
     }
 

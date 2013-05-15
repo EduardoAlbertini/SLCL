@@ -10,16 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
-        <script type="text/javascript" src="js/bootstrap.js"></script>    
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>  
-        <script type="text/javascript" src="js/ajax.js"></script>  
-        <script type="text/javascript" src="js/breadcrumbs.js"></script>
-        <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/PageCSS.css" rel="stylesheet" media="screen">
-        <link rel="icon" type="image/png" href="img/LogoSLCL.png" />
+        <script type="text/javascript" src="../js/bootstrap.js"></script>    
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="../js/ajax.js"></script>  
+        <script type="text/javascript" src="../js/breadcrumbs.js"></script>  
+        <link href="../css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../css/PageCSS.css" rel="stylesheet" media="screen">
+        <link rel="icon" type="image/png" href="../img/LogoSLCL.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SLCL -Pedidos Aprovados</title>
     </head>
@@ -39,8 +39,8 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
-                                <li id="curso"><a href="ComboBoxCoordenador" >Curso</a></li>
-                                <li id="disciplina"><a href="ComboBoxCurso" >Disciplina</a></li>
+                                <li id="curso"><a href="../ComboBoxCoordenador" >Curso</a></li>
+                                <li id="disciplina"><a href="../ComboBoxCurso" >Disciplina</a></li>
                                 <li id="listaPedidos"><a href="#">Lista de Livros Pedidos</a></li>
                             </ul>
                         </div>
@@ -70,11 +70,18 @@
                                                     <p><b>Curso:</b> ${item.curso.nome}</p>
                                                     <p><b>Disciplina:</b> ${item.disciplina.nome}</p>
                                                     <p><b>Tipo de Bibliografia:</b> ${item.bibliografia}</p>
-                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=licitar" name ="botao" class="btn btn-info" value="licitar">Licitar</a>
-                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=adquirir" name ="botao" class="btn btn-inverse" value="adquirir">Adquirir</a>
-                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=disponivel" name ="botao" class="btn btn-success" value="disponivel">Disponível</a>
-                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-warning" value="cancelar">Cancelar</a>
-                                                    <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=recusar" name ="botao" class="btn btn-danger" value="recusar">Recusado</a>
+
+                                                    <c:if test="${item.evento.estado eq 'AUTORIZADO'}">
+                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=licitar" name ="botao" class="btn btn-info" value="licitar">Licitar</a>
+                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=recusar" name ="botao" class="btn btn-danger" value="recusar">Recusado</a>
+                                                    </c:if>
+                                                    <c:if test="${item.evento.estado eq 'LICITADO'}">
+                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=adquirir" name ="botao" class="btn btn-inverse" value="adquirir">Adquirir</a>
+                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=cancelar" name ="botao" class="btn btn-warning" value="cancelar">Cancelar</a>
+                                                    </c:if>
+                                                    <c:if test="${item.evento.estado eq 'ADQUIRIDO'}">
+                                                        <a href="LicitacaoPedidoLivro?pedido=${item.id}&botao=disponivel" name ="botao" class="btn btn-success" value="disponivel">Disponível</a>
+                                                    </c:if>
                                                 </div>
                                             </div>
                                         </div>

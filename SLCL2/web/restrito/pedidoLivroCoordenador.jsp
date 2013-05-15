@@ -9,16 +9,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
-        <script type="text/javascript" src="js/bootstrap.js"></script>    
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>  
-        <script type="text/javascript" src="js/ajax.js"></script>  
-        <script type="text/javascript" src="js/breadcrumbs.js"></script>
-        <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/PageCSS.css" rel="stylesheet" media="screen">
-        <link rel="icon" type="image/png" href="img/LogoSLCL.png" />
+        <script type="text/javascript" src="../js/bootstrap.js"></script>    
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="../js/ajax.js"></script>  
+        <script type="text/javascript" src="../js/breadcrumbs.js"></script>  
+        <link href="../css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../css/PageCSS.css" rel="stylesheet" media="screen">
+        <link rel="icon" type="image/png" href="../img/LogoSLCL.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SLCL - Pedir Livro</title>
     </head>
@@ -38,13 +38,14 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="pedirLivro"><a href="#">Pedir Livro</a></li>
-                                <li id="historicoPedidos"><a href="HistoricoPedidosLivro">Histórico de Pedidos</a></li>
-                                <li id="pedidosCurso"><a href="HistoricoPedidosCurso">Pedidos do Curso</a></li>
+                                <li id="historicoPedidos"><a href="../HistoricoPedidosLivro">Histórico de Pedidos</a></li>
+                                <li id="pedidosCurso"><a href="../HistoricoPedidosCurso">Pedidos do Curso</a></li>
                             </ul>
                         </div>
                     </div>
                     <div id="ajax">
                         <div id="conteudo">
+                            <h5 id="notificacao" class="row">${livroCadastrado}</h5>
                             <form action="CadastroPedidos" method="GET" accept-charset="ISO-8859-1">
                             <c:import url="pedidoLivro.jsp"></c:import>
                             </form>

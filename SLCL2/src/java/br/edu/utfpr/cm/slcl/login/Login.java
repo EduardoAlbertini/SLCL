@@ -49,7 +49,7 @@ public class Login extends HttpServlet {
             //Usuario usuarioLocal = verificarNaBaseLocal(uLogin, uSenha);
 
             if (usuarioLocal != null) {
-                request.getSession().setAttribute("UsuarioLogado", usuarioLocal.getNome());
+                request.getSession().setAttribute("UsuarioLogado", usuarioLocal);
                 response.sendRedirect("indexBibliotecario.jsp");
             } else {
                 //Usar em casa//                
@@ -64,14 +64,14 @@ public class Login extends HttpServlet {
                         Usuario userInterno = garantirQueUsuarioEstaNaBaseDoGerenciador(usuarioLocal, out, request);
                         if (userInterno != null) {
                             if (userInterno instanceof Bibliotecario) {
-                                request.getSession().setAttribute("UsuarioLogado", userInterno.getNome());
-                                response.sendRedirect("indexBibliotecario.jsp");
+                                request.getSession().setAttribute("UsuarioLogado", userInterno);
+                                response.sendRedirect("restrito/indexBibliotecario.jsp");
                             } else if (userInterno instanceof Coordenador) {
-                                request.getSession().setAttribute("UsuarioLogado", userInterno.getNome());
-                                response.sendRedirect("indexCoordenador.jsp");
+                                request.getSession().setAttribute("UsuarioLogado", userInterno);
+                                response.sendRedirect("restrito/indexCoordenador.jsp");
                             } else if (userInterno instanceof Professor) {
-                                request.getSession().setAttribute("UsuarioLogado", userInterno.getNome());
-                                response.sendRedirect("indexProfessor.jsp");
+                                request.getSession().setAttribute("UsuarioLogado", userInterno);
+                                response.sendRedirect("restrito/indexProfessor.jsp");
                             } else {
                                 request.getSession().setAttribute("erroLogin", "Login ou Senha incorretos");
                                 response.sendRedirect("Login.jsp");

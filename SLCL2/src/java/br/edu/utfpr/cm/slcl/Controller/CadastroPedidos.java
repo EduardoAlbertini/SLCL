@@ -45,11 +45,11 @@ public class CadastroPedidos extends HttpServlet {
         String curso = request.getParameter("curso");
         String disciplina = request.getParameter("disciplina");
         String referencia = request.getParameter("referencia");
-        String professor = (String) request.getSession().getAttribute("UsuarioLogado");
+        Professor professor = (Professor) request.getSession().getAttribute("UsuarioLogado");
 
 
         Livro livro = new Livro(tituloOriginal, titulo, autor, edicao, editora, isbn, assunto);
-        List<Professor> professores = new DaoProfessor().listar("FROM Usuario WHERE nome = '" + professor + "'");
+        List<Professor> professores = new DaoProfessor().listar("FROM Usuario WHERE nome = '" + professor.getNome() + "'");
         Professor prof = professores.get(0);
 
         List<Curso> cursos = new DaoCurso().listar("FROM Curso Where nome = '" + curso + "'");
@@ -81,7 +81,8 @@ public class CadastroPedidos extends HttpServlet {
             throws ServletException, IOException {
 
         processRequest(request, response);
-        response.sendRedirect("pedidoLivroProfessor.jsp");
+        request.setAttribute("livroCadastrado", "O livro foi cadastrado com Sucesso!");
+        request.getRequestDispatcher("restrito/pedidoLivroProfessor.jsp").forward(request, response);
     }
 
     @Override
@@ -89,6 +90,7 @@ public class CadastroPedidos extends HttpServlet {
             throws ServletException, IOException {
 
         processRequest(request, response);
-        response.sendRedirect("pedidoLivroCoordenador.jsp");
+        request.setAttribute("livroCadastrado", "O livro foi cadastrado com Sucesso!");
+        request.getRequestDispatcher("restrito/pedidoLivroCoordenador.jsp").forward(request, response);
     }
 }

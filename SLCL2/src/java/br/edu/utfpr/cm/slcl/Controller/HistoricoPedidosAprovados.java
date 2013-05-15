@@ -47,7 +47,7 @@ public class HistoricoPedidosAprovados extends HttpServlet {
         }
 
         request.getSession().setAttribute("pedidosAutorizados", pedidosAutorizados);
-        response.sendRedirect("historicoPedidosAutorizados.jsp");
+        response.sendRedirect("restrito/historicoPedidosAutorizados.jsp");
     }
 
     /**

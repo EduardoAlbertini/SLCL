@@ -69,6 +69,7 @@ public class CadastroDisciplina extends HttpServlet {
 
         DaoCurso daoCurso = new DaoCurso();
         DaoDisciplina daoDisciplina = new DaoDisciplina();
+//        DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
         List<Curso> cursos = daoCurso.listar("FROM Curso curso WHERE nome = '" + curse + "'");
         Curso curso = cursos.get(0);
         Disciplina disciplina;
@@ -79,13 +80,17 @@ public class CadastroDisciplina extends HttpServlet {
             daoDisciplina.persistir(disciplina);
             daoCurso.persistir(curso);
         }
-        if (botao.equalsIgnoreCase("excluir")) {
-            List<Disciplina> disciplinas = daoDisciplina.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
-            disciplina = disciplinas.get(0);
-            daoDisciplina.remover(disciplina);
-        }
+//        if (botao.equalsIgnoreCase("excluir")) {
+//            List<Disciplina> disciplinas = daoDisciplina.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
+//            disciplina = disciplinas.get(0);
+//            List<PedidoDeLivro> pedidos = daoPedidoDeLivro.listar("FROM PedidoDeLivro WHERE disciplina_id = "+disciplina.getId());
+//            for(PedidoDeLivro pedido : pedidos){
+//                daoPedidoDeLivro.remover(pedido);
+//            }
+//            daoDisciplina.remover(disciplina);
+//        }
 
-
-        response.sendRedirect("crudDisciplina.jsp");
+        request.setAttribute("disciplinaCadastrada", "A disciplina foi cadastrada com Sucesso!");
+        request.getRequestDispatcher("restrito/crudDisciplina.jsp").forward(request, response);
     }
 }
