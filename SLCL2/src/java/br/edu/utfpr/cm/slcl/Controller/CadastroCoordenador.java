@@ -80,6 +80,6 @@ public class CadastroCoordenador extends HttpServlet {
             new DaoUsuario().persistir(prof);
         }
 
-        response.sendRedirect("crudCoordenador.jsp");
+        response.sendRedirect("restrito/crudCoordenador.jsp");
     }
 }

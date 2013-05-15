@@ -9,7 +9,6 @@ import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
 import br.edu.utfpr.cm.slcl.entitys.Disciplina;
-import br.edu.utfpr.cm.slcl.entitys.PedidoDeLivro;
 import java.io.IOException;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -93,6 +92,6 @@ public class CadastroDisciplina extends HttpServlet {
 //        }
 
         request.setAttribute("disciplinaCadastrada", "A disciplina foi cadastrada com Sucesso!");
-        request.getRequestDispatcher("crudDisciplina.jsp").forward(request, response);
+        request.getRequestDispatcher("restrito/crudDisciplina.jsp").forward(request, response);
     }
 }

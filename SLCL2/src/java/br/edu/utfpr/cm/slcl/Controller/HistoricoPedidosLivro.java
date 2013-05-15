@@ -34,10 +34,10 @@ public class HistoricoPedidosLivro extends HttpServlet {
         System.out.println("URI: " + request.getHeader("REFERER"));
         String page = request.getHeader("REFERER");
         if (page.contains("Coordenador.jsp")) {
-            response.sendRedirect("historicoPedidosCoordenador.jsp");
+            response.sendRedirect("restrito/historicoPedidosCoordenador.jsp");
         }
         if (page.contains("Professor.jsp")) {
-            response.sendRedirect("historicoPedidosProfessor.jsp");
+            response.sendRedirect("restrito/historicoPedidosProfessor.jsp");
         }
     }
 

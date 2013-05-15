@@ -11,7 +11,7 @@ function open(url) {
 
     mreq.onreadystatechange = function() {
         if (mreq.readyState == 1) {
-            document.getElementById('ajax').innerHTML = '<img src="img/progress_bar.gif">';
+            document.getElementById('ajax').innerHTML = '<img src="../img/progress_bar.gif">';
         } else if (mreq.readyState == 4) {
             document.getElementById('ajax').innerHTML = mreq.responseText;
         }
@@ -31,11 +31,11 @@ function ajaxFunction() {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     document.getElementById('notificacao').innerHTML = "";
-    var url = "PesquisaFormLivro?ISBN=" + document.getElementById("ISBN").value;
+    var url = "../PesquisaFormLivro?ISBN=" + document.getElementById("ISBN").value;
 
     xmlhttp.onreadystatechange = function() {
         if (xmlhttp.readyState == 1) {
-            document.getElementById('load').innerHTML = '<img src="img/loading.gif" width="30" height="30">';
+            document.getElementById('load').innerHTML = '<img src="../img/loading.gif" width="30" height="30">';
         }
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
             document.getElementById('load').innerHTML = "";
@@ -67,7 +67,7 @@ function ajaxPesquisaCursoFunction() {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     document.getElementById('notificacao').innerHTML = "";
-    var url = "CadastroCurso?codigo=" + document.getElementById("codigo").value;
+    var url = "../CadastroCurso?codigo=" + document.getElementById("codigo").value;
 
     xmlhttp.onreadystatechange = function()
     {
@@ -96,7 +96,7 @@ function ajaxPesquisaDisciplinaFunction() {
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     document.getElementById('notificacao').innerHTML = "";
-    var url = "CadastroDisciplina?codigo=" + document.getElementById("codigo").value;
+    var url = "../CadastroDisciplina?codigo=" + document.getElementById("codigo").value;
 
     xmlhttp.onreadystatechange = function()
     {
@@ -123,7 +123,7 @@ function ajaxComboBoxDisciplina() {
         isIE = true;
         xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
-    var url = "ComboBoxDisciplina?curso=" + document.getElementById("curso").value;
+    var url = "../ComboBoxDisciplina?curso=" + document.getElementById("curso").value;
 
     xmlhttp.onreadystatechange = function()
     {

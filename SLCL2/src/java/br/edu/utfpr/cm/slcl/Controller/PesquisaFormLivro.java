@@ -8,7 +8,6 @@ import br.edu.utfpr.cm.slcl.XML.XMLReader;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoLivro;
 import br.edu.utfpr.cm.slcl.entitys.Livro;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;

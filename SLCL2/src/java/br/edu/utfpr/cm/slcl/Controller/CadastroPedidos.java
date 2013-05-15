@@ -82,7 +82,7 @@ public class CadastroPedidos extends HttpServlet {
 
         processRequest(request, response);
         request.setAttribute("livroCadastrado", "O livro foi cadastrado com Sucesso!");
-        request.getRequestDispatcher("pedidoLivroProfessor.jsp").forward(request, response);
+        request.getRequestDispatcher("restrito/pedidoLivroProfessor.jsp").forward(request, response);
     }
 
     @Override
@@ -91,6 +91,6 @@ public class CadastroPedidos extends HttpServlet {
 
         processRequest(request, response);
         request.setAttribute("livroCadastrado", "O livro foi cadastrado com Sucesso!");
-        request.getRequestDispatcher("pedidoLivroCoordenador.jsp").forward(request, response);
+        request.getRequestDispatcher("restrito/pedidoLivroCoordenador.jsp").forward(request, response);
     }
 }

@@ -1,5 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<fieldset>
+fieldset>
     <legend>Pedido de Livro</legend>
     <label for="ISBN">ISBN</label>
     <input id="ISBN" name="ISBN" type="text" placeholder="ISBN" onblur="ajaxFunction()" class="input-medium" style="height: 30px; float:left;">

@@ -53,7 +53,7 @@ public class HistoricoPedidosCurso extends HttpServlet {
             }
         }
         request.getSession().setAttribute("listaPedidosCurso", pedidos);
-        response.sendRedirect("historicosPedidosCurso.jsp");
+        response.sendRedirect("restrito/historicosPedidosCurso.jsp");
     }
 
     /**

@@ -10,16 +10,16 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
-        <script type="text/javascript" src="js/bootstrap.js"></script>    
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>  
-        <script type="text/javascript" src="js/ajax.js"></script>  
-        <script type="text/javascript" src="js/breadcrumbs.js"></script>
-        <link href="css/bootstrap-responsive.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap.css" rel="stylesheet" media="screen">
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <link href="css/PageCSS.css" rel="stylesheet" media="screen">
-        <link rel="icon" type="image/png" href="img/LogoSLCL.png" />
+        <script type="text/javascript" src="../js/bootstrap.js"></script>    
+        <script type="text/javascript" src="../js/bootstrap.min.js"></script>  
+        <script type="text/javascript" src="../js/ajax.js"></script>  
+        <script type="text/javascript" src="../js/breadcrumbs.js"></script>  
+        <link href="../css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap.css" rel="stylesheet" media="screen">
+        <link href="../css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="../css/PageCSS.css" rel="stylesheet" media="screen">
+        <link rel="icon" type="image/png" href="../img/LogoSLCL.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>SLCL - Cadastro de Disciplina</title>
     </head>
@@ -39,9 +39,9 @@
                         <div class="navbar-inner">
                             <ul class="nav">
                                 <li id="coordenador"><a href="crudCoordenador.jsp" >Coordenador</a></li>
-                                <li id="curso"><a href="ComboBoxCoordenador" >Curso</a></li>
+                                <li id="curso"><a href="../ComboBoxCoordenador" >Curso</a></li>
                                 <li id="disciplina"><a href="#" >Disciplina</a></li>
-                                <li id="listaPedidos"><a href="HistoricoPedidosAprovados">Lista de Livros Pedidos</a></li>
+                                <li id="listaPedidos"><a href="../HistoricoPedidosAprovados">Lista de Livros Pedidos</a></li>
                             </ul>
                         </div>
                     </div>

@@ -37,7 +37,7 @@ public class ComboBoxCoordenador extends HttpServlet {
         
         request.getSession().setAttribute("coordenadores", coordenadores);
         
-        response.sendRedirect("crudCurso.jsp");
+        response.sendRedirect("restrito/crudCurso.jsp");
     }
 
     /**

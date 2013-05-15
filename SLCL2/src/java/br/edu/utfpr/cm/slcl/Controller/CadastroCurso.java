@@ -46,7 +46,7 @@ public class CadastroCurso extends HttpServlet {
         dao.persistir(curso);
         
         request.setAttribute("cursoCadastrado", "O curso foi cadastrado com Sucesso!");
-        request.getRequestDispatcher("crudCurso.jsp").forward(request, response);
+        request.getRequestDispatcher("restrito/crudCurso.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
