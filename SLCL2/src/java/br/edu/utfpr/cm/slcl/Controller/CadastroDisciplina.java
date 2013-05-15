@@ -6,7 +6,6 @@ package br.edu.utfpr.cm.slcl.Controller;
 
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoCurso;
 import br.edu.utfpr.cm.slcl.dao.entitys.DaoDisciplina;
-import br.edu.utfpr.cm.slcl.dao.entitys.DaoPedidoDeLivro;
 import br.edu.utfpr.cm.slcl.entitys.Curso;
 import br.edu.utfpr.cm.slcl.entitys.Disciplina;
 import java.io.IOException;
@@ -70,7 +69,7 @@ public class CadastroDisciplina extends HttpServlet {
 
         DaoCurso daoCurso = new DaoCurso();
         DaoDisciplina daoDisciplina = new DaoDisciplina();
-        DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
+//        DaoPedidoDeLivro daoPedidoDeLivro = new DaoPedidoDeLivro();
         List<Curso> cursos = daoCurso.listar("FROM Curso curso WHERE nome = '" + curse + "'");
         Curso curso = cursos.get(0);
         Disciplina disciplina;

@@ -39,8 +39,8 @@ public class HistoricoPedidosCurso extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String nomeUser = (String) request.getSession().getAttribute("UsuarioLogado");
-        List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" + nomeUser + "'");
+        Coordenador nomeUser = (Coordenador) request.getSession().getAttribute("UsuarioLogado");
+        List<Coordenador> coords = new DaoCoordenador().listar("FROM Coordenador WHERE nome ='" + nomeUser.getNome() + "'");
         Coordenador coord = coords.get(0);
         List<Curso> cursos = new DaoCurso().listar("FROM Curso WHERE coordenador_id=" + coord.getId());
         Curso curso = cursos.get(0);

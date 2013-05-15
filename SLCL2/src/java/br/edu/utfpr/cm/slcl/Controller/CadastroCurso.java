@@ -49,6 +49,7 @@ public class CadastroCurso extends HttpServlet {
         request.getRequestDispatcher("restrito/crudCurso.jsp").forward(request, response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String codigo = request.getParameter("codigo");
