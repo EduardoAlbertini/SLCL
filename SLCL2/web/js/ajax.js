@@ -11,7 +11,7 @@ function open(url) {
 
     mreq.onreadystatechange = function() {
         if (mreq.readyState == 1) {
-            document.getElementById('ajax').innerHTML = 'carregando';
+            document.getElementById('ajax').innerHTML = '<img src="img/progress_bar.gif">';
         } else if (mreq.readyState == 4) {
             document.getElementById('ajax').innerHTML = mreq.responseText;
         }
@@ -33,23 +33,26 @@ function ajaxFunction() {
     document.getElementById('notificacao').innerHTML = "";
     var url = "PesquisaFormLivro?ISBN=" + document.getElementById("ISBN").value;
 
-    xmlhttp.onreadystatechange = function()
-    {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-        {
+    xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 1) {
+            document.getElementById('load').innerHTML = '<img src="img/loading.gif" width="30" height="30">';
+        }
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById('load').innerHTML = "";
             texto = xmlhttp.responseText;
-            texto_quebrado = texto.split(";")
+            texto_quebrado = texto.split(";");
 
-            document.getElementById("tituloOriginal").value = ((texto_quebrado[0] != null) ? texto_quebrado[0] : "");
-            document.getElementById("titulo").value = ((texto_quebrado[1] != null) ? texto_quebrado[1] : "");
-            document.getElementById("autor").value = ((texto_quebrado[2] != null) ? texto_quebrado[2] : "");
-            document.getElementById("editora").value = ((texto_quebrado[4] != null) ? texto_quebrado[4] : "");
-            document.getElementById("edicao").value = ((texto_quebrado[5] != null) ? texto_quebrado[5] : "");
-            document.getElementById("assunto").value = ((texto_quebrado[6] != null) ? texto_quebrado[6] : "");
+            document.getElementById("tituloOriginal").value = ((texto_quebrado[0] !== null) ? texto_quebrado[0] : "");
+            document.getElementById("titulo").value = ((texto_quebrado[1] !== null) ? texto_quebrado[1] : "");
+            document.getElementById("autor").value = ((texto_quebrado[2] !== null) ? texto_quebrado[2] : "");
+            document.getElementById("editora").value = ((texto_quebrado[4] !== null) ? texto_quebrado[4] : "");
+            document.getElementById("edicao").value = ((texto_quebrado[5] !== null) ? texto_quebrado[5] : "");
+            document.getElementById("assunto").value = ((texto_quebrado[6] !== null) ? texto_quebrado[6] : "");
         }
     }
 
     xmlhttp.open("GET", url, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
     xmlhttp.send();
 
 }
@@ -78,6 +81,7 @@ function ajaxPesquisaCursoFunction() {
     }
 
     xmlhttp.open("GET", url, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
     xmlhttp.send();
 
 }
@@ -106,6 +110,7 @@ function ajaxPesquisaDisciplinaFunction() {
     }
 
     xmlhttp.open("GET", url, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
     xmlhttp.send();
 
 }
@@ -139,6 +144,7 @@ function ajaxComboBoxDisciplina() {
     }
 
     xmlhttp.open("GET", url, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
     xmlhttp.send();
 
 }
@@ -165,6 +171,7 @@ function callServlet(servlet, method) {
     }
 
     xmlhttp.open(method, url, true);
+    xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=iso-8859-1");
     xmlhttp.send();
 
 }
