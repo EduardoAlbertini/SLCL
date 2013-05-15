@@ -46,7 +46,7 @@
                     </div>
                     <div id="ajax">
                         <div id="conteudo">
-                            <form action="CadastroCoordenador" method="POST" accept-charset="ISO-8859-1">
+                            <form action="../CadastroCoordenador" method="POST" accept-charset="ISO-8859-1">
                                 <fieldset>
                                     <legend>Coordenador</legend>
                                     <label for="codigo">Código do Professor</label>

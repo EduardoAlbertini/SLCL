@@ -91,6 +91,7 @@ public class CadastroDisciplina extends HttpServlet {
 //        }
 
         request.setAttribute("disciplinaCadastrada", "A disciplina foi cadastrada com Sucesso!");
-        request.getRequestDispatcher("restrito/crudDisciplina.jsp").forward(request, response);
+//        request.getRequestDispatcher("restrito/crudDisciplina.jsp").forward(request, response);
+        response.sendRedirect("restrito/crudDisciplina.jsp");
     }
 }

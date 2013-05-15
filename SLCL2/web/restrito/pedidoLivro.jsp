@@ -1,3 +1,5 @@
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <fieldset>
     <legend>Pedido de Livro</legend>
     <label for="ISBN">ISBN</label>

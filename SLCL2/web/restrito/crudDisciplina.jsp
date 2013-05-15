@@ -48,7 +48,7 @@
                     <div id="ajax">
                         <div id="conteudo">
                             <h5 id="notificacao" class="row">${disciplinaCadastrada}</h5>
-                        <form action="CadastroDisciplina" method="POST" accept-charset="ISO-8859-1">
+                        <form action="../CadastroDisciplina" method="POST" accept-charset="ISO-8859-1">
                             <fieldset>
                                 <legend>Disciplina</legend>
                                 <label for="codigo">Código da Disciplina</label>

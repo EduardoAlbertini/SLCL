@@ -45,8 +45,7 @@ public class ComboBoxCurso extends HttpServlet {
             response.sendRedirect("restrito/pedidoLivroProfessor.jsp");
         }
         else{
-        response.sendRedirect("restrito/crudDisciplina.jsp");
-            
+            response.sendRedirect("restrito/crudDisciplina.jsp");            
         }
     }
 

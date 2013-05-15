@@ -46,7 +46,7 @@
                     <div id="ajax">
                         <div id="conteudo">
                             <h5 id="notificacao" class="row">${livroCadastrado}</h5>
-                            <form action="CadastroPedidos" method="GET" accept-charset="ISO-8859-1">
+                            <form action="../CadastroPedidos" method="GET" accept-charset="ISO-8859-1">
                             <c:import url="pedidoLivro.jsp"></c:import>
                             </form>
                         </div>
