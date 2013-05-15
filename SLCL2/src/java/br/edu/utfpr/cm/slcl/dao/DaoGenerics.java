@@ -11,6 +11,7 @@ import org.hibernate.Session;
 public class DaoGenerics<T> implements Dao<T> {
 
     protected Session session =  TransactionManager.getCurrentSession();  
+//    protected Session session =  HibernateUtil.getInstance();  
     protected Class classe;
 
     @Override

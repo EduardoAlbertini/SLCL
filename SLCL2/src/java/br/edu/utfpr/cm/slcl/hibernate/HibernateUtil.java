@@ -12,13 +12,13 @@ public class HibernateUtil {
     
     private static final SessionFactory sessionFactory;
 
-//    public static HibernateUtil getInstance() {
+//    public static Session getInstance() {
 //        if (singleton == null) {
 //            singleton = new HibernateUtil();
 //        }
-//        return singleton;
+//        return singleton.getSession();
 //    }
-//    
+    
     static {
 	try {
 	    sessionFactory = new AnnotationConfiguration().configure().buildSessionFactory();
