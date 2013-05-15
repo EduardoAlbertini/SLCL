@@ -47,17 +47,18 @@
                     </div>
                     <div id="ajax">
                         <div id="conteudo">
-                            <form action="CadastroDisciplina" method="POST" accept-charset="ISO-8859-1">
-                                <fieldset>
-                                    <legend>Disciplina</legend>
-                                    <label for="codigo">Código da Disciplina</label>
-                                    <input id="codigo" name="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
-                                    <a class="btn" href="javascript:ajaxPesquisaDisciplinaFunction()" title="Pesquisar Disciplina" ><i class="icon-search" ></i></a>
-                                    <label for="nome">Nome</label>
-                                    <input id="nome" name="nome" type="text" placeholder="Nome da Disciplina" class="input-xxlarge" style="height: 30px">
-                                    <label for="curso">Curso</label>
-                                    <select id="curso" name="curso">
-                                        <option>Selecione...</option>
+                            <h5 id="notificacao" class="row">${disciplinaCadastrada}</h5>
+                        <form action="CadastroDisciplina" method="POST" accept-charset="ISO-8859-1">
+                            <fieldset>
+                                <legend>Disciplina</legend>
+                                <label for="codigo">Código da Disciplina</label>
+                                <input id="codigo" name="codigo" type="text" placeholder="Código" class="input-medium" style="height: 30px">
+                                <a class="btn" href="javascript:ajaxPesquisaDisciplinaFunction()" title="Pesquisar Disciplina" ><i class="icon-search" ></i></a>
+                                <label for="nome">Nome</label>
+                                <input id="nome" name="nome" type="text" placeholder="Nome da Disciplina" class="input-xxlarge" style="height: 30px">
+                                <label for="curso">Curso</label>
+                                <select id="curso" name="curso">
+                                    <option>Selecione...</option>
                                     <c:forEach items="${cursos}" var="item">
                                         <option>${item.nome}</option>
                                     </c:forEach>
@@ -65,7 +66,7 @@
 
                             </fieldset>
                             <button type="submit" name ="botao" class="btn btn-info" value="inserir">Inserir</button>
-                            <button type="submit" name ="botao" class="btn btn-danger" value="excluir">Excluir</button>
+                            <!--   <button type="submit" name ="botao" class="btn btn-danger" value="excluir">Excluir</button> -->
                             <button type="reset" class="btn">Limpar</button>
                         </form>
                     </div>

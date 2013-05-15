@@ -82,17 +82,17 @@ public class CadastroDisciplina extends HttpServlet {
             daoDisciplina.persistir(disciplina);
             daoCurso.persistir(curso);
         }
-        if (botao.equalsIgnoreCase("excluir")) {
-            List<Disciplina> disciplinas = daoDisciplina.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
-            disciplina = disciplinas.get(0);
+//        if (botao.equalsIgnoreCase("excluir")) {
+//            List<Disciplina> disciplinas = daoDisciplina.listar("FROM Disciplina WHERE codigo = '" + codigo + "'");
+//            disciplina = disciplinas.get(0);
 //            List<PedidoDeLivro> pedidos = daoPedidoDeLivro.listar("FROM PedidoDeLivro WHERE disciplina_id = "+disciplina.getId());
 //            for(PedidoDeLivro pedido : pedidos){
 //                daoPedidoDeLivro.remover(pedido);
 //            }
-            daoDisciplina.remover(disciplina);
-        }
+//            daoDisciplina.remover(disciplina);
+//        }
 
-
-        response.sendRedirect("crudDisciplina.jsp");
+        request.setAttribute("disciplinaCadastrada", "A disciplina foi cadastrada com Sucesso!");
+        request.getRequestDispatcher("crudDisciplina.jsp").forward(request, response);
     }
 }

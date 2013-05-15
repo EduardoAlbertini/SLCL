@@ -46,6 +46,7 @@
                     </div>
                     <div id="ajax">
                         <div id="conteudo">
+                            <h5 id="notificacao" class="row">${cursoCadastrado}</h5>
                             <form action="CadastroCurso" method="POST" accept-charset="ISO-8859-1">
                                 <fieldset>
                                     <legend>Curso</legend>
